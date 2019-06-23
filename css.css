@@ -1,8 +1,57 @@
+/*Standard Page things*/
 body {
 	background-color:rgb(50,54,57);
 }
 
 .TEXT {
 	font-family:arial;
-	font-size:12px;
+	font-size:18px;
+	color:#fff;
+}
+button {
+	background-color:rgb(50,54,57);
+	border:2px solid #000;
+	border-radius:10px;
+	height:50px;
+}
+
+/*Get Resource Button*/
+/*Apple*/
+#CA {
+	background-color:rgb(255,0,0);
+	background:url('https://deathcaller120-0.github.io/Apple-The-Game/applepic.png') center center no-repeat;
+	background-size: 200px 85px;
+	font-size:20px;
+	height:70px;
+}
+/*Money*/
+#CM {
+	background-color:#393;
+	height:65px;
+}
+
+/*Storage Bars*/
+.CONTAIN {
+	width: 100%;
+	height: 20px;
+	background-color: #333;
+}
+.BAR {
+	width:100%;
+	height:100%;
+	background-color:#0f0;
+}
+
+/*Grid area*/
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	background-color: #000;
+	padding: 10px;
+}
+.grid-container > div {
+	background-color: rgb(100, 100, 100);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	text-align: center;
 }
