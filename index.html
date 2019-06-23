@@ -2,8 +2,59 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="css.css">
+		<link rel="icon" href="https://deathcaller120-0.github.io/Apple-The-Game/applepic.png">
 		<script src="js.js"></script>
+		<title>Apple: RECODED</title>
 	</head>
-	<body onload="GAMESTART()">
+	<body class="TEXT" onload="LOAD()">
+		<p>You can find more Information about this game at the <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">Github Wiki</a>.</p>
+		<div class="grid-container">
+			<!--Stats-->
+			<div>
+				<b>
+					<span style="font-size:20px;">PLAYER STATS</span>
+					<p><span id="REBIRTHS">0</span> Rebirths</p>
+					<p>$<span id="MONEY">0</span></p>
+					<p><span id="APPLES">0</span> Apples</p>
+					<p><span id="BAWA">0</span> Basic Apple Pickers</p>
+					<p><span id="MAWA">0</span> Average Apple Pickers</p>
+					<p><span id="GAWA">0</span> God Tier Apple Pickers</p>
+					<p id="SAVED" style="color:#0F0"></p>
+					<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
+				</b>
+			</div>
+			
+			<!--Resources-->
+			<div>
+				<b>
+					<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button><br>
+					<button onclick="SELLAPP()" id="CM">Sell Apples</button>
+					<span>5 Apples for $1</span>
+				</b>
+			</div>
+			
+			<!--Workers-->
+			<div>
+				<p>HIRE WORKERS</p>
+				<button id="BAWBUT" onclick="BAWB()">Hire Basic Apple Picker</button>
+				<span>$<span id="BWORKPRICE">35</span></span><br>
+				
+				<button id="MAWBUT" onclick="MAWB()">Hire Average Apple Picker</button>
+				<span>$<span id="MWORKPRICE">45</span></span><br>
+				
+				<button id="GAWBUT" onclick="GAWB()">Hire God Tier Apple Picker</button>
+				<span>$<span id="GWORKPRICE">75</span></span><br>
+			</div>
+			
+			<!--Storage-->
+			<div>
+				<p style="font-size:20px;">Storage</p>
+				<span>Apple Storage</span>
+				<div class="CONTAIN">
+					<div class="BAR" id="APPBAR"></div>
+				<div>
+			</div>
+		</div>
+		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 0.5</div>
 	</body>
 </html>
