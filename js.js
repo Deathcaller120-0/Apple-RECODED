@@ -1,6 +1,6 @@
 //Player
-var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75};
+var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
+var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
 
 function LOAD(){
 	PLAYER.MON = localStorage.getItem('playerMON');
@@ -9,6 +9,7 @@ function LOAD(){
 	PLAYER.MAW = localStorage.getItem('playerMAW');
 	PLAYER.GAW = localStorage.getItem('playerGAW');
 	PLAYER.RE = localStorage.getItem('playerRE');
+	PLAYER.MS = localStorage.getItem('playerMS');
 	
 	if (PLAYER.MON == undefined){
 		PLAYER.MON = 0;
@@ -28,10 +29,14 @@ function LOAD(){
 	if (PLAYER.RE == undefined){
 		PLAYER.RE = 0;
 	}
+	if (PLAYER.MS == undefined){
+		PLAYER.MS = 20;
+	}
 	
 	PRICE.BAWP = localStorage.getItem('priceBAW');
 	PRICE.MAWP = localStorage.getItem('priceMAW');
 	PRICE.GAWP = localStorage.getItem('priceGAW');
+	PRICE.SP = localStorage.getItem('priceSP');
 	
 	if (PRICE.BAWP == undefined){
 		PRICE.BAWP = 35;
@@ -41,6 +46,9 @@ function LOAD(){
 	}
 	if (PRICE.GAWP == undefined){
 		PRICE.GAWP = 75;
+	}
+	if (PRICE.SP == undefined){
+		PRICE.SP = 30;
 	}
 	
 	if (PLAYER.BAW >= 1){
@@ -53,7 +61,7 @@ function LOAD(){
 			if (ph1 <= 0){
 				clearInterval(this);
 			}
-		},1000);
+		}, 1000);
 	}
 	if (PLAYER.MAW >= 1){
 		var ph2 = PLAYER.MAW;
@@ -97,6 +105,8 @@ function UPDATE(){
 	BAW = document.getElementById('BAWBUT');
 	MAW = document.getElementById('MAWBUT');
 	GAW = document.getElementById('GAWBUT');
+	SP = document.getElementById('SP');
+	SPBUT = document.getElementById('SPBUT');
 	
 	//Stat Updater
 	MUPD.innerHTML = PLAYER.MON;
@@ -104,6 +114,7 @@ function UPDATE(){
 	BAWA.innerHTML = PLAYER.BAW;
 	MAWA.innerHTML = PLAYER.MAW;
 	GAWA.innerHTML = PLAYER.GAW;
+	SP.innerHTML = PRICE.SP;
 	
 	//Worker / Resource Updater
 	if (PLAYER.APP >= 5){
@@ -126,12 +137,18 @@ function UPDATE(){
 	} else {
 		GAW.style.backgroundColor = "#323639"
 	}
+	if (PLAYER.MON >= PRICE.SP){
+		SPBUT.style.backgroundColor = "yellow";
+	} else {
+		SPBUT.style.backgroundColor = "#323639";
+	}
 	
 	//Storage
-	AUPD = PLAYER.APP / 100000 * 100; //100,000
+	AUPD = PLAYER.APP / PLAYER.MS * 100; //100,000
 	ASUPD.style.width = AUPD + "%";
+	document.getElementById('APPSTAT').innerHTML = PLAYER.APP + " out of " + PLAYER.MS;
 	if (AUPD >= 100){
-		PLAYER.APP = 100000;
+		PLAYER.APP = PLAYER.MS;
 		ASUPD.style.backgroundColor = "#f00";
 	} else {
 		ASUPD.style.backgroundColor = "#0f0";
@@ -149,6 +166,9 @@ function SAVE(){
 	localStorage.setItem('priceBAW', PRICE.BAWP);
 	localStorage.setItem('priceMAW', PRICE.MAWP);
 	localStorage.setItem('priceGAW', PRICE.GAWP);
+	localStorage.setItem('playerMS', PLAYER.MS);
+	localStorage.setItem('playerRE', PLAYER.RE);
+	localStorage.setItem('priceSP', PRICE.SP);
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
@@ -212,5 +232,14 @@ function GAWB(){
 	if (PLAYER.GAW >= 500){
 		document.getElementById('GAWBUT').innerHTML = "MAXED OUT";
 		document.getElementById('GAWBUT').disabled = true;
+	}
+}
+
+//Storage
+function SPUP(){
+	if (PLAYER.MON >= PRICE.SP){
+		PLAYER.MON -= PRICE.SP;
+		PRICE.SP += 10;
+		PLAYER.MS += 10;
 	}
 }
