@@ -27,23 +27,30 @@
 			<!--Resources-->
 			<div>
 				<b>
-					<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button><br>
-					<button onclick="SELLAPP()" id="CM">Sell Apples</button>
-					<span>5 Apples for $1</span>
+					<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button>
+					<br>
+					<button onclick="SELLAPP()" id="CM" style="display:none;">Sell Apples</button>
+					<span id="SELLINFO" style="display:none;">5 Apples for $1</span>
+					<br>
+					<button id="INVEST" onclick="INVESTOR()" style="display:none;">Get Investor</button>
+					<span id="INVINFO" style="display:none;">$10. Will sell 10 apples for $1</span>
 				</b>
 			</div>
 			
 			<!--Workers-->
 			<div>
 				<p>HIRE WORKERS</p>
-				<button id="BAWBUT" onclick="BAWB()">Hire Basic Apple Picker</button>
-				<span>$<span id="BWORKPRICE">35</span></span><br>
+				<button id="BAWBUT" onclick="BAWB()" style="display:none;">Hire Basic Apple Picker</button>
+				<span id="BWP" style="display:none;">$<span id="BWORKPRICE">35</span></span>
+				<br>
 				
-				<button id="MAWBUT" onclick="MAWB()">Hire Average Apple Picker</button>
-				<span>$<span id="MWORKPRICE">45</span></span><br>
+				<button id="MAWBUT" onclick="MAWB()" style="display:none;">Hire Average Apple Picker</button>
+				<span id="MWP" style="display:none;">$<span id="MWORKPRICE">45</span></span>
+				<br>
 				
-				<button id="GAWBUT" onclick="GAWB()">Hire God Tier Apple Picker</button>
-				<span>$<span id="GWORKPRICE">75</span></span><br>
+				<button id="GAWBUT" onclick="GAWB()" style="display:none;">Hire God Tier Apple Picker</button>
+				<span id="GWP" style="display:none;">$<span id="GWORKPRICE">75</span></span>
+				<br>
 			</div>
 			
 			<!--Storage-->
@@ -54,9 +61,10 @@
 				<div class="CONTAIN">
 					<div class="BAR" id="APPBAR"></div>
 				<div>
-				<button onclick="SPUP()" id="SPBUT">+10 Storage</button><span>$<span id="SP">30</span></span>
+				<button onclick="SPUP()" id="SPBUT">+10 Storage</button>
+				<span>$<span id="SP">30</span></span>
 			</div>
 		</div>
-		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 1.0</div>
+		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 1.1</div>
 	</body>
 </html>
