@@ -1,5 +1,5 @@
 //Player
-var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
+var PLAYER = {MON:0, APP:0, HASINV:false, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
 var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
 
 function LOAD(){
@@ -93,7 +93,7 @@ function LOAD(){
 //Update Player Status
 var NUPSPEED = setInterval(UPDATE, 1000);
 function UPDATE(){
-	var MUPD, MUPB, AUPD, ASUPD, BAW, MAW, GAW;
+	var MUPD, MUPB, AUPD, ASUPD, BAW, MAW, GAW, INVEST;
 	//Set things to update
 	MUPD = document.getElementById('MONEY');
 	MUPB = document.getElementById('CM');
@@ -107,6 +107,7 @@ function UPDATE(){
 	GAW = document.getElementById('GAWBUT');
 	SP = document.getElementById('SP');
 	SPBUT = document.getElementById('SPBUT');
+	INVEST = document.getElementById('INVEST');
 	
 	//Stat Updater
 	MUPD.innerHTML = PLAYER.MON;
@@ -117,23 +118,38 @@ function UPDATE(){
 	SP.innerHTML = PRICE.SP;
 	
 	//Worker / Resource Updater
+	if (PLAYER.MON >= 10 && PLAYER.HASINV == false){
+		INVEST.style.backgroundColor = "#0f0";
+		document.getElementById('INVEST').style.display = "block";
+		document.getElementById('INVINFO').style.display = "block";
+	} else {
+		INVEST.style.backgroundColor = "#323639";
+	}
 	if (PLAYER.APP >= 5){
 		MUPB.style.backgroundColor = "#393";
+		MUPB.style.display = "block";
+		document.getElementById('SELLINFO').style.display = "block";
 	} else {
 		MUPB.style.backgroundColor = "#323639";
 	}
 	if (PLAYER.MON >= PRICE.BAWP){ //Basic
 		BAW.style.backgroundColor = "#c90";
+		BAW.style.display = "block";
+		document.getElementById('BWP').style.display = "block";
 	} else {
 		BAW.style.backgroundColor = "#323639";
 	}
 	if (PLAYER.MON >= PRICE.MAWP){ //Average
 		MAW.style.backgroundColor = "#00ffff";
+		MAW.style.display = "block";
+		document.getElementById('MWP').style.display = "block";
 	} else {
 		MAW.style.backgroundColor = "#323639";
 	}
 	if (PLAYER.MON >= PRICE.GAWP){ //God Tier
 		GAW.style.backgroundColor = "#5900b3";
+		GAW.style.display = "block";
+		document.getElementById('GWP').style.display = "block";
 	} else {
 		GAW.style.backgroundColor = "#323639"
 	}
@@ -148,10 +164,22 @@ function UPDATE(){
 	ASUPD.style.width = AUPD + "%";
 	document.getElementById('APPSTAT').innerHTML = PLAYER.APP + " out of " + PLAYER.MS;
 	if (AUPD >= 100){
-		PLAYER.APP = PLAYER.MS;
+		PLAYER.APP = PLAYER.MS - 6;
 		ASUPD.style.backgroundColor = "#f00";
 	} else {
 		ASUPD.style.backgroundColor = "#0f0";
+	}
+	
+	//Investor
+	a();
+	function a(){
+		if (PLAYER.HASINV == true && PLAYER.APP >= 10){
+			PLAYER.APP -= 10;
+			PLAYER.MON++;
+			if (PLAYER.APP >= 10){
+				setTimeout(this, 10);
+			}
+		}
 	}
 }
 
@@ -193,12 +221,26 @@ function SELLAPP(){
 		PLAYER.MON++;
 	}
 }
+function INVESTOR(){
+	if (PLAYER.MON >= 10){
+		PLAYER.MON -= 10;
+		PLAYER.HASINV = true;
+		document.getElementById('INVEST').disabled = true;
+		document.getElementById('INVEST').innerHTML = "Investor Hired";
+	}
+}
 
 //Workers
+var BC = 30, MC = 25, GC = 20;
 function BAWB(){
 	if (PLAYER.MON >= PRICE.BAWP && PLAYER.BAW <= 500){
 		PLAYER.MON -= PRICE.BAWP;
 		PLAYER.BAW++;
+		BC--;
+		if (BC == 0){
+			BC = 30;
+			PRICE.BAWP += 2;
+		}
 		setInterval(function(){
 			PLAYER.APP++;
 		}, 10000); //After 20 sec, app++;
@@ -212,6 +254,11 @@ function MAWB(){
 	if (PLAYER.MON >= PRICE.MAWP && PLAYER.MAW <= 500){
 		PLAYER.MON -= PRICE.MAWP;
 		PLAYER.MAW++;
+		MC--;
+		if (MC == 0){
+			MC = 25;
+			PRICE.MAWP += 2;
+		}
 		setInterval(function(){
 			PLAYER.APP++;
 		}, 8000); //After 18 sec
@@ -225,9 +272,14 @@ function GAWB(){
 	if (PLAYER.MON >= PRICE.GAWP && PLAYER.GAW <= 500){
 		PLAYER.MON -= PRICE.GAWP;
 		PLAYER.GAW++;
+		GC--;
+		if (GC == 0){
+			GC = 20;
+			PRICE.GAWP += 2;
+		}
 		setInterval(function(){
 			PLAYER.APP += 2;
-		}, 6000); //After 16 sec app +2
+		}, 7000); //After 16 sec app +2
 	}
 	if (PLAYER.GAW >= 500){
 		document.getElementById('GAWBUT').innerHTML = "MAXED OUT";
