@@ -7,7 +7,6 @@
 		<title>Apple: RECODED</title>
 	</head>
 	<body class="TEXT" onload="LOAD()">
-		<p>You can find more Information about this game at the <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">Github Wiki</a>.</p>
 		<div class="grid-container">
 			<!--Stats-->
 			<div>
@@ -29,27 +28,35 @@
 				<b>
 					<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button>
 					<br>
-					<button onclick="SELLAPP()" id="CM" style="display:none;">Sell Apples</button>
-					<span id="SELLINFO" style="display:none;">5 Apples for $1</span>
+					<div id="MONDIV" style="display:none;">
+						<button onclick="SELLAPP()" id="CM">Sell Apples</button>
+						<span>5 Apples for $1</span>
+					</div>
 					<br>
-					<button id="INVEST" onclick="INVESTOR()" style="display:none;">Get Investor</button>
-					<span id="INVINFO" style="display:none;">$10. Will sell 10 apples for $1</span>
+					<div id="INVDIV" style="display:none;">
+						<button id="INVEST" onclick="INVESTOR()">Get Investor</button>
+						<span>$10. Will sell 10 apples for $1</span>
+					</div>
 				</b>
 			</div>
 			
 			<!--Workers-->
 			<div>
 				<p>HIRE WORKERS</p>
-				<button id="BAWBUT" onclick="BAWB()" style="display:none;">Hire Basic Apple Picker</button>
-				<span id="BWP" style="display:none;">$<span id="BWORKPRICE">35</span></span>
+				<div id="BWP" style="display:none;">
+					<button id="BAWBUT" onclick="BAWB()">Hire Basic Apple Picker</button>
+					<span>$<span id="BWORKPRICE">35</span></span>
+				</div>
 				<br>
-				
-				<button id="MAWBUT" onclick="MAWB()" style="display:none;">Hire Average Apple Picker</button>
-				<span id="MWP" style="display:none;">$<span id="MWORKPRICE">45</span></span>
+				<div id="MWP" style="display:none;">
+					<button id="MAWBUT" onclick="MAWB()">Hire Average Apple Picker</button>
+					<span>$<span id="MWORKPRICE">45</span></span>
+				</div>
 				<br>
-				
-				<button id="GAWBUT" onclick="GAWB()" style="display:none;">Hire God Tier Apple Picker</button>
-				<span id="GWP" style="display:none;">$<span id="GWORKPRICE">75</span></span>
+				<div id="GWP" style="display:none;">
+					<button id="GAWBUT" onclick="GAWB()">Hire God Tier Apple Picker</button>
+					<span>$<span id="GWORKPRICE">75</span></span>
+				</div>
 				<br>
 			</div>
 			
@@ -60,11 +67,34 @@
 				<span id="APPSTAT"></span>
 				<div class="CONTAIN">
 					<div class="BAR" id="APPBAR"></div>
-				<div>
+				</div>
 				<button onclick="SPUP()" id="SPBUT">+10 Storage</button>
 				<span>$<span id="SP">30</span></span>
 			</div>
+			
+			<!--Links-->
+			<div>
+				<p>You can find more Information about this game at the <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">Wiki on Github</a>.</p>
+				<p>You can also find my other projects at <a href="https://github.com/Deathcaller120-0?tab=repositories">my repositories</a> on Github.</p>
+			</div>
+			
+			<!--Other-->
+			<div>
+				<input type="checkbox" id="ISSUES">
+				<span>Issues running? Mark this.</span>
+				
+				<!--Gamemodes-->
+				<p>Gamemodes:</p>
+				<button>Slow as a Turtle</button>
+				<button>Fast as a Bullet</button>
+				<br>
+				
+				<!--Cheats-->
+				<p>Cheats</p>
+				<input type="text" id="CHEATIN">
+				<input type="button" onclick="CSUBMIT()" value="Submit">
+			</div>
 		</div>
-		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 1.1</div>
+		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 1.2</div>
 	</body>
 </html>
