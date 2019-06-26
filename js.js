@@ -1,6 +1,6 @@
 //Player
 var PLAYER = {MON:0, APP:0, HASINV:false, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
+var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:20};
 
 function LOAD(){
 	PLAYER.MON = localStorage.getItem('playerMON');
@@ -33,10 +33,26 @@ function LOAD(){
 		PLAYER.MS = 20;
 	}
 	
+	//Strings that are SUPPOST to be Numbers
+	var MS = Number(PLAYER.MS),
+	MON = Number(PLAYER.MON),
+	BAW = Number(PLAYER.BAW),
+	MAW = Number(PLAYER.MAW),
+	GAW = Number(PLAYER.GAW);
+	
+	//Fixing them
+	PLAYER.MS = MS;
+	PLAYER.MON = MON;
+	PLAYER.BAW = BAW;
+	PLAYER.MAW = MAW;
+	PLAYER.GAW = GAW;
+	
 	PRICE.BAWP = localStorage.getItem('priceBAW');
 	PRICE.MAWP = localStorage.getItem('priceMAW');
 	PRICE.GAWP = localStorage.getItem('priceGAW');
 	PRICE.SP = localStorage.getItem('priceSP');
+	var SP = Number(PRICE.SP);
+	PRICE.SP = SP;
 	
 	if (PRICE.BAWP == undefined){
 		PRICE.BAWP = 35;
@@ -47,8 +63,8 @@ function LOAD(){
 	if (PRICE.GAWP == undefined){
 		PRICE.GAWP = 75;
 	}
-	if (PRICE.SP == undefined){
-		PRICE.SP = 30;
+	if (PRICE.SP == undefined || PRICE.SP == 0){
+		PRICE.SP = 20;
 	}
 	
 	if (PLAYER.BAW >= 1){
@@ -93,6 +109,13 @@ function LOAD(){
 //Update Player Status
 var NUPSPEED = setInterval(UPDATE, 1000);
 function UPDATE(){
+	var CI = document.getElementById('ISSUES').checked;
+	if (CI == true){
+		clearInterval(NUPSPEED);
+		NUPSPEED = setInterval(UPDATE, 5000);
+	}
+	
+	
 	var MUPD, MUPB, AUPD, ASUPD, BAW, MAW, GAW, INVEST;
 	//Set things to update
 	MUPD = document.getElementById('MONEY');
@@ -120,35 +143,30 @@ function UPDATE(){
 	//Worker / Resource Updater
 	if (PLAYER.MON >= 10 && PLAYER.HASINV == false){
 		INVEST.style.backgroundColor = "#0f0";
-		document.getElementById('INVEST').style.display = "block";
-		document.getElementById('INVINFO').style.display = "block";
+		document.getElementById('INVDIV').style.display = "block";
 	} else {
 		INVEST.style.backgroundColor = "#323639";
 	}
 	if (PLAYER.APP >= 5){
 		MUPB.style.backgroundColor = "#393";
-		MUPB.style.display = "block";
-		document.getElementById('SELLINFO').style.display = "block";
+		document.getElementById('MONDIV').style.display = "block";
 	} else {
 		MUPB.style.backgroundColor = "#323639";
 	}
 	if (PLAYER.MON >= PRICE.BAWP){ //Basic
 		BAW.style.backgroundColor = "#c90";
-		BAW.style.display = "block";
 		document.getElementById('BWP').style.display = "block";
 	} else {
 		BAW.style.backgroundColor = "#323639";
 	}
 	if (PLAYER.MON >= PRICE.MAWP){ //Average
 		MAW.style.backgroundColor = "#00ffff";
-		MAW.style.display = "block";
 		document.getElementById('MWP').style.display = "block";
 	} else {
 		MAW.style.backgroundColor = "#323639";
 	}
 	if (PLAYER.MON >= PRICE.GAWP){ //God Tier
 		GAW.style.backgroundColor = "#5900b3";
-		GAW.style.display = "block";
 		document.getElementById('GWP').style.display = "block";
 	} else {
 		GAW.style.backgroundColor = "#323639"
@@ -164,25 +182,24 @@ function UPDATE(){
 	ASUPD.style.width = AUPD + "%";
 	document.getElementById('APPSTAT').innerHTML = PLAYER.APP + " out of " + PLAYER.MS;
 	if (AUPD >= 100){
-		PLAYER.APP = PLAYER.MS - 6;
+		PLAYER.APP = PLAYER.MS;
 		ASUPD.style.backgroundColor = "#f00";
 	} else {
 		ASUPD.style.backgroundColor = "#0f0";
 	}
 	
-	//Investor
-	a();
-	function a(){
-		if (PLAYER.HASINV == true && PLAYER.APP >= 10){
-			PLAYER.APP -= 10;
-			PLAYER.MON++;
-			if (PLAYER.APP >= 10){
-				setTimeout(this, 10);
-			}
+	if (PLAYER.HASINV == true && PLAYER.APP >= 10){
+		PLAYER.APP -= 10;
+		PLAYER.MON++;
+		if (PLAYER.APP >= 10){
+			setTimeout(INVESTOR, 10);
 		}
 	}
 }
 
+//Investor
+
+	
 //Saved or !Saved
 //setInterval(SAVE, 600000000);
 function SAVE(){
@@ -291,7 +308,7 @@ function GAWB(){
 function SPUP(){
 	if (PLAYER.MON >= PRICE.SP){
 		PLAYER.MON -= PRICE.SP;
-		PRICE.SP += 10;
+		PRICE.SP += 5;
 		PLAYER.MS += 10;
 	}
 }
