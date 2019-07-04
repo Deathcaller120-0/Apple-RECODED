@@ -38,7 +38,8 @@ function LOAD(){
 	MON = Number(PLAYER.MON),
 	BAW = Number(PLAYER.BAW),
 	MAW = Number(PLAYER.MAW),
-	GAW = Number(PLAYER.GAW);
+	GAW = Number(PLAYER.GAW),
+	RE = Number(PLAYER.RE);
 	
 	//Fixing them
 	PLAYER.MS = MS;
@@ -46,6 +47,8 @@ function LOAD(){
 	PLAYER.BAW = BAW;
 	PLAYER.MAW = MAW;
 	PLAYER.GAW = GAW;
+	PLAYER.RE = RE;
+	document.getElementById('REBIRTHS').innerHTML = RE;
 	
 	PRICE.BAWP = localStorage.getItem('priceBAW');
 	PRICE.MAWP = localStorage.getItem('priceMAW');
@@ -177,6 +180,11 @@ function UPDATE(){
 		SPBUT.style.backgroundColor = "#323639";
 	}
 	
+	//Finish
+	if (PLAYER.MON >= 80000){
+		document.getElementById('FINISHBUT').style.backgroundColor = "#FFF";
+	}
+	
 	//Storage
 	AUPD = PLAYER.APP / PLAYER.MS * 100; //100,000
 	ASUPD.style.width = AUPD + "%";
@@ -201,7 +209,7 @@ function UPDATE(){
 
 	
 //Saved or !Saved
-//setInterval(SAVE, 600000000);
+setInterval(SAVE, 600000000);
 function SAVE(){
 	localStorage.setItem('playerAPP', PLAYER.APP);
 	localStorage.setItem('playerMON', PLAYER.MON);
@@ -260,7 +268,7 @@ function BAWB(){
 		}
 		setInterval(function(){
 			PLAYER.APP++;
-		}, 10000); //After 20 sec, app++;
+		}, 10000); //After 10 sec, app++;
 	}
 	if (PLAYER.BAW >= 500){
 		document.getElementById('BAWBUT').innerHTML = "MAXED OUT";
@@ -278,7 +286,7 @@ function MAWB(){
 		}
 		setInterval(function(){
 			PLAYER.APP++;
-		}, 8000); //After 18 sec
+		}, 8000); //After 8 sec, app++
 	}
 	if (PLAYER.MAW >= 500){
 		document.getElementById('MAWBUT').innerHTML = "MAXED OUT";
@@ -296,7 +304,7 @@ function GAWB(){
 		}
 		setInterval(function(){
 			PLAYER.APP += 2;
-		}, 7000); //After 16 sec app +2
+		}, 7000); //After 7 sec, app +2
 	}
 	if (PLAYER.GAW >= 500){
 		document.getElementById('GAWBUT').innerHTML = "MAXED OUT";
@@ -310,5 +318,36 @@ function SPUP(){
 		PLAYER.MON -= PRICE.SP;
 		PRICE.SP += 5;
 		PLAYER.MS += 10;
+	}
+}
+
+//Finish Function
+function FINISH(){
+	if(PLAYER.MON >= 80000){ //$80,000
+		PLAYER.APP = 0;
+		PLAYER.MON = 0;
+		PLAYER.BAW = 0;
+		PLAYER.MAW = 0;
+		PLAYER.GAW = 0;
+		PLAYER.MS = 20;
+		PLAYER.HASINV = false;
+		PLAYER.RE++;
+		SAVE();
+		setTimeout(function(){location.reload()},2000);
+	} else {
+		alert('You Need More Money. Try again later.')
+	}
+}
+
+//Cheats
+function CSUBMIT(){
+	var IN = document.getElementById('CHEATIN').value;
+	switch (IN){
+		case "1800MON":
+			PLAYER.MON -= 10;
+			alert('NO MONEY FOR YOU')
+			break;
+		default:
+			alert("ERROR: '" + IN + "' Is not a valid cheat");
 	}
 }
