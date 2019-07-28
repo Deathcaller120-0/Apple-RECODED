@@ -204,9 +204,6 @@ function UPDATE(){
 		}
 	}
 }
-
-//Investor
-
 	
 //Saved or !Saved
 setInterval(SAVE, 600000000);
@@ -246,6 +243,8 @@ function SELLAPP(){
 		PLAYER.MON++;
 	}
 }
+
+//Investor
 function INVESTOR(){
 	if (PLAYER.MON >= 10){
 		PLAYER.MON -= 10;
@@ -345,9 +344,30 @@ function CSUBMIT(){
 	switch (IN){
 		case "1800MON":
 			PLAYER.MON -= 10;
-			alert('NO MONEY FOR YOU')
+			alert('NO MONEY FOR YOU');
+			break;
+		case "HELP":
+			document.getElementById('HELPBOX').style.display = "block";
 			break;
 		default:
 			alert("ERROR: '" + IN + "' Is not a valid cheat");
+	}
+}
+
+//Gamemodes
+function SLOWMO() {
+	if (PLAYER.RE >= 1){
+		var a = prompt('Are you sure you want to continue? This will reset your Pickers, Money, and Apples. (y/n)');
+		if (a == "y" || a == "Y"){
+			PLAYER.MON = 0;
+			PLAYER.APP = 2;
+			PLAYER.HASINV = false;
+			PLAYER.BAW = 0;
+			PLAYER.MAW = 0;
+			PLAYER.GAW = 0;
+			PLAYER.MS = 20;
+			document.getElementById('CA').disabled = true;
+			setInterval(function(){PLAYER.APP++;}, 2000);
+		}
 	}
 }
