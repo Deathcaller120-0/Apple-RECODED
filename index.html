@@ -8,21 +8,22 @@
 	</head>
 	<body class="TEXT" onload="LOAD()">
 		<div class="ext-button-container">
-			<button id="MAINBUTTON">Main</button>
-			<button id="ACHIEVEMENTBUTTON">Achievements</button>
-			<button id="STATSBUTTON">Stats</button>
-			<button id="SETTINGSBUTTON">Settings</button>
-			<button id="EXTRASBUTTON">Extras</button>
+			<button id="MAINBUTTON" onclick="alert('pressed')">Main</button>
+			<button id="ACHIEVEMENTBUTTON" onclick="alert('pressed')">Achievements</button>
+			<button id="STATSBUTTON" onclick="alert('pressed')">Stats</button>
+			<button id="SETTINGSBUTTON" onclick="alert('pressed')">Settings</button>
+			<button id="EXTRASBUTTON" onclick="alert('pressed')">Extras</button>
 		</div>
 		
 		<!--Settings-->
-		<div id="SETTINGS">
+		<div id="SETTINGS" style="display:none;">
 			<input type="checkbox" id="ISSUES">
 			<span>Issues running? Click the checkmark. It just slows down some things to save on memory.</span>
 			<br>
 			
 			<p>Save Options</p>
-			<p id="ENSAVE"></p>
+			<p id="OUTHEX"></p>
+			<input type="text" id="INHEX">
 			<p id="SAVED" style="color:#0F0"></p>
 			<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
 		</div>
@@ -40,8 +41,9 @@
 			</b>
 		</div>
 		
-		<!--Storage-->
-		<div>
+		<!--Main UI-->
+		<div id="MAIN">
+			<!--Storage-->
 			<p style="font-size:20px;">Storage</p>
 			<span>Apple Storage</span><br>
 			<span id="APPSTAT"></span>
@@ -50,10 +52,9 @@
 			</div>
 			<button onclick="SPUP()" id="SPBUT">+10 Storage</button>
 			<span>$<span id="SP">30</span></span>
-		</div>
-		
-		<!--Resources-->
-		<div id="MAIN" style="background-color:#222;">
+			<br>
+			
+			<!--Resource Collection-->
 			<b>
 				<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button>
 				<br>
@@ -103,6 +104,7 @@
 			<p>All Cheats listed with all requirements (If any)</p>
 			<span>'1800MON', 'HELP'</span>
 		</div>
+		
 		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 2.0</div>
 	</body>
 </html>
