@@ -1,6 +1,7 @@
 //Player
 var PLAYER = {MON:0, APP:0, HASINV:false, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
 var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:20};
+var CURRENTTAB = 0;
 
 function LOAD(){
 	PLAYER.MON = localStorage.getItem('playerMON');
@@ -109,6 +110,7 @@ function LOAD(){
 	
 	UPDATE();
 }
+
 //Update Player Status
 var NUPSPEED = setInterval(UPDATE, 1000);
 function UPDATE(){
@@ -117,7 +119,6 @@ function UPDATE(){
 		clearInterval(NUPSPEED);
 		NUPSPEED = setInterval(UPDATE, 5000);
 	}
-	
 	
 	var MUPD, MUPB, AUPD, ASUPD, BAW, MAW, GAW, INVEST;
 	//Set things to update
@@ -202,6 +203,24 @@ function UPDATE(){
 		if (PLAYER.APP >= 10){
 			setTimeout(INVESTOR, 10);
 		}
+	}
+	
+	//Show Different tabs
+	switch (CURRENTTAB){
+		case 1:
+			document.getElementById('ACHIEVEMENTS').style.display = 'block';
+			break;
+		case 2:
+			document.getElementById('STATS').style.display = 'block';
+			break;
+		case 3:
+			document.getElementById('SETTINGS').style.display = 'block';
+			break;
+		case 4:
+			document.getElementById('EXTRAS').style.display = 'block';
+			break;
+		default:
+			document.getElementById('MAIN').style.display = 'block';
 	}
 }
 	
