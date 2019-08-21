@@ -61,7 +61,12 @@ button {
 /*Tabs*/
 .ext-button-container {
 	position: relative;
-	z-index: -1;
-	height:35px;
+	height:40px;
 	left: 20px;
+}
+
+#MAIN {
+	background-color:#222; 
+	position: relative;
+	padding:10px;
 }
