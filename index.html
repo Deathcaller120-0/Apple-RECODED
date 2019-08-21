@@ -17,11 +17,18 @@
 		
 		<!--Settings-->
 		<div id="SETTINGS">
+			<input type="checkbox" id="ISSUES">
+			<span>Issues running? Click the checkmark. It just slows down some things to save on memory.</span>
+			<br>
 			
+			<p>Save Options</p>
+			<p id="ENSAVE"></p>
+			<p id="SAVED" style="color:#0F0"></p>
+			<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
 		</div>
 		
 		<!--Stats-->
-		<!--<div>
+		<div id="STATS" style="display:none;">
 			<b>
 				<span style="font-size:20px;">PLAYER STATS</span>
 				<p><span id="REBIRTHS">0</span> Rebirths</p>
@@ -30,13 +37,23 @@
 				<p><span id="BAWA">0</span> Basic Apple Pickers</p>
 				<p><span id="MAWA">0</span> Average Apple Pickers</p>
 				<p><span id="GAWA">0</span> God Tier Apple Pickers</p>
-				<p id="SAVED" style="color:#0F0"></p>
-				<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
 			</b>
-		</div>--?
+		</div>
+		
+		<!--Storage-->
+		<div>
+			<p style="font-size:20px;">Storage</p>
+			<span>Apple Storage</span><br>
+			<span id="APPSTAT"></span>
+			<div class="CONTAIN">
+				<div class="BAR" id="APPBAR"></div>
+			</div>
+			<button onclick="SPUP()" id="SPBUT">+10 Storage</button>
+			<span>$<span id="SP">30</span></span>
+		</div>
 		
 		<!--Resources-->
-		<div id="MAIN">
+		<div id="MAIN" style="background-color:#222;">
 			<b>
 				<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button>
 				<br>
@@ -51,10 +68,8 @@
 				</div>
 				<button id="FINISHBUT" onclick="FINISH()">Finish, $80K Required</button>
 			</b>
-		</div>
 		
-		<!--Workers-->
-		<div>
+			<!--Workers-->
 			<p>HIRE WORKERS</p>
 			<div id="BWP" style="display:none;">
 				<button id="BAWBUT" onclick="BAWB()">Hire Basic Apple Picker</button>
@@ -73,39 +88,17 @@
 			<br>
 		</div>
 		
-		<!--Storage-->
-		<div>
-			<p style="font-size:20px;">Storage</p>
-			<span>Apple Storage</span><br>
-			<span id="APPSTAT"></span>
-			<div class="CONTAIN">
-				<div class="BAR" id="APPBAR"></div>
-			</div>
-			<button onclick="SPUP()" id="SPBUT">+10 Storage</button>
-			<span>$<span id="SP">30</span></span>
-		</div>
-		
-		<!--Links-->
-		<div>
+		<!--Extras-->
+		<div id="EXTRAS" style="display:none;">
+			
+			<p>Cheats</p>
+			<input type="text" id="CHEATIN" placeholder="Input Cheat">
+			<input type="button" onclick="CSUBMIT()" value="Submit">
+			
+			<p>More Info</p>
 			<p>You can find more Information about this game on <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">the Wiki</a>.</p>
 			<p>You can also find my other projects at <a href="https://github.com/Deathcaller120-0?tab=repositories">my repositories</a> on Github.</p>
 		</div>
-		
-		<!--Other-->
-		<div>
-			<input type="checkbox" id="ISSUES">
-			<span>Issues running? Mark this.</span>
-			
-			<!--Gamemodes-->
-			<p>Gamemodes:</p>
-			<button onclick="SLOWMO()">Slow as a Turtle</button>
-			<button>Fast as a Jet</button>
-			<br>
-			
-			<!--Cheats-->				<p>Cheats</p>
-				<input type="text" id="CHEATIN" placeholder="Input Cheat">
-				<input type="button" onclick="CSUBMIT()" value="Submit">
-			</div>
 		<div id="HELPBOX" style="display:none;">
 			<p>All Cheats listed with all requirements (If any)</p>
 			<span>'1800MON', 'HELP'</span>
