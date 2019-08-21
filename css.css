@@ -1,6 +1,7 @@
 /*Standard Page things*/
 body {
 	background-color:rgb(50,54,57);
+	position:absoulute;
 }
 
 .TEXT {
@@ -54,4 +55,12 @@ button {
 	border: 1px solid rgba(0, 0, 0, 0.8);
 	padding: 20px;
 	text-align: center;
+}
+
+/*Tabs*/
+.ext-button-container {
+	position: relative;
+	z-index: -1;
+	height:35px;
+	left: 20px;
 }
