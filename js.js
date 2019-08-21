@@ -1,6 +1,6 @@
 //Player
 var PLAYER = {MON:0, APP:0, HASINV:false, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:20};
+var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
 var CURRENTTAB = 0;
 
 function LOAD(){
@@ -238,6 +238,7 @@ function SAVE(){
 	localStorage.setItem('playerMS', PLAYER.MS);
 	localStorage.setItem('playerRE', PLAYER.RE);
 	localStorage.setItem('priceSP', PRICE.SP);
+	
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
