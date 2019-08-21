@@ -7,99 +7,109 @@
 		<title>Apple: RECODED</title>
 	</head>
 	<body class="TEXT" onload="LOAD()">
-		<div class="grid-container">
-			<!--Stats-->
-			<div>
-				<b>
-					<span style="font-size:20px;">PLAYER STATS</span>
-					<p><span id="REBIRTHS">0</span> Rebirths</p>
-					<p>$<span id="MONEY">0</span></p>
-					<p><span id="APPLES">0</span> Apples</p>
-					<p><span id="BAWA">0</span> Basic Apple Pickers</p>
-					<p><span id="MAWA">0</span> Average Apple Pickers</p>
-					<p><span id="GAWA">0</span> God Tier Apple Pickers</p>
-					<p id="SAVED" style="color:#0F0"></p>
-					<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
-				</b>
-			</div>
+		<div class="ext-button-container">
+			<button id="MAINBUTTON">Main</button>
+			<button id="ACHIEVEMENTBUTTON">Achievements</button>
+			<button id="STATSBUTTON">Stats</button>
+			<button id="SETTINGSBUTTON">Settings</button>
+			<button id="EXTRASBUTTON">Extras</button>
+		</div>
+		
+		<!--Settings-->
+		<div id="SETTINGS">
 			
-			<!--Resources-->
-			<div>
-				<b>
-					<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button>
-					<br>
-					<div id="MONDIV" style="display:none;">
-						<button onclick="SELLAPP()" id="CM">Sell Apples</button>
-						<span>5 Apples for $1</span>
-					</div>
-					<br>
-					<div id="INVDIV" style="display:none;">
-						<button id="INVEST" onclick="INVESTOR()">Get Investor</button>
-						<span>$10. Will sell 10 apples for $1</span>
-					</div>
-					<button id="FINISHBUT" onclick="FINISH()">Finish, $80K Required</button>
-				</b>
-			</div>
-			
-			<!--Workers-->
-			<div>
-				<p>HIRE WORKERS</p>
-				<div id="BWP" style="display:none;">
-					<button id="BAWBUT" onclick="BAWB()">Hire Basic Apple Picker</button>
-					<span>$<span id="BWORKPRICE">35</span></span>
+		</div>
+		
+		<!--Stats-->
+		<!--<div>
+			<b>
+				<span style="font-size:20px;">PLAYER STATS</span>
+				<p><span id="REBIRTHS">0</span> Rebirths</p>
+				<p>$<span id="MONEY">0</span></p>
+				<p><span id="APPLES">0</span> Apples</p>
+				<p><span id="BAWA">0</span> Basic Apple Pickers</p>
+				<p><span id="MAWA">0</span> Average Apple Pickers</p>
+				<p><span id="GAWA">0</span> God Tier Apple Pickers</p>
+				<p id="SAVED" style="color:#0F0"></p>
+				<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
+			</b>
+		</div>--?
+		
+		<!--Resources-->
+		<div id="MAIN">
+			<b>
+				<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button>
+				<br>
+				<div id="MONDIV" style="display:none;">
+					<button onclick="SELLAPP()" id="CM">Sell Apples</button>
+					<span>5 Apples for $1</span>
 				</div>
 				<br>
-				<div id="MWP" style="display:none;">
-					<button id="MAWBUT" onclick="MAWB()">Hire Average Apple Picker</button>
-					<span>$<span id="MWORKPRICE">45</span></span>
+				<div id="INVDIV" style="display:none;">
+					<button id="INVEST" onclick="INVESTOR()">Get Investor</button>
+					<span>$10. Will sell 10 apples for $1</span>
 				</div>
-				<br>
-				<div id="GWP" style="display:none;">
-					<button id="GAWBUT" onclick="GAWB()">Hire God Tier Apple Picker</button>
-					<span>$<span id="GWORKPRICE">75</span></span>
-				</div>
-				<br>
+				<button id="FINISHBUT" onclick="FINISH()">Finish, $80K Required</button>
+			</b>
+		</div>
+		
+		<!--Workers-->
+		<div>
+			<p>HIRE WORKERS</p>
+			<div id="BWP" style="display:none;">
+				<button id="BAWBUT" onclick="BAWB()">Hire Basic Apple Picker</button>
+				<span>$<span id="BWORKPRICE">35</span></span>
 			</div>
-			
-			<!--Storage-->
-			<div>
-				<p style="font-size:20px;">Storage</p>
-				<span>Apple Storage</span><br>
-				<span id="APPSTAT"></span>
-				<div class="CONTAIN">
-					<div class="BAR" id="APPBAR"></div>
-				</div>
-				<button onclick="SPUP()" id="SPBUT">+10 Storage</button>
-				<span>$<span id="SP">30</span></span>
+			<br>
+			<div id="MWP" style="display:none;">
+				<button id="MAWBUT" onclick="MAWB()">Hire Average Apple Picker</button>
+				<span>$<span id="MWORKPRICE">45</span></span>
 			</div>
-			
-			<!--Links-->
-			<div>
-				<p>You can find more Information about this game on <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">the Wiki</a>.</p>
-				<p>You can also find my other projects at <a href="https://github.com/Deathcaller120-0?tab=repositories">my repositories</a> on Github.</p>
+			<br>
+			<div id="GWP" style="display:none;">
+				<button id="GAWBUT" onclick="GAWB()">Hire God Tier Apple Picker</button>
+				<span>$<span id="GWORKPRICE">75</span></span>
 			</div>
+			<br>
+		</div>
+		
+		<!--Storage-->
+		<div>
+			<p style="font-size:20px;">Storage</p>
+			<span>Apple Storage</span><br>
+			<span id="APPSTAT"></span>
+			<div class="CONTAIN">
+				<div class="BAR" id="APPBAR"></div>
+			</div>
+			<button onclick="SPUP()" id="SPBUT">+10 Storage</button>
+			<span>$<span id="SP">30</span></span>
+		</div>
+		
+		<!--Links-->
+		<div>
+			<p>You can find more Information about this game on <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">the Wiki</a>.</p>
+			<p>You can also find my other projects at <a href="https://github.com/Deathcaller120-0?tab=repositories">my repositories</a> on Github.</p>
+		</div>
+		
+		<!--Other-->
+		<div>
+			<input type="checkbox" id="ISSUES">
+			<span>Issues running? Mark this.</span>
 			
-			<!--Other-->
-			<div>
-				<input type="checkbox" id="ISSUES">
-				<span>Issues running? Mark this.</span>
-				
-				<!--Gamemodes-->
-				<p>Gamemodes:</p>
-				<button onclick="SLOWMO()">Slow as a Turtle</button>
-				<button>Fast as a Jet</button>
-				<br>
-				
-				<!--Cheats-->
-				<p>Cheats</p>
+			<!--Gamemodes-->
+			<p>Gamemodes:</p>
+			<button onclick="SLOWMO()">Slow as a Turtle</button>
+			<button>Fast as a Jet</button>
+			<br>
+			
+			<!--Cheats-->				<p>Cheats</p>
 				<input type="text" id="CHEATIN" placeholder="Input Cheat">
 				<input type="button" onclick="CSUBMIT()" value="Submit">
 			</div>
-		</div>
 		<div id="HELPBOX" style="display:none;">
 			<p>All Cheats listed with all requirements (If any)</p>
 			<span>'1800MON', 'HELP'</span>
 		</div>
-		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 1.2</div>
+		<div style="position:fixed; bottom:1px; left:1px; font-size:10px;">Version 2.0</div>
 	</body>
 </html>
