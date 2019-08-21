@@ -1,5 +1,5 @@
 //Player
-var PLAYER = {MON:0, APP:0, HASINV:false, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
+var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
 var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
 var CURRENTTAB = 0;
 
@@ -324,7 +324,6 @@ function FINISH(){
 		PLAYER.MAW = 0;
 		PLAYER.GAW = 0;
 		PLAYER.MS = 20;
-		PLAYER.HASINV = false;
 		PLAYER.RE++;
 		SAVE();
 		setTimeout(function(){location.reload()},2000);
