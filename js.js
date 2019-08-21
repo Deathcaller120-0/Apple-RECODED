@@ -68,7 +68,7 @@ function LOAD(){
 		PRICE.GAWP = 75;
 	}
 	if (PRICE.SP == undefined || PRICE.SP == 0){
-		PRICE.SP = 20;
+		PRICE.SP = 30;
 	}
 	
 	if (PLAYER.BAW >= 1){
@@ -120,7 +120,7 @@ function UPDATE(){
 		NUPSPEED = setInterval(UPDATE, 5000);
 	}
 	
-	var MUPD, MUPB, AUPD, ASUPD, BAW, MAW, GAW, INVEST;
+	var MUPD, MUPB, AUPD, ASUPD, BAW, MAW, GAW;
 	//Set things to update
 	MUPD = document.getElementById('MONEY');
 	MUPB = document.getElementById('CM');
@@ -134,7 +134,6 @@ function UPDATE(){
 	GAW = document.getElementById('GAWBUT');
 	SP = document.getElementById('SP');
 	SPBUT = document.getElementById('SPBUT');
-	INVEST = document.getElementById('INVEST');
 	
 	//Stat Updater
 	MUPD.innerHTML = PLAYER.MON;
@@ -145,13 +144,7 @@ function UPDATE(){
 	SP.innerHTML = PRICE.SP;
 	
 	//Worker / Resource Updater
-	if (PLAYER.MON >= 10 && PLAYER.HASINV == false){
-		INVEST.style.backgroundColor = "#0f0";
-		document.getElementById('INVDIV').style.display = "block";
-	} else {
-		INVEST.style.backgroundColor = "#323639";
-	}
-	if (PLAYER.APP >= 5){
+	if (PLAYER.APP >= 3){
 		MUPB.style.backgroundColor = "#393";
 		document.getElementById('MONDIV').style.display = "block";
 	} else {
@@ -195,14 +188,6 @@ function UPDATE(){
 		ASUPD.style.backgroundColor = "#f00";
 	} else {
 		ASUPD.style.backgroundColor = "#0f0";
-	}
-	
-	if (PLAYER.HASINV == true && PLAYER.APP >= 10){
-		PLAYER.APP -= 10;
-		PLAYER.MON++;
-		if (PLAYER.APP >= 10){
-			setTimeout(INVESTOR, 10);
-		}
 	}
 	
 	//Show Different tabs
@@ -258,19 +243,9 @@ function SAVE(){
 
 //Resources
 function SELLAPP(){
-	if (PLAYER.APP >= 5){
-		PLAYER.APP -= 5;
+	if (PLAYER.APP >= 3){
+		PLAYER.APP -= 3;
 		PLAYER.MON++;
-	}
-}
-
-//Investor
-function INVESTOR(){
-	if (PLAYER.MON >= 10){
-		PLAYER.MON -= 10;
-		PLAYER.HASINV = true;
-		document.getElementById('INVEST').disabled = true;
-		document.getElementById('INVEST').innerHTML = "Investor Hired";
 	}
 }
 
@@ -371,23 +346,5 @@ function CSUBMIT(){
 			break;
 		default:
 			alert("ERROR: '" + IN + "' Is not a valid cheat");
-	}
-}
-
-//Gamemodes
-function SLOWMO() {
-	if (PLAYER.RE >= 1){
-		var a = prompt('Are you sure you want to continue? This will reset your Pickers, Money, and Apples. (y/n)');
-		if (a == "y" || a == "Y"){
-			PLAYER.MON = 0;
-			PLAYER.APP = 2;
-			PLAYER.HASINV = false;
-			PLAYER.BAW = 0;
-			PLAYER.MAW = 0;
-			PLAYER.GAW = 0;
-			PLAYER.MS = 20;
-			document.getElementById('CA').disabled = true;
-			setInterval(function(){PLAYER.APP++;}, 2000);
-		}
 	}
 }
