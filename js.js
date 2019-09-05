@@ -100,7 +100,7 @@ function LOAD(){
 		setInterval(function(){
 			setInterval(function(){
 				PLAYER.APP += 2;
-			}, 6000);
+			}, 7000);
 			ph3--;
 			if (ph3 <= 0){
 				clearInterval(this);
@@ -189,23 +189,72 @@ function UPDATE(){
 	} else {
 		ASUPD.style.backgroundColor = "#0f0";
 	}
+	if (AUPD >= 100){
+		PLAYER.APP -= PLAYER.MS;
+		alert("Don't let your storage overfill! Pay attention to your apple amount!");
+	}
 	
 	//Show Different tabs
 	switch (CURRENTTAB){
 		case 1:
 			document.getElementById('ACHIEVEMENTS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 			break;
 		case 2:
 			document.getElementById('STATS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 			break;
 		case 3:
 			document.getElementById('SETTINGS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 			break;
 		case 4:
 			document.getElementById('EXTRAS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
 			break;
 		default:
 			document.getElementById('MAIN').style.display = 'block';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 	}
 }
 	
@@ -346,4 +395,19 @@ function CSUBMIT(){
 		default:
 			alert("ERROR: '" + IN + "' Is not a valid cheat");
 	}
+}
+
+//Load Hex
+function EXLOAD(){
+	var HexString = document.getElementById('INHEX').value;
+	console.log(HexString);
+	
+	var HexApp = HexString.substr(0,4);
+	var HexMon = HexString.substr(5,11);
+	var HexBAW = HexString.substr(12,13);
+	var HexMAW = HexString.substr(14,16);
+	var HexGAW = HexString.substr(17,19);
+	var HexRE = HexString.substr(20,22);
+	var HexMS = HexString.substr(23,25);
+	var HexBAWP = HexString.substr(26,);
 }
