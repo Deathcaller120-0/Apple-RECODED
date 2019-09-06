@@ -402,28 +402,42 @@ function EXLOAD(){
 	var HexString = document.getElementById('INHEX').value;
 	console.log(HexString.length);
 	
-	var HexApp = HexString.substr(0,4);
-	var HexMon = HexString.substr(5,11);
-	var HexBAW = HexString.substr(12,13);
-	var HexMAW = HexString.substr(14,16);
-	var HexGAW = HexString.substr(17,19);
-	var HexRE = HexString.substr(20,22);
-	var HexMS = HexString.substr(23,25);
-	var HexBAWP = HexString.substr(26,28);
-	var HexMAWP = HexString.substr(29,31);
-	var HexGAWP = HexString.substr(32,34);
-	var HexMSP = HexString.substr(35,38);
-	
-	//Switch to Decimal
-	var DecApp = parseInt(HexApp,16);
-	var DecMon = parseInt(HexMon,16);
-	var DecBAW = parseInt(HexBAW,16);
-	var DecMAW = parseInt(HexMAW,16);
-	var DecGAW = parseInt(HexGAW,16);
-	var DecRE = parseInt(HexRE,16);
-	var DecMS = parseInt(HexMS,16);
-	var DecBAWP = parseInt(HexBAWP,16);
-	var DecMAWP = parseInt(HexMAWP,16);
-	var DecGAWP = parseInt(HexGAWP,16);
-	var DecMSP = parseInt(HexMSP,16);
+	if (HexString.length == 38){
+		var HexApp = HexString.substr(0,4);
+		var HexMon = HexString.substr(5,11);
+		var HexBAW = HexString.substr(12,13);
+		var HexMAW = HexString.substr(14,16);
+		var HexGAW = HexString.substr(17,19);
+		var HexRE = HexString.substr(20,22);
+		var HexMS = HexString.substr(23,25);
+		var HexBAWP = HexString.substr(26,28);
+		var HexMAWP = HexString.substr(29,31);
+		var HexGAWP = HexString.substr(32,34);
+		var HexSP = HexString.substr(35,38);
+		
+		//Switch to Decimal
+		var DecApp = parseInt(HexApp,16);
+		var DecMon = parseInt(HexMon,16);
+		var DecBAW = parseInt(HexBAW,16);
+		var DecMAW = parseInt(HexMAW,16);
+		var DecGAW = parseInt(HexGAW,16);
+		var DecRE = parseInt(HexRE,16);
+		var DecMS = parseInt(HexMS,16);
+		var DecBAWP = parseInt(HexBAWP,16);
+		var DecMAWP = parseInt(HexMAWP,16);
+		var DecGAWP = parseInt(HexGAWP,16);
+		var DecSP = parseInt(HexSP,16);
+		
+		var prompt = prompt("Are you sure you want to do this? This action cannot be undone! (y/n)");
+		if (prompt == "Y" || prompt == "y" || prompt == "yes" || prompt == "Yes"){
+			PLAYER.APP = DecApp;
+			PLAYER.MON = DecMon;
+			PLAYER.RE = DecRE;
+			PLAYER.MS = DecMS;
+			PLAYER.BAW = DecBAWP;
+			PLAYER.MAW = DecMAWP;
+			PLAYER.GAW = DecGAWP;
+			PRICE.SP = DecSP;
+		}
+	} else {alert('Invalid Save! Enter a Valid Save!')}
 }
