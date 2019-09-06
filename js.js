@@ -409,5 +409,14 @@ function EXLOAD(){
 	var HexGAW = HexString.substr(17,19);
 	var HexRE = HexString.substr(20,22);
 	var HexMS = HexString.substr(23,25);
-	var HexBAWP = HexString.substr(26,);
+	var HexBAWP = HexString.substr(26,28);
+	
+	//Switch to Decimal
+	var DecApp = parseInt(HexApp, 16);
+	var DecMon = parseInt(HexMon, 16);
+	var DecBAW = parseInt(HexBAW, 16);
+	var DecMAW = parseInt(HexMAW, 16);
+	var DecGAW = parseInt(HexGAW, 16);
+	var DecRE = parseInt(HexRE, 16);
+	var DecMS = parseInt(HexMS, 16);
 }
