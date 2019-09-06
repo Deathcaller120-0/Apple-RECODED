@@ -400,7 +400,7 @@ function CSUBMIT(){
 //Load Hex
 function EXLOAD(){
 	var HexString = document.getElementById('INHEX').value;
-	console.log(HexString);
+	console.log(HexString.length);
 	
 	var HexApp = HexString.substr(0,4);
 	var HexMon = HexString.substr(5,11);
@@ -410,13 +410,20 @@ function EXLOAD(){
 	var HexRE = HexString.substr(20,22);
 	var HexMS = HexString.substr(23,25);
 	var HexBAWP = HexString.substr(26,28);
+	var HexMAWP = HexString.substr(29,31);
+	var HexGAWP = HexString.substr(32,34);
+	var HexMSP = HexString.substr(35,38);
 	
 	//Switch to Decimal
-	var DecApp = parseInt(HexApp, 16);
-	var DecMon = parseInt(HexMon, 16);
-	var DecBAW = parseInt(HexBAW, 16);
-	var DecMAW = parseInt(HexMAW, 16);
-	var DecGAW = parseInt(HexGAW, 16);
-	var DecRE = parseInt(HexRE, 16);
-	var DecMS = parseInt(HexMS, 16);
+	var DecApp = parseInt(HexApp,16);
+	var DecMon = parseInt(HexMon,16);
+	var DecBAW = parseInt(HexBAW,16);
+	var DecMAW = parseInt(HexMAW,16);
+	var DecGAW = parseInt(HexGAW,16);
+	var DecRE = parseInt(HexRE,16);
+	var DecMS = parseInt(HexMS,16);
+	var DecBAWP = parseInt(HexBAWP,16);
+	var DecMAWP = parseInt(HexMAWP,16);
+	var DecGAWP = parseInt(HexGAWP,16);
+	var DecMSP = parseInt(HexMSP,16);
 }
