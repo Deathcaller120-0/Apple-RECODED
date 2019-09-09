@@ -273,6 +273,33 @@ function SAVE(){
 	localStorage.setItem('playerRE', PLAYER.RE);
 	localStorage.setItem('priceSP', PRICE.SP);
 	
+	//Encode Hex
+	//Vars
+	var HexOut = "";
+	var HexOutMON = "";
+	
+	//Assign Vars
+	HexOutMON += PLAYER.MON.toString(16);
+	
+	//If vars are too short, make them the correct size
+	if (HexOutMON.length != 5){
+		switch (HexOutMON.length){
+			case 1:
+				HexOut = "0000" + HexOut;
+				break;
+			case 2:
+				HexOut = "000" + HexOut;
+				break;
+			case 3:
+				HexOut = "00" + HexOut;
+				break;
+			case 4:
+				HexOut = "0" + HexOut;
+				break;
+			default:
+				HexOut = "00000";
+		}
+	}
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
