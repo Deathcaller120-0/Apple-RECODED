@@ -273,33 +273,157 @@ function SAVE(){
 	localStorage.setItem('playerRE', PLAYER.RE);
 	localStorage.setItem('priceSP', PRICE.SP);
 	
+	/* Hex Save Things
+	
 	//Encode Hex
 	//Vars
 	var HexOut = "";
 	var HexOutMON = "";
+	var HexOutAPP = "";
+	var HexOutBAW = "";
+	var HexOutMAW = "";
+	var HexOutGAW = "";
+	var HexOutRE = "";
+	var HexOutMS = "";
+	var HexOutSP = "";
+	var HexOutBAWP = "";
+	var HexOutMAWP = "";
+	var HexOutGAWP = "";
 	
 	//Assign Vars
 	HexOutMON += PLAYER.MON.toString(16);
 	
 	//If vars are too short, make them the correct size
-	if (HexOutMON.length != 5){
+	if (HexOutMON.length != 7){
 		switch (HexOutMON.length){
 			case 1:
-				HexOut = "0000" + HexOut;
+				HexOutMON = "000000" + HexOutMON;
 				break;
 			case 2:
-				HexOut = "000" + HexOut;
+				HexOutMON = "00000" + HexOutMON;
 				break;
 			case 3:
-				HexOut = "00" + HexOut;
+				HexOutMON = "0000" + HexOutMON;
 				break;
 			case 4:
-				HexOut = "0" + HexOut;
+				HexOutMON = "000" + HexOutMON;
 				break;
-			default:
-				HexOut = "00000";
+			case 5:
+				HexOutMON = "00" + HexOutMON;
+				break;
+			case 6:
+				HexOutMON = "0" + HexOutMON;
+				break;
 		}
 	}
+	
+	HexOutAPP += PLAYER.APP.toString(16);
+	
+	if (HexOutAPP.length != 5){
+		switch (HexOutAPP.length){
+			case 1:
+				HexOutAPP = "0000" + HexOutAPP;
+				break;
+			case 2:
+				HexOutAPP = "000" + HexOutAPP;
+				break;
+			case 3:
+				HexOutAPP = "00" + HexOutAPP;
+				break;
+			case 4:
+				HexOutAPP = "0" + HexOutAPP;
+				break;
+		}
+	}
+	
+	HexOutBAW += PLAYER.BAW.toString(16);
+	
+	if (HexOutBAW.length != 3){
+		switch (HexOutBAW.length){
+			case 1:
+				HexOutBAW = "00" + HexOutBAW;
+				break;
+			case 2:
+				HexOutBAW = "0" + HexOutBAW;
+				break;
+		}
+	}
+	
+	HexOutMAW += PLAYER.MAW.toString(16);
+	
+	if (HexOutMAW.length != 3){
+		switch (HexOutMAW.length){
+			case 1:
+				HexOutMAW = "00" + HexOutMAW;
+				break;
+			case 2:
+				HexOutMAW = "0" + HexOutMAW;
+				break;
+		}
+	}
+	
+	HexOutGAW += PLAYER.GAW.toString(16);
+	
+	if (HexOutGAW.length != 3){
+		switch (HexOutGAW.length){
+			case 1:
+				HexOutGAW = "00" + HexOutGAW;
+				break;
+			case 2:
+				HexOutGAW = "0" + HexOutGAW;
+				break;
+		}
+	}
+	
+	HexOutRE += PLAYER.RE.toString(16);
+	
+	if (HexOutRE.length != 4){
+		switch (HexOutRE.length){
+			case 1:
+				HexOutRE = "000" + HexOutRE;
+				break;
+			case 2:
+				HexOutRE = "00" + HexOutRE;
+				break;
+			case 3:
+				HexOutRE = "0" + HexOutRE;
+				break;
+		}
+	}
+	
+	HexOutMS += PLAYER.MS.toString(16);
+	
+	if (HexOutMS.length != 3){
+		switch (HexOutMS.length){
+			case 1:
+				HexOutMS = "00" + HexOutMS;
+				break;
+			case 2:
+				HexOutMS = "0" + HexOutMS;
+				break;
+		}
+	} 
+	
+	HexOutBAW += PLAYER.MON.toString(16);
+	
+	if (HexOutBAW.length != 3){
+		switch (HexOutBAW.length){
+			case 1:
+				HexOutBAW = "0000" + HexOutBAW;
+				break;
+			case 2:
+				HexOutBAW = "000" + HexOutBAW;
+				break;
+			case 3:
+				HexOutBAW = "00" + HexOutBAW;
+				break;
+			case 4:
+				HexOutBAW = "0" + HexOutBAW;
+				break;
+		}
+	}
+	
+	*/
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
