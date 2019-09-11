@@ -273,7 +273,7 @@ function SAVE(){
 	localStorage.setItem('playerRE', PLAYER.RE);
 	localStorage.setItem('priceSP', PRICE.SP);
 	
-	/* Hex Save Things
+	// Hex Save Things
 	
 	//Encode Hex
 	//Vars
@@ -404,21 +404,34 @@ function SAVE(){
 		}
 	} 
 	
-	HexOutBAW += PLAYER.MON.toString(16);
+	HexOutBAWP += PRICE.BAWP.toString(16);
 	
-	if (HexOutBAW.length != 3){
-		switch (HexOutBAW.length){
+	if (HexOutBAWP.length != 3){
+		switch (HexOutBAWP.length){
 			case 1:
-				HexOutBAW = "0000" + HexOutBAW;
+				HexOutBAWP = "000" + HexOutBAWP;
 				break;
 			case 2:
-				HexOutBAW = "000" + HexOutBAW;
+				HexOutBAWP = "00" + HexOutBAWP;
 				break;
 			case 3:
-				HexOutBAW = "00" + HexOutBAW;
+				HexOutBAWP = "0" + HexOutBAWP;
 				break;
-			case 4:
-				HexOutBAW = "0" + HexOutBAW;
+		}
+	}
+	
+	HexOutMAWP += PRICE.MAWP.toString(16);
+	
+	if (HexOutMAWP.length != 4){
+		switch (HexOutMAWP.length){
+			case 1:
+				HexOutMAWP = "000" + HexOutMAWP;
+				break;
+			case 2:
+				HexOutMAWP = "00" + HexOutMAWP;
+				break;
+			case 3:
+				HexOutMAWP = "0" + HexOutMAWP;
 				break;
 		}
 	}
