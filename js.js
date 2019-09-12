@@ -422,7 +422,7 @@ function SAVE(){
 	
 	HexOutMAWP += PRICE.MAWP.toString(16);
 	
-	if (HexOutMAWP.length != 4){
+	if (HexOutMAWP.length != 3){
 		switch (HexOutMAWP.length){
 			case 1:
 				HexOutMAWP = "000" + HexOutMAWP;
@@ -436,7 +436,24 @@ function SAVE(){
 		}
 	}
 	
-	*/
+	HexOutGAWP += PRICE.GAWP.toString(16);
+	
+	if (HexOutGAWP.length != 3){
+		switch (HexOutGAWP.length){
+			case 1:
+				HexOutGAWP = "000" + HexOutGAWP;
+				break;
+			case 2:
+				HexOutGAWP = "00" + HexOutGAWP;
+				break;
+			case 3:
+				HexOutGAWP = "0" + HexOutGAWP;
+				break;
+		}
+	}
+	
+	HexOut = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + HexOutGAWP + HexOutSP;
+	//document.getElementById('').innerHTML = HexOut;
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
