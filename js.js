@@ -294,7 +294,7 @@ function SAVE(){
 	HexOutMON += PLAYER.MON.toString(16);
 	
 	//If vars are too short, make them the correct size
-	if (HexOutMON.length != 6){
+	if (HexOutMON.length < 6){
 		switch (HexOutMON.length){
 			case 1:
 				HexOutMON = "00000" + HexOutMON;
@@ -324,7 +324,7 @@ function SAVE(){
 	
 	HexOutAPP += PLAYER.APP.toString(16);
 	
-	if (HexOutAPP.length != 5){
+	if (HexOutAPP.length < 5){
 		switch (HexOutAPP.length){
 			case 1:
 				HexOutAPP = "0000" + HexOutAPP;
@@ -351,7 +351,7 @@ function SAVE(){
 	
 	HexOutBAW += PLAYER.BAW.toString(16);
 	
-	if (HexOutBAW.length !>= 3){
+	if (HexOutBAW.length < 3){
 		switch (HexOutBAW.length){
 			case 1:
 				HexOutBAW = "00" + HexOutBAW;
@@ -372,7 +372,7 @@ function SAVE(){
 	
 	HexOutMAW += PLAYER.MAW.toString(16);
 	
-	if (HexOutMAW.length >!= 3){
+	if (HexOutMAW.length < 3){
 		switch (HexOutMAW.length){
 			case 1:
 				HexOutMAW = "00" + HexOutMAW;
@@ -393,7 +393,7 @@ function SAVE(){
 	
 	HexOutGAW += PLAYER.GAW.toString(16);
 	
-	if (HexOutGAW.length !>= 3){
+	if (HexOutGAW.length < 3){
 		switch (HexOutGAW.length){
 			case 1:
 				HexOutGAW = "00" + HexOutGAW;
@@ -414,7 +414,7 @@ function SAVE(){
 	
 	HexOutRE += PLAYER.RE.toString(16);
 	
-	if (HexOutRE.length !>= 4){
+	if (HexOutRE.length < 4){
 		switch (HexOutRE.length){
 			case 1:
 				HexOutRE = "000" + HexOutRE;
@@ -438,7 +438,7 @@ function SAVE(){
 	
 	HexOutMS += PLAYER.MS.toString(16);
 	
-	if (HexOutMS.length !>= 3){
+	if (HexOutMS.length < 3){
 		switch (HexOutMS.length){
 			case 1:
 				HexOutMS = "00" + HexOutMS;
@@ -459,7 +459,7 @@ function SAVE(){
 	
 	HexOutBAWP += PRICE.BAWP.toString(16);
 	
-	if (HexOutBAWP.length !>= 3){
+	if (HexOutBAWP.length < 3){
 		switch (HexOutBAWP.length){
 			case 1:
 				HexOutBAWP = "00" + HexOutBAWP;
@@ -480,7 +480,7 @@ function SAVE(){
 	
 	HexOutMAWP += PRICE.MAWP.toString(16);
 	
-	if (HexOutMAWP.length !>= 3){
+	if (HexOutMAWP.length < 3){
 		switch (HexOutMAWP.length){
 			case 1:
 				HexOutMAWP = "00" + HexOutMAWP;
@@ -501,7 +501,7 @@ function SAVE(){
 	
 	HexOutGAWP += PRICE.GAWP.toString(16);
 	
-	if (HexOutGAWP.length !>= 3){
+	if (HexOutGAWP.length < 3){
 		switch (HexOutGAWP.length){
 			case 1:
 				HexOutGAWP = "00" + HexOutGAWP;
@@ -522,7 +522,7 @@ function SAVE(){
 	
 	HexOutSP = PRICE.SP.toString(16);
 	
-	if (HexOutSP !>= 5){
+	if (HexOutSP.length < 5){
 		switch (HexOutSP.length){
 			case 1:
 				HexOutSP = "0000" + HexOutSP
