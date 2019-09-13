@@ -294,24 +294,21 @@ function SAVE(){
 	HexOutMON += PLAYER.MON.toString(16);
 	
 	//If vars are too short, make them the correct size
-	if (HexOutMON.length != 7){
+	if (HexOutMON.length != 6){
 		switch (HexOutMON.length){
 			case 1:
-				HexOutMON = "000000" + HexOutMON;
-				break;
-			case 2:
 				HexOutMON = "00000" + HexOutMON;
 				break;
-			case 3:
+			case 2:
 				HexOutMON = "0000" + HexOutMON;
 				break;
-			case 4:
+			case 3:
 				HexOutMON = "000" + HexOutMON;
 				break;
-			case 5:
+			case 4:
 				HexOutMON = "00" + HexOutMON;
 				break;
-			case 6:
+			case 5:
 				HexOutMON = "0" + HexOutMON;
 				break;
 		}
