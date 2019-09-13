@@ -453,6 +453,7 @@ function SAVE(){
 	}
 	
 	HexOut = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + HexOutGAWP + HexOutSP;
+	alert(HexOut);
 	document.getElementById('OUTHEX').innerHTML = HexOut;
 	
 	var TXT = "Saved Successfully";
