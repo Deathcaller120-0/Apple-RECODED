@@ -632,5 +632,6 @@ function RESET(){
 	if (a == true){
 		var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
 		var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
+		SAVE();
 	}
 }
