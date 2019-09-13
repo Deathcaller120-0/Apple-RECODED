@@ -610,8 +610,8 @@ function EXLOAD(){
 		var DecGAWP = parseInt(HexGAWP,16);
 		var DecSP = parseInt(HexSP,16);
 		
-		var prompt = prompt("Are you sure you want to do this? This action cannot be undone! (y/n)");
-		if (prompt == "Y" || prompt == "y" || prompt == "yes" || prompt == "Yes"){
+		var prompt = confirm("Are you sure you want to do this? This action cannot be undone!");
+		if (prompt == true){
 			PLAYER.APP = DecApp;
 			PLAYER.MON = DecMon;
 			PLAYER.RE = DecRE;
