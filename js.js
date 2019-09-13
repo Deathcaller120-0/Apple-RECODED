@@ -406,12 +406,9 @@ function SAVE(){
 	if (HexOutBAWP.length != 3){
 		switch (HexOutBAWP.length){
 			case 1:
-				HexOutBAWP = "000" + HexOutBAWP;
-				break;
-			case 2:
 				HexOutBAWP = "00" + HexOutBAWP;
 				break;
-			case 3:
+			case 2:
 				HexOutBAWP = "0" + HexOutBAWP;
 				break;
 		}
@@ -422,12 +419,9 @@ function SAVE(){
 	if (HexOutMAWP.length != 3){
 		switch (HexOutMAWP.length){
 			case 1:
-				HexOutMAWP = "000" + HexOutMAWP;
-				break;
-			case 2:
 				HexOutMAWP = "00" + HexOutMAWP;
 				break;
-			case 3:
+			case 2:
 				HexOutMAWP = "0" + HexOutMAWP;
 				break;
 		}
@@ -438,12 +432,9 @@ function SAVE(){
 	if (HexOutGAWP.length != 3){
 		switch (HexOutGAWP.length){
 			case 1:
-				HexOutGAWP = "000" + HexOutGAWP;
-				break;
-			case 2:
 				HexOutGAWP = "00" + HexOutGAWP;
 				break;
-			case 3:
+			case 2:
 				HexOutGAWP = "0" + HexOutGAWP;
 				break;
 		}
@@ -585,7 +576,7 @@ function EXLOAD(){
 	var HexString = document.getElementById('INHEX').value;
 	console.log(HexString.length);
 	
-	if (HexString.length == 38){
+	if (HexString.length == 36){
 		var HexApp = HexString.substr(0,4);
 		var HexMon = HexString.substr(5,11);
 		var HexBAW = HexString.substr(12,13);
@@ -593,10 +584,10 @@ function EXLOAD(){
 		var HexGAW = HexString.substr(17,19);
 		var HexRE = HexString.substr(20,22);
 		var HexMS = HexString.substr(23,25);
-		var HexBAWP = HexString.substr(26,28);
-		var HexMAWP = HexString.substr(29,31);
-		var HexGAWP = HexString.substr(32,34);
-		var HexSP = HexString.substr(35,38);
+		var HexBAWP = HexString.substr(26,27);
+		var HexMAWP = HexString.substr(28,29);
+		var HexGAWP = HexString.substr(30,31);
+		var HexSP = HexString.substr(32,36);
 		
 		//Switch to Decimal
 		var DecApp = parseInt(HexApp,16);
