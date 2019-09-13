@@ -324,28 +324,22 @@ function SAVE(){
 	
 	HexOutAPP += PLAYER.APP.toString(16);
 	
-	if (HexOutAPP.length < 5){
+	if (HexOutAPP.length < 3){
 		switch (HexOutAPP.length){
 			case 1:
-				HexOutAPP = "0000" + HexOutAPP;
-				break;
-			case 2:
-				HexOutAPP = "000" + HexOutAPP;
-				break;
-			case 3:
 				HexOutAPP = "00" + HexOutAPP;
 				break;
-			case 4:
+			case 2:
 				HexOutAPP = "0" + HexOutAPP;
 				break;
 		}
-	} else if (HexOutAPP.length > 6){
+	} else if (HexOutAPP.length > 4){
 		var a = 0;
 		var b = HexOutAPP.length;
 		do {
 			a++;
 			b--;
-		} while (b >= 6)
+		} while (b >= 4)
 		HexOutAPP = HexOutAPP.slice(0, a);
 	}
 	
@@ -547,7 +541,7 @@ function SAVE(){
 		HexOutSP = HexOutSP.slice(0, a);
 	}
 	
-	HexOut = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + HexOutGAWP + HexOutSP;
+	HexOut = HexOutAPP + "ea" + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + HexOutGAWP + HexOutSP;
 	//window.alert(HexOut);
 	window.alert(HexOut.length);
 	document.getElementById('OUTHEX').innerHTML = HexOut;
@@ -684,7 +678,7 @@ function EXLOAD(){
 	console.log(HexString.length);
 	
 	if (HexString.length == 40){
-		var HexApp = HexString.substr(0,4);
+		var HexApp = HexString.substr(0,2);
 		var HexMon = HexString.substr(5,11);
 		var HexBAW = HexString.substr(12,13);
 		var HexMAW = HexString.substr(14,16);
