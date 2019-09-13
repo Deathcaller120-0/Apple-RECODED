@@ -618,6 +618,7 @@ function EXLOAD(){
 			PLAYER.MAW = DecMAWP;
 			PLAYER.GAW = DecGAWP;
 			PRICE.SP = DecSP;
+			SAVE();
 		}
 	} else {alert('Invalid Save! Enter a Valid Save!')}
 }
