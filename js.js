@@ -454,6 +454,7 @@ function SAVE(){
 	
 	HexOut = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + HexOutGAWP + HexOutSP;
 	window.alert(HexOut);
+	window.alert(HexOut.length);
 	document.getElementById('OUTHEX').innerHTML = HexOut;
 	
 	var TXT = "Saved Successfully";
