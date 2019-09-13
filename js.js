@@ -572,6 +572,9 @@ function CSUBMIT(){
 		case "HELP":
 			document.getElementById('HELPBOX').style.display = "block";
 			break;
+		case "RESET":
+			RESET();
+			break;
 		default:
 			alert("ERROR: '" + IN + "' Is not a valid cheat");
 	}
