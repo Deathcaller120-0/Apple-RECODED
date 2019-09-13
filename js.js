@@ -683,7 +683,7 @@ function EXLOAD(){
 	var HexString = document.getElementById('INHEX').value;
 	console.log(HexString.length);
 	
-	if (HexString.length == 35){
+	if (HexString.length == 40){
 		var HexApp = HexString.substr(0,4);
 		var HexMon = HexString.substr(5,11);
 		var HexBAW = HexString.substr(12,13);
