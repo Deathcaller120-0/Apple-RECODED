@@ -312,6 +312,14 @@ function SAVE(){
 				HexOutMON = "0" + HexOutMON;
 				break;
 		}
+	} else if (HexOutMON.length >= 7){
+		var a = 0;
+		var b = HexOutMON.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 7)
+		HexOutMON = HexOutMON.slice(0, a);
 	}
 	
 	HexOutAPP += PLAYER.APP.toString(16);
@@ -331,11 +339,19 @@ function SAVE(){
 				HexOutAPP = "0" + HexOutAPP;
 				break;
 		}
+	} else if (HexOutAPP.length > 6){
+		var a = 0;
+		var b = HexOutAPP.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 6)
+		HexOutAPP = HexOutAPP.slice(0, a);
 	}
 	
 	HexOutBAW += PLAYER.BAW.toString(16);
 	
-	if (HexOutBAW.length != 3){
+	if (HexOutBAW.length !>= 3){
 		switch (HexOutBAW.length){
 			case 1:
 				HexOutBAW = "00" + HexOutBAW;
@@ -344,11 +360,19 @@ function SAVE(){
 				HexOutBAW = "0" + HexOutBAW;
 				break;
 		}
+	} else if (HexOutBAW.length >= 4){
+		var a = 0;
+		var b = HexOutBAW.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 4)
+		HexOutBAW = HexOutBAW.slice(0, a);
 	}
 	
 	HexOutMAW += PLAYER.MAW.toString(16);
 	
-	if (HexOutMAW.length != 3){
+	if (HexOutMAW.length >!= 3){
 		switch (HexOutMAW.length){
 			case 1:
 				HexOutMAW = "00" + HexOutMAW;
@@ -357,11 +381,19 @@ function SAVE(){
 				HexOutMAW = "0" + HexOutMAW;
 				break;
 		}
+	} else if (HexOutMAW.length > 4){
+		var a = 0;
+		var b = HexOutMAW.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 4)
+		HexOutMAW = HexOutMAW.slice(0, a);
 	}
 	
 	HexOutGAW += PLAYER.GAW.toString(16);
 	
-	if (HexOutGAW.length != 3){
+	if (HexOutGAW.length !>= 3){
 		switch (HexOutGAW.length){
 			case 1:
 				HexOutGAW = "00" + HexOutGAW;
@@ -370,11 +402,19 @@ function SAVE(){
 				HexOutGAW = "0" + HexOutGAW;
 				break;
 		}
+	} else if (HexOutGAW.length > 4){
+		var a = 0;
+		var b = HexOutGAW.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 4)
+		HexOutGAW = HexOutGAW.slice(0, a);
 	}
 	
 	HexOutRE += PLAYER.RE.toString(16);
 	
-	if (HexOutRE.length != 4){
+	if (HexOutRE.length !>= 4){
 		switch (HexOutRE.length){
 			case 1:
 				HexOutRE = "000" + HexOutRE;
@@ -386,11 +426,19 @@ function SAVE(){
 				HexOutRE = "0" + HexOutRE;
 				break;
 		}
+	} else if (HexOutRE.length > 5){
+		var a = 0;
+		var b = HexOutRE.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 5)
+		HexOutRE = HexOutRE.slice(0, a);
 	}
 	
 	HexOutMS += PLAYER.MS.toString(16);
 	
-	if (HexOutMS.length != 3){
+	if (HexOutMS.length !>= 3){
 		switch (HexOutMS.length){
 			case 1:
 				HexOutMS = "00" + HexOutMS;
@@ -399,11 +447,19 @@ function SAVE(){
 				HexOutMS = "0" + HexOutMS;
 				break;
 		}
-	} 
+	}  else if (HexOutMS.length > 4){
+		var a = 0;
+		var b = HexOutMS.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 4)
+		HexOutMS = HexOutMS.slice(0, a);
+	}
 	
 	HexOutBAWP += PRICE.BAWP.toString(16);
 	
-	if (HexOutBAWP.length != 3){
+	if (HexOutBAWP.length !>= 3){
 		switch (HexOutBAWP.length){
 			case 1:
 				HexOutBAWP = "00" + HexOutBAWP;
@@ -412,11 +468,19 @@ function SAVE(){
 				HexOutBAWP = "0" + HexOutBAWP;
 				break;
 		}
+	} else if (HexOutBAWP.length > 4){
+		var a = 0;
+		var b = HexOutBAWP.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 4)
+		HexOutBAWP = HexOutBAWP.slice(0, a);
 	}
 	
 	HexOutMAWP += PRICE.MAWP.toString(16);
 	
-	if (HexOutMAWP.length != 3){
+	if (HexOutMAWP.length !>= 3){
 		switch (HexOutMAWP.length){
 			case 1:
 				HexOutMAWP = "00" + HexOutMAWP;
@@ -425,11 +489,19 @@ function SAVE(){
 				HexOutMAWP = "0" + HexOutMAWP;
 				break;
 		}
+	} else if (HexOutMAWP.length > 4){
+		var a = 0;
+		var b = HexOutMAWP.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 4)
+		HexOutMAWP = HexOutMAWP.slice(0, a);
 	}
 	
 	HexOutGAWP += PRICE.GAWP.toString(16);
 	
-	if (HexOutGAWP.length != 3){
+	if (HexOutGAWP.length !>= 3){
 		switch (HexOutGAWP.length){
 			case 1:
 				HexOutGAWP = "00" + HexOutGAWP;
@@ -438,6 +510,41 @@ function SAVE(){
 				HexOutGAWP = "0" + HexOutGAWP;
 				break;
 		}
+	} else if (HexOutGAWP.length > 4){
+		var a = 0;
+		var b = HexOutGAWP.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 4)
+		HexOutGAWP = HexOutGAWP.slice(0, a);
+	}
+	
+	HexOutSP = PRICE.SP.toString(16);
+	
+	if (HexOutSP !>= 5){
+		switch (HexOutSP.length){
+			case 1:
+				HexOutSP = "0000" + HexOutSP
+				break;
+			case 2:
+				HexOutSP = "000" + HexOutSP
+				break;
+			case 3:
+				HexOutSP = "00" + HexOutSP
+				break;
+			case 4:
+				HexOutSP = "0" + HexOutSP
+				break;
+		}
+	} else if (HexOutSP.length > 6){
+		var a = 0;
+		var b = HexOutSP.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 6)
+		HexOutSP = HexOutSP.slice(0, a);
 	}
 	
 	HexOut = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + HexOutGAWP + HexOutSP;
