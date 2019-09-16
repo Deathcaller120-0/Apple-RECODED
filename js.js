@@ -715,15 +715,24 @@ function EXLOAD(){
 			PRICE.SP = DecSP;
 			SAVE();
 		}
-	} else {alert('Invalid Save! Enter a Valid Save!')}
+	} else {alert('Invalid Save! Enter a Valid Save!');}
 }
 
 //Reset
 function RESET(){
 	var a = confirm('Are you sure you want to reset? As this action cannot be undone.');
 	if (a == true){
-		var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
-		var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
+		PLAYER.MON = 0;
+		PLAYER.APP = 0;
+		PLAYER.BAW = 0; 
+		PLAYER.MAW = 0; 
+		PLAYER.GAW = 0; 
+		PLAYER.RE = 0; 
+		PLAYER.MS = 20;
+		PRICE.BAWP = 35;
+		PRICE.MAWP = 45; 
+		PRICE.GAWP = 75; 
+		PRICE.SP = 30;
 		SAVE();
 	}
 }
