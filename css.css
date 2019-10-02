@@ -47,13 +47,14 @@ button {
 
 /*Grid area*/
 .grid-container {
+	width:850px;
+	height:500px;
 	display: grid;
 	grid-template-columns: auto auto auto;
 	background-color: #000;
 	padding: 10px;
 }
 .grid-container > div {
-	width:25%;
 	background-color: rgb(100, 100, 100);
 	border: 1px solid rgba(0, 0, 0, 0.8);
 	padding: 20px;
