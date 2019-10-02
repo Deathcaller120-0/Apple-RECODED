@@ -191,6 +191,7 @@ function UPDATE(){
 	}
 	if (AUPD >= 100){
 		PLAYER.APP -= PLAYER.MS;
+		PLAYER.MON -= 10;
 	}
 	
 	//Show Different tabs
