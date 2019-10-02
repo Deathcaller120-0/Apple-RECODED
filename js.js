@@ -191,7 +191,6 @@ function UPDATE(){
 	}
 	if (AUPD >= 100){
 		PLAYER.APP -= PLAYER.MS;
-		alert("Don't let your storage overfill! Pay attention to your apple amount!");
 	}
 	
 	//Show Different tabs
