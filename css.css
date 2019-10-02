@@ -48,6 +48,7 @@ button {
 /*Grid area*/
 .grid-container {
 	display: grid;
+	height:100%;
 	grid-template-columns: auto auto auto;
 	background-color: #000;
 	padding: 10px;
