@@ -542,7 +542,15 @@ function SAVE(){
 		HexOutSP = HexOutSP.slice(0, a);
 	}
 	
-	HexOut = HexOutAPP + "ea" + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + HexOutGAWP + HexOutSP;
+	var possibleHex = "ABCDEF";
+	var rng0 = Math.floor(Math.random * 5);
+	var a = possibleHex.charAt(rng0);
+	var rng1 = Math.floor(Math.random * 5);
+	var b = possibleHex.charAt(rng0);
+	var randChar = a + b;
+	
+	var c = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + randChar + HexOutGAWP + HexOutSP;
+	var HexOut = c.toUpperCase();
 	//window.alert(HexOut);
 	//window.alert(HexOut.length);
 	document.getElementById('OUTHEX').innerHTML = HexOut;
@@ -679,20 +687,21 @@ function CSUBMIT(){
 //Load Hex
 function EXLOAD(){
 	var HexString = document.getElementById('INHEX').value;
-	//alert(HexString.length);
+	alert(HexString.length);
 	
 	if (HexString.length == 40){
 		var HexApp = HexString.substr(0,3);//alert(HexApp + '-' + HexApp.length + ' - 1');
-		var HexMon = HexString.substr(6,5);//alert(HexMon + '-' + HexMon.length + ' - 2');
-		var HexBAW = HexString.substr(12,3);//alert(HexBAW + '-' + HexBAW.length + ' - 3');
-		var HexMAW = HexString.substr(15,3);//alert(HexMAW + '-' + HexMAW.length + ' - 4');
-		var HexGAW = HexString.substr(19,3);//alert(HexGAW + '-' + HexGAW.length + ' - 5');
-		var HexRE = HexString.substr(22,2);//alert(HexRE + '-' + HexRE.length + ' - 6');
-		var HexMS = HexString.substr(24,2);//alert(HexMS + '-' + HexMS.length + ' - 7');
-		var HexBAWP = HexString.substr(26,3);//alert(HexBAWP + '-' + HexBAWP.length + ' - 8');
-		var HexMAWP = HexString.substr(29,3);//alert(HexMAWP + '-' + HexMAWP.length + ' - 9');
-		var HexGAWP = HexString.substr(32,3);//alert(HexGAWP + '-' + HexGAWP.length + ' - 10');
-		var HexSP = HexString.substr(36,4);//alert(HexSP + '-' + HexSP.length + ' - 11');
+		var HexMon = HexString.substr(3,6);//alert(HexMon + '-' + HexMon.length + ' - 2');
+		var HexBAW = HexString.substr(9,3);//alert(HexBAW + '-' + HexBAW.length + ' - 3');
+		var HexMAW = HexString.substr(12,3);//alert(HexMAW + '-' + HexMAW.length + ' - 4');
+		var HexGAW = HexString.substr(15,3);//alert(HexGAW + '-' + HexGAW.length + ' - 5');
+		var HexRE = HexString.substr(18,4);//alert(HexRE + '-' + HexRE.length + ' - 6');
+		var HexMS = HexString.substr(22,3);//alert(HexMS + '-' + HexMS.length + ' - 7');
+		var HexBAWP = HexString.substr(25,3);//alert(HexBAWP + '-' + HexBAWP.length + ' - 8');
+		var HexMAWP = HexString.substr(28,3);//alert(HexMAWP + '-' + HexMAWP.length + ' - 9');
+		//Random 2 char string here
+        var HexGAWP = HexString.substr(33,3);//alert(HexGAWP + '-' + HexGAWP.length + ' - 10');
+		var HexSP = HexString.substr(36,5);//alert(HexSP + '-' + HexSP.length + ' - 11');
 		
 		//Switch to Decimal
 		var DecApp = parseInt(HexApp,16);//alert(DecApp + "-" + HexApp + ' - 1');
