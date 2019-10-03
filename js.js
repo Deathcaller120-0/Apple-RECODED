@@ -260,6 +260,7 @@ function UPDATE(){
 	
 //Saved or !Saved
 setInterval(SAVE, 600000000);
+var numSave = 0;
 function SAVE(){
 	localStorage.setItem('playerAPP', PLAYER.APP);
 	localStorage.setItem('playerMON', PLAYER.MON);
@@ -559,6 +560,9 @@ function SAVE(){
 				document.getElementById('SAVED').innerHTML = " ";
 			}, 5000);
 		}
+	}
+	if (numSave == 10){
+		location.reload(true);
 	}
 }
 
