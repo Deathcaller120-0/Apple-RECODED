@@ -675,33 +675,33 @@ function CSUBMIT(){
 //Load Hex
 function EXLOAD(){
 	var HexString = document.getElementById('INHEX').value;
-	console.log(HexString.length);
+	//alert(HexString.length);
 	
 	if (HexString.length == 40){
-		var HexApp = HexString.substr(0,2);
-		var HexMon = HexString.substr(5,11);
-		var HexBAW = HexString.substr(12,13);
-		var HexMAW = HexString.substr(14,16);
-		var HexGAW = HexString.substr(17,19);
-		var HexRE = HexString.substr(20,22);
-		var HexMS = HexString.substr(23,25);
-		var HexBAWP = HexString.substr(26,27);
-		var HexMAWP = HexString.substr(28,29);
-		var HexGAWP = HexString.substr(30,31);
-		var HexSP = HexString.substr(32,36);
+		var HexApp = HexString.substr(0,3);//alert(HexApp + '-' + HexApp.length + ' - 1');
+		var HexMon = HexString.substr(6,5);//alert(HexMon + '-' + HexMon.length + ' - 2');
+		var HexBAW = HexString.substr(12,3);//alert(HexBAW + '-' + HexBAW.length + ' - 3');
+		var HexMAW = HexString.substr(15,3);//alert(HexMAW + '-' + HexMAW.length + ' - 4');
+		var HexGAW = HexString.substr(19,3);//alert(HexGAW + '-' + HexGAW.length + ' - 5');
+		var HexRE = HexString.substr(22,2);//alert(HexRE + '-' + HexRE.length + ' - 6');
+		var HexMS = HexString.substr(24,2);//alert(HexMS + '-' + HexMS.length + ' - 7');
+		var HexBAWP = HexString.substr(26,3);//alert(HexBAWP + '-' + HexBAWP.length + ' - 8');
+		var HexMAWP = HexString.substr(29,3);//alert(HexMAWP + '-' + HexMAWP.length + ' - 9');
+		var HexGAWP = HexString.substr(32,3);//alert(HexGAWP + '-' + HexGAWP.length + ' - 10');
+		var HexSP = HexString.substr(36,4);//alert(HexSP + '-' + HexSP.length + ' - 11');
 		
 		//Switch to Decimal
-		var DecApp = parseInt(HexApp,16);
-		var DecMon = parseInt(HexMon,16);
-		var DecBAW = parseInt(HexBAW,16);
-		var DecMAW = parseInt(HexMAW,16);
-		var DecGAW = parseInt(HexGAW,16);
-		var DecRE = parseInt(HexRE,16);
-		var DecMS = parseInt(HexMS,16);
-		var DecBAWP = parseInt(HexBAWP,16);
-		var DecMAWP = parseInt(HexMAWP,16);
-		var DecGAWP = parseInt(HexGAWP,16);
-		var DecSP = parseInt(HexSP,16);
+		var DecApp = parseInt(HexApp,16);//alert(DecApp + "-" + HexApp + ' - 1');
+		var DecMon = parseInt(HexMon,16);//alert(DecMon + "-" + HexMon + ' - 2');
+		var DecBAW = parseInt(HexBAW,16);//alert(DecBAW + "-" + HexBAW + ' - 3');
+		var DecMAW = parseInt(HexMAW,16);//alert(DecMAW + "-" + HexMAW + ' - 4');
+		var DecGAW = parseInt(HexGAW,16);//alert(DecGAW + "-" + HexGAW + ' - 5');
+		var DecRE = parseInt(HexRE,16);//alert(DecRE + "-" + HexRE + ' - 6');
+		var DecMS = parseInt(HexMS,16);//alert(DecMS + "-" + HexMS + ' - 7');
+		var DecBAWP = parseInt(HexBAWP,16);//alert(DecBAWP + "-" + HexBAWP + ' - 8');
+		var DecMAWP = parseInt(HexMAWP,16);//alert(DecMAWP + "-" + HexMAWP + ' - 9');
+		var DecGAWP = parseInt(HexGAWP,16);//alert(DecGAWP + "-" + HexGAWP + ' - 10');
+		var DecSP = parseInt(HexSP,16);//alert(DecSP + "-" + HexSP + ' - 11');
 		
 		var prompt = confirm("Are you sure you want to do this? This action cannot be undone!");
 		if (prompt == true){
