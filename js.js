@@ -557,7 +557,7 @@ function SAVE(){
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
-	setTimeout(a, 20)
+	setTimeout(a, 20);
 	function a(){
 		if(i < TXT.length){
 			document.getElementById('SAVED').innerHTML += TXT.charAt(i);
