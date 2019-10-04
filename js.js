@@ -112,19 +112,25 @@ function LOAD(){
 }
 
 //Update Player Status
-var NUPSPEED = setInterval(UPDATE, 1000);
+var rngCounter = 0;
 function UPDATE(){
+	rngCounter++;
 	var CI = document.getElementById('ISSUES').checked;
 	if (CI == true){
-		clearInterval(NUPSPEED);
-		NUPSPEED = setInterval(UPDATE, 5000);
+		setTimeout(UPDATE, 5000);
+	}
+	var CS = document.getElementById('SPEEDUP').checked;
+	if (CS == true){
+		setTimeout(UPDATE, 500);
+	}
+	if (CI && CS == false){
+		setTimeout(UPDATE, 1000);
 	}
 	
-	var MUPD, MUPB, AUPD, ASUPD, BAW, MAW, GAW;
+	var MUPD, MUPB, ASUPD, BAW, MAW, GAW;
 	//Set things to update
 	MUPD = document.getElementById('MONEY');
 	MUPB = document.getElementById('CM');
-	AUPD = document.getElementById('APPLES');
 	ASUPD = document.getElementById('APPBAR');
 	BAWA = document.getElementById('BAWA');
 	MAWA = document.getElementById('MAWA');
@@ -142,6 +148,10 @@ function UPDATE(){
 	MAWA.innerHTML = PLAYER.MAW;
 	GAWA.innerHTML = PLAYER.GAW;
 	SP.innerHTML = PRICE.SP;
+	
+	if (rngCounter >= 6){
+		rngCount = 0;
+	}
 	
 	//Worker / Resource Updater
 	if (PLAYER.APP >= 3){
@@ -189,7 +199,7 @@ function UPDATE(){
 	} else {
 		ASUPD.style.backgroundColor = "#0f0";
 	}
-	if (AUPD >= 100){
+	if (AUPD >= 120){
 		PLAYER.APP -= PLAYER.MS;
 		PLAYER.MON -= 10;
 	}
@@ -322,6 +332,7 @@ function SAVE(){
 		} while (b >= 7)
 		HexOutMON = HexOutMON.slice(0, a);
 	}
+    alert(HexOutMON + " MON");
 	
 	HexOutAPP += PLAYER.APP.toString(16);
 	
@@ -343,7 +354,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutAPP = HexOutAPP.slice(0, a);
 	}
-	
+	alert(HexOutAPP + " APP");
 	HexOutBAW += PLAYER.BAW.toString(16);
 	
 	if (HexOutBAW.length < 3){
@@ -364,7 +375,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutBAW = HexOutBAW.slice(0, a);
 	}
-	
+	alert(HexOutBAW + " BAW");
 	HexOutMAW += PLAYER.MAW.toString(16);
 	
 	if (HexOutMAW.length < 3){
@@ -385,7 +396,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutMAW = HexOutMAW.slice(0, a);
 	}
-	
+	alert(HexOutMAW + " MAW");
 	HexOutGAW += PLAYER.GAW.toString(16);
 	
 	if (HexOutGAW.length < 3){
@@ -406,7 +417,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutGAW = HexOutGAW.slice(0, a);
 	}
-	
+	alert(HexOutGAW + " GAW");
 	HexOutRE += PLAYER.RE.toString(16);
 	
 	if (HexOutRE.length < 4){
@@ -430,7 +441,7 @@ function SAVE(){
 		} while (b >= 5)
 		HexOutRE = HexOutRE.slice(0, a);
 	}
-	
+	alert(HexOutRE + " RE");
 	HexOutMS += PLAYER.MS.toString(16);
 	
 	if (HexOutMS.length < 3){
@@ -451,7 +462,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutMS = HexOutMS.slice(0, a);
 	}
-	
+	alert(HexOutMS + " MS");
 	HexOutBAWP += PRICE.BAWP.toString(16);
 	
 	if (HexOutBAWP.length < 3){
@@ -472,7 +483,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutBAWP = HexOutBAWP.slice(0, a);
 	}
-	
+	alert(HexOutBAWP + " BAWP");
 	HexOutMAWP += PRICE.MAWP.toString(16);
 	
 	if (HexOutMAWP.length < 3){
@@ -493,7 +504,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutMAWP = HexOutMAWP.slice(0, a);
 	}
-	
+	alert(HexOutMAWP + " MAWP");
 	HexOutGAWP += PRICE.GAWP.toString(16);
 	
 	if (HexOutGAWP.length < 3){
@@ -514,7 +525,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutGAWP = HexOutGAWP.slice(0, a);
 	}
-	
+	alert(HexOutGAWP + " GAWP");
 	HexOutSP = PRICE.SP.toString(16);
 	
 	if (HexOutSP.length < 5){
@@ -541,18 +552,20 @@ function SAVE(){
 		} while (b >= 6)
 		HexOutSP = HexOutSP.slice(0, a);
 	}
-	
+	//alert(HexOutSP + " SP");
 	var possibleHex = "ABCDEF";
-	var rng0 = Math.floor(Math.random * 5);
-	var a = possibleHex.charAt(rng0);
-	var rng1 = Math.floor(Math.random * 5);
-	var b = possibleHex.charAt(rng0);
-	var randChar = a + b;
+	var rng0 = rngCounter; //alert(rng0 + " rng0");
+	var rng1 = rngCounter + 3;//alert(rng1 + " rng1");
+	
+	var e = possibleHex.charAt(rng0); //alert(e);
+	var d = possibleHex.charAt(rng0); //alert(d);
+	var randChar = a + b; //alert(randChar);
 	
 	var c = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + randChar + HexOutGAWP + HexOutSP;
 	var HexOut = c.toUpperCase();
-	//window.alert(HexOut);
-	//window.alert(HexOut.length);
+	//alert(c);
+	//alert(HexOut);
+	//alert(HexOut.length);
 	document.getElementById('OUTHEX').innerHTML = HexOut;
 	
 	var TXT = "Saved Successfully";
