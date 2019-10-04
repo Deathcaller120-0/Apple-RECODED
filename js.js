@@ -107,7 +107,8 @@ function LOAD(){
 			}
 		}, 1000);
 	}
-	
+	setTimeout(UPDATE, 2000);
+	setTimeout(UPDATE, 1000);
 	UPDATE();
 }
 
