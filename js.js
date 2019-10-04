@@ -127,7 +127,7 @@ function UPDATE(){
 		setTimeout(UPDATE, 1000);
 	}
 	
-	var MUPD, MUPB, ASUPD, BAW, MAW, GAW;
+	var MUPD, MUPB, ASUPD, BAW, MAW, GAW, BAWA, MAWA, GAWA, SPBUT;
 	//Set things to update
 	MUPD = document.getElementById('MONEY');
 	MUPB = document.getElementById('CM');
@@ -143,14 +143,13 @@ function UPDATE(){
 	
 	//Stat Updater
 	MUPD.innerHTML = PLAYER.MON;
-	AUPD.innerHTML = PLAYER.APP;
 	BAWA.innerHTML = PLAYER.BAW;
 	MAWA.innerHTML = PLAYER.MAW;
 	GAWA.innerHTML = PLAYER.GAW;
 	SP.innerHTML = PRICE.SP;
 	
 	if (rngCounter >= 6){
-		rngCount = 0;
+		rngCounter = 0;
 	}
 	
 	//Worker / Resource Updater
@@ -190,7 +189,7 @@ function UPDATE(){
 	}
 	
 	//Storage
-	AUPD = PLAYER.APP / PLAYER.MS * 100; //100,000
+	var AUPD = PLAYER.APP / PLAYER.MS * 100; //100,000
 	ASUPD.style.width = AUPD + "%";
 	document.getElementById('APPSTAT').innerHTML = PLAYER.APP + " out of " + PLAYER.MS;
 	if (AUPD >= 100){
