@@ -116,17 +116,6 @@ function LOAD(){
 var rngCounter = 0;
 function UPDATE(){
 	rngCounter++;
-	var CI = document.getElementById('ISSUES').checked;
-	if (CI == true){
-		setTimeout(UPDATE, 5000);
-	}
-	var CS = document.getElementById('SPEEDUP').checked;
-	if (CS == true){
-		setTimeout(UPDATE, 500);
-	}
-	if (CI && CS == false){
-		setTimeout(UPDATE, 1000);
-	}
 	
 	var MUPD, MUPB, ASUPD, BAW, MAW, GAW, BAWA, MAWA, GAWA, SPBUT;
 	//Set things to update
@@ -265,6 +254,18 @@ function UPDATE(){
 			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
 			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
 			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
+	}
+	
+	var CI = document.getElementById('ISSUES').checked;
+	if (CI == true){
+		setTimeout(UPDATE, 5000);
+	}
+	var CS = document.getElementById('SPEEDUP').checked;
+	if (CS == true){
+		setTimeout(UPDATE, 500);
+	}
+	if (CI == false && CS == false){
+		setTimeout(UPDATE, 1000);
 	}
 }
 	
