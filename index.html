@@ -34,8 +34,7 @@
 				<b>
 					<button onclick="PLAYER.APP++;" id="CA">Collect Apple</button>
 					<br>
-					<span><span id="APPLES">0</span> Apples</span>
-					<span>| $<span id="MONEY">0</span></span>
+					<span>$<span id="MONEY">0</span></span>
 					<div id="MONDIV" style="display:none;">
 						<button onclick="SELLAPP()" id="CM">Sell Apples</button>
 						<br>
@@ -74,8 +73,10 @@
 		<!--Settings-->
 		<div id="SETTINGS" style="display:none;">
 			<input type="checkbox" id="ISSUES">
-			<span>Issues running? Click the checkmark. It just slows down some things to save on memory.</span>
+			<span>Issues running? Click this checkmark. It just slows down some things to save on memory.</span>
 			<br>
+			<input type="checkbox" id="SPEEDUP">
+			<span>Not fast enough? Click this one. WARNING: YOUR PC MAY LAG, USE AT YOUR OWN RISK</span>
 			
 			<p>Save Options</p>
 			<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
