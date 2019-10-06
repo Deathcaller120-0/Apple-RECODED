@@ -47,6 +47,7 @@ button {
 
 /*Grid area*/
 .grid-container {
+	z-index:1;
 	display: grid;
 	grid-template-columns: auto;
 	background-color: #000;
@@ -64,32 +65,4 @@ button {
 	position: relative;
 	height:40px;
 	left: 20px;
-}
-
-#MAIN {
-	z-index:1;
-}
-
-#ACHIVEMENTS {
-	z-index:1;
-	position: relative;
-	background-color:#666;
-}
-
-#SETTINGS {
-	z-index:1;
-	position: relative;
-	background-color:#646464;
-}
-
-#EXTRAS {
-	z-index:1;
-	position: relative;
-	background-color:#646464;
-}
-
-#STATS {
-	z-index:1;
-	position: relative;
-	background-color:#646464;
 }
