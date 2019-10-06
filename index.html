@@ -36,7 +36,7 @@
 					<br>
 					<span>$<span id="MONEY">0</span></span>
 					<div id="MONDIV" style="display:none;">
-						<button onclick="SELLAPP()" id="CM">Sell Apples</button>
+						<button onclick="SELLAPP();" id="CM">Sell Apples</button>
 						<br>
 						<span>3 Apples for $1</span>
 					</div>
@@ -66,48 +66,60 @@
 		</div>
 		
 		<!--Achivements-->
-		<div id="ACHIEVEMENTS" style="display:none;">
-			<p>Coming Soon! Maybe. I don't know yet.</p>
+		<div id="ACHIEVEMENTS" style="display:none;" class="grid-container">
+			<div>
+				<p>Coming Soon! Maybe. I don't know yet.</p>
+			</div>
 		</div>
 		
 		<!--Settings-->
-		<div id="SETTINGS" style="display:none;">
-			<input type="checkbox" id="ISSUES">
-			<span>Issues running? Click this checkmark. It just slows down some things to save on memory.</span>
-			<br>
-			<input type="checkbox" id="SPEEDUP">
-			<span>Not fast enough? Click this one. WARNING: YOUR PC MAY LAG, USE AT YOUR OWN RISK</span>
+		<div id="SETTINGS" style="display:none;" class="grid-container">
+			<div>
+				<input type="checkbox" id="ISSUES">
+				<span>Issues running? Click this checkmark. It just slows down some things to save on memory.</span>
+				<br>
+				<input type="checkbox" id="SPEEDUP">
+				<span>Not fast enough? Click this one. WARNING: YOUR PC MAY LAG, USE AT YOUR OWN RISK</span>
+			</div>
 			
-			<p>Save Options</p>
-			<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
-			<p>Encoded Save: <span id="OUTHEX"></span></p>
-			
-			<p>Load Save</p>
-			<input type="text" id="INHEX">
-			<input type="button" value="Load" onclick="EXLOAD();">
-			<p id="SAVED" style="color:#0F0"></p>
+			<div>
+				<p>Save Options</p>
+				<button onclick="SAVE();" style="background-color:#0c6; height:25px;">Save</button>
+				<p>Encoded Save: <span id="OUTHEX"></span></p>
+				
+				<p>Load Save</p>
+				<input type="text" id="INHEX">
+				<input type="button" value="Load" onclick="EXLOAD();">
+				<p id="SAVED" style="color:#0F0"></p>
+			</div>
 		</div>
 		
 		<!--Stats-->
-		<div id="STATS" style="display:none;">
-			<b>
-				<span style="font-size:20px;">PLAYER STATS</span>
-				<p><span id="REBIRTHS">0</span> Rebirths</p>
-				<p><span id="BAWA">0</span> Basic Apple Pickers</p>
-				<p><span id="MAWA">0</span> Average Apple Pickers</p>
-				<p><span id="GAWA">0</span> God Tier Apple Pickers</p>
-			</b>
+		<div id="STATS" style="display:none;" class="grid-container">
+			<div>
+				<b>
+					<span style="font-size:20px;">PLAYER STATS</span>
+					<p><span id="REBIRTHS">0</span> Rebirths</p>
+					<p><span id="BAWA">0</span> Basic Apple Pickers</p>
+					<p><span id="MAWA">0</span> Average Apple Pickers</p>
+					<p><span id="GAWA">0</span> God Tier Apple Pickers</p>
+				</b>
+			</div>
 		</div>
 		
 		<!--Extras-->
-		<div id="EXTRAS" style="display:none;">
-			<p>Cheats</p>
-			<input type="text" id="CHEATIN" placeholder="Input Cheat">
-			<input type="button" onclick="CSUBMIT()" value="Submit">
+		<div id="EXTRAS" style="display:none;" class="grid-container">
+			<div>
+				<p>Cheats</p>
+				<input type="text" id="CHEATIN" placeholder="Input Cheat">
+				<input type="button" onclick="CSUBMIT()" value="Submit">
+			</div>
 			
-			<p>More Information</p>
-			<p>You can find more Information about this game on <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">the Wiki</a>.</p>
-			<p>You can also find my other projects at <a href="https://github.com/Deathcaller120-0?tab=repositories">my repositories</a> on Github.</p>
+			<div>
+				<p>More Information</p>
+				<p>You can find more Information about this game on <a href="https://github.com/Deathcaller120-0/Apple-RECODED/wiki">the Wiki</a>.</p>
+				<p>You can also find my other projects at <a href="https://github.com/Deathcaller120-0?tab=repositories">my repositories</a> on Github.</p>
+			</div>
 		</div>
 		<div id="HELPBOX" style="display:none;">
 			<p>All Cheats listed with all requirements (If any)</p>
