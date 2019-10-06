@@ -110,6 +110,10 @@ function LOAD(){
 	setTimeout(UPDATE, 2000);
 	setTimeout(UPDATE, 1000);
 	UPDATE();
+	
+	setInterval(BAWWork, 10000); //10 seconds
+	setInterval(MAWWork, 8000); //8 seconds
+	setInterval(GAWWork, 7500); //7.5 seconds
 }
 
 //Update Player Status
@@ -138,7 +142,7 @@ function UPDATE(){
 	GAWA.innerHTML = PLAYER.GAW;
 	SP.innerHTML = PRICE.SP;
 	
-	if (rngCounter >= 6){
+	if (rngCounter >= 15){
 		rngCounter = 0;
 	}
 	
@@ -303,39 +307,36 @@ function SAVE(){
 	var HexOutGAWP = "";
 	
 	//Assign Vars
-	HexOutMON += PLAYER.MON.toString(16);
+	HexOutMON = Number(PLAYER.MON).toString(16);
 	
 	//If vars are too short, make them the correct size
-	if (HexOutMON.length < 6){
+	if (HexOutMON.length < 5){
 		switch (HexOutMON.length){
 			case 1:
-				HexOutMON = "00000" + HexOutMON;
-				break;
-			case 2:
 				HexOutMON = "0000" + HexOutMON;
 				break;
-			case 3:
+			case 2:
 				HexOutMON = "000" + HexOutMON;
 				break;
-			case 4:
+			case 3:
 				HexOutMON = "00" + HexOutMON;
 				break;
-			case 5:
+			case 4:
 				HexOutMON = "0" + HexOutMON;
 				break;
 		}
-	} else if (HexOutMON.length >= 7){
+	} else if (HexOutMON.length >= 6){
 		var a = 0;
 		var b = HexOutMON.length;
 		do {
 			a++;
 			b--;
-		} while (b >= 7)
+		} while (b >= 6)
 		HexOutMON = HexOutMON.slice(0, a);
 	}
     alert(HexOutMON + " MON");
 	
-	HexOutAPP += PLAYER.APP.toString(16);
+	HexOutAPP = Number(PLAYER.APP).toString(16);
 	
 	if (HexOutAPP.length < 3){
 		switch (HexOutAPP.length){
@@ -356,7 +357,7 @@ function SAVE(){
 		HexOutAPP = HexOutAPP.slice(0, a);
 	}
 	alert(HexOutAPP + " APP");
-	HexOutBAW += PLAYER.BAW.toString(16);
+	HexOutBAW = Number(PLAYER.BAW).toString(16);
 	
 	if (HexOutBAW.length < 3){
 		switch (HexOutBAW.length){
@@ -377,7 +378,7 @@ function SAVE(){
 		HexOutBAW = HexOutBAW.slice(0, a);
 	}
 	alert(HexOutBAW + " BAW");
-	HexOutMAW += PLAYER.MAW.toString(16);
+	HexOutMAW = Number(PLAYER.MAW).toString(16);
 	
 	if (HexOutMAW.length < 3){
 		switch (HexOutMAW.length){
@@ -398,7 +399,7 @@ function SAVE(){
 		HexOutMAW = HexOutMAW.slice(0, a);
 	}
 	alert(HexOutMAW + " MAW");
-	HexOutGAW += PLAYER.GAW.toString(16);
+	HexOutGAW = Number(PLAYER.GAW).toString(16);
 	
 	if (HexOutGAW.length < 3){
 		switch (HexOutGAW.length){
@@ -419,52 +420,52 @@ function SAVE(){
 		HexOutGAW = HexOutGAW.slice(0, a);
 	}
 	alert(HexOutGAW + " GAW");
-	HexOutRE += PLAYER.RE.toString(16);
+	HexOutRE = Number(PLAYER.RE).toString(16);
 	
-	if (HexOutRE.length < 4){
+	if (HexOutRE.length < 3){
 		switch (HexOutRE.length){
 			case 1:
-				HexOutRE = "000" + HexOutRE;
-				break;
-			case 2:
 				HexOutRE = "00" + HexOutRE;
 				break;
-			case 3:
+			case 2:
 				HexOutRE = "0" + HexOutRE;
 				break;
 		}
-	} else if (HexOutRE.length > 5){
+	} else if (HexOutRE.length > 4){
 		var a = 0;
 		var b = HexOutRE.length;
 		do {
 			a++;
 			b--;
-		} while (b >= 5)
+		} while (b >= 4)
 		HexOutRE = HexOutRE.slice(0, a);
 	}
 	alert(HexOutRE + " RE");
-	HexOutMS += PLAYER.MS.toString(16);
+	HexOutMS = Number(PLAYER.MS).toString(16);
 	
-	if (HexOutMS.length < 3){
+	if (HexOutMS.length < 4){
 		switch (HexOutMS.length){
 			case 1:
-				HexOutMS = "00" + HexOutMS;
+				HexOutMS = "000" + HexOutMS;
 				break;
 			case 2:
+				HexOutMS = "00" + HexOutMS;
+				break;
+			case 3:
 				HexOutMS = "0" + HexOutMS;
 				break;
 		}
-	}  else if (HexOutMS.length > 4){
+	}  else if (HexOutMS.length > 5){
 		var a = 0;
 		var b = HexOutMS.length;
 		do {
 			a++;
 			b--;
-		} while (b >= 4)
+		} while (b >= 5)
 		HexOutMS = HexOutMS.slice(0, a);
 	}
 	alert(HexOutMS + " MS");
-	HexOutBAWP += PRICE.BAWP.toString(16);
+	HexOutBAWP = Number(PRICE.BAWP).toString(16);
 	
 	if (HexOutBAWP.length < 3){
 		switch (HexOutBAWP.length){
@@ -485,7 +486,7 @@ function SAVE(){
 		HexOutBAWP = HexOutBAWP.slice(0, a);
 	}
 	alert(HexOutBAWP + " BAWP");
-	HexOutMAWP += PRICE.MAWP.toString(16);
+	HexOutMAWP = Number(PRICE.MAWP).toString(16);
 	
 	if (HexOutMAWP.length < 3){
 		switch (HexOutMAWP.length){
@@ -506,7 +507,7 @@ function SAVE(){
 		HexOutMAWP = HexOutMAWP.slice(0, a);
 	}
 	alert(HexOutMAWP + " MAWP");
-	HexOutGAWP += PRICE.GAWP.toString(16);
+	HexOutGAWP = Number(PRICE.GAWP).toString(16);
 	
 	if (HexOutGAWP.length < 3){
 		switch (HexOutGAWP.length){
@@ -527,21 +528,21 @@ function SAVE(){
 		HexOutGAWP = HexOutGAWP.slice(0, a);
 	}
 	alert(HexOutGAWP + " GAWP");
-	HexOutSP = PRICE.SP.toString(16);
+	HexOutSP = Number(PRICE.SP).toString(16);
 	
 	if (HexOutSP.length < 5){
 		switch (HexOutSP.length){
 			case 1:
-				HexOutSP = "0000" + HexOutSP
+				HexOutSP = "0000" + HexOutSP;
 				break;
 			case 2:
-				HexOutSP = "000" + HexOutSP
+				HexOutSP = "000" + HexOutSP;
 				break;
 			case 3:
-				HexOutSP = "00" + HexOutSP
+				HexOutSP = "00" + HexOutSP;
 				break;
 			case 4:
-				HexOutSP = "0" + HexOutSP
+				HexOutSP = "0" + HexOutSP;
 				break;
 		}
 	} else if (HexOutSP.length > 6){
@@ -553,21 +554,32 @@ function SAVE(){
 		} while (b >= 6)
 		HexOutSP = HexOutSP.slice(0, a);
 	}
-	//alert(HexOutSP + " SP");
-	var possibleHex = "ABCDEF";
+	alert(HexOutSP + " SP");
+	var possibleHex = "0123456789ABCDEF";
 	var rng0 = rngCounter; //alert(rng0 + " rng0");
-	var rng1 = rngCounter + 3;//alert(rng1 + " rng1");
+	var rng1;
+	if (rngCounter + 3 >= 16){
+		rng1 = rngCounter - 3;
+	} else {
+		rng1 = rngCounter + 3;
+	} //alert(rng1 + " rng1");
 	
-	var e = possibleHex.charAt(rng0); //alert(e);
-	var d = possibleHex.charAt(rng0); //alert(d);
-	var randChar = a + b; //alert(randChar);
+	var h = possibleHex.charAt(rng0); //alert(h);
+	var j = possibleHex.charAt(rng1); //alert(j);
+	var randChar = h + j; //alert(randChar);
 	
-	var c = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutMS + HexOutMS + HexOutBAWP + HexOutMAWP + randChar + HexOutGAWP + HexOutSP;
+	var c = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutRE + HexOutMS + HexOutBAWP + HexOutMAWP + randChar + HexOutGAWP + HexOutSP;
 	var HexOut = c.toUpperCase();
+	
+	var testHex = HexOutAPP + " App - " + HexOutMON + " Mon - " + HexOutBAW + " BAW - " + HexOutMAW + " MAW - " + HexOutGAW + " GAW - " + HexOutRE + " RE - " + HexOutMS + " MS - " + HexOutBAWP + " BAWP - " + HexOutMAWP + " MAWP - " + randChar + " RaCh - " + HexOutGAWP + " GAWP - " + HexOutSP + " SP";
+	
+	alert(testHex);
 	//alert(c);
 	//alert(HexOut);
 	//alert(HexOut.length);
 	document.getElementById('OUTHEX').innerHTML = HexOut;
+	
+	localStorage.setItem('saveFile', HexOut);
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
@@ -590,9 +602,46 @@ function SAVE(){
 
 //Resources
 function SELLAPP(){
-	if (PLAYER.APP >= 3){
-		PLAYER.APP -= 3;
-		PLAYER.MON++;
+	for (var i = 0; i < PLAYER.APP - 2; i++){
+		if (PLAYER.APP <= 2){
+			break;
+		} else {
+			PLAYER.APP -= 3;
+			PLAYER.MON++;
+		}
+	}
+}
+function BAWWork(){
+	if (PLAYER.BAW >= 1){
+		for (var baws = 0; baws < PLAYER.BAW; baws++){
+			if (PLAYER.APP >= PLAYER.MS - 3){
+				break;
+			} else {
+				PLAYER.APP++;
+			}
+		}
+	}
+}
+function MAWWork(){
+	if (PLAYER.MAW >= 1){
+		for (var maws = 0; maws < PLAYER.MAW; maws++){
+			if (PLAYER.APP >= PLAYER.MS - 3){
+				break;
+			} else {
+				PLAYER.APP++;
+			}
+		}
+	}
+}
+function GAWWork(){
+	if (PLAYER.GAW >= 1){
+		for (var gaws = 0; gaws < PLAYER.GAW; gaws++){
+			if (PLAYER.APP >= PLAYER.MS - 3){
+				break;
+			} else {
+				PLAYER.APP += 2;
+			}
+		}
 	}
 }
 
@@ -606,10 +655,8 @@ function BAWB(){
 		if (BC == 0){
 			BC = 30;
 			PRICE.BAWP += 2;
+			document.getElementById('BWORKERPRICE').innerHTML = PRICE.BAWP;
 		}
-		setInterval(function(){
-			PLAYER.APP++;
-		}, 10000); //After 10 sec, app++;
 	}
 	if (PLAYER.BAW >= 500){
 		document.getElementById('BAWBUT').innerHTML = "MAXED OUT";
@@ -624,10 +671,8 @@ function MAWB(){
 		if (MC == 0){
 			MC = 25;
 			PRICE.MAWP += 2;
+			document.getElementById('MWORKERPRICE').innerHTML = PRICE.MAWP;
 		}
-		setInterval(function(){
-			PLAYER.APP++;
-		}, 8000); //After 8 sec, app++
 	}
 	if (PLAYER.MAW >= 500){
 		document.getElementById('MAWBUT').innerHTML = "MAXED OUT";
@@ -642,10 +687,8 @@ function GAWB(){
 		if (GC == 0){
 			GC = 20;
 			PRICE.GAWP += 2;
+			document.getElementById('GWORKERPRICE').innerHTML = PRICE.GAWP;
 		}
-		setInterval(function(){
-			PLAYER.APP += 2;
-		}, 7000); //After 7 sec, app +2
 	}
 	if (PLAYER.GAW >= 500){
 		document.getElementById('GAWBUT').innerHTML = "MAXED OUT";
@@ -671,9 +714,13 @@ function FINISH(){
 		PLAYER.MAW = 0;
 		PLAYER.GAW = 0;
 		PLAYER.MS = 20;
+		if (PRICE.BAWP >= 26){PRICE.BAWP--;}
+		if (PRICE.MAWP >= 29){PRICE.MAWP--;}
+		if (PRICE.GAWP >= 36){PRICE.GAWP--;}
+		if (PRICE.SP >= 21){PRICE.SP--;}
 		PLAYER.RE++;
 		SAVE();
-		setTimeout(function(){location.reload()},2000);
+		setTimeout('location.reload(true)',2000);
 	} else {
 		alert('You Need More Money. Try again later.')
 	}
@@ -700,46 +747,53 @@ function CSUBMIT(){
 
 //Load Hex
 function EXLOAD(){
+	//debugger;
 	var HexString = document.getElementById('INHEX').value;
-	alert(HexString.length);
+	//alert(HexString.length);
 	
-	if (HexString.length == 40){
-		var HexApp = HexString.substr(0,3);//alert(HexApp + '-' + HexApp.length + ' - 1');
-		var HexMon = HexString.substr(3,6);//alert(HexMon + '-' + HexMon.length + ' - 2');
-		var HexBAW = HexString.substr(9,3);//alert(HexBAW + '-' + HexBAW.length + ' - 3');
-		var HexMAW = HexString.substr(12,3);//alert(HexMAW + '-' + HexMAW.length + ' - 4');
-		var HexGAW = HexString.substr(15,3);//alert(HexGAW + '-' + HexGAW.length + ' - 5');
-		var HexRE = HexString.substr(18,4);//alert(HexRE + '-' + HexRE.length + ' - 6');
-		var HexMS = HexString.substr(22,3);//alert(HexMS + '-' + HexMS.length + ' - 7');
-		var HexBAWP = HexString.substr(25,3);//alert(HexBAWP + '-' + HexBAWP.length + ' - 8');
-		var HexMAWP = HexString.substr(28,3);//alert(HexMAWP + '-' + HexMAWP.length + ' - 9');
+	if (HexString.length >= 40){
+		var Hex0App = HexString.substr(0,3);//alert(HexApp + '-' + HexApp.length + ' - 1 - APP');
+		var Hex1Mon = HexString.substr(3,5);//alert(HexMon + '-' + HexMon.length + ' - 2 - MON');
+		var Hex2BAW = HexString.substr(8,3);//alert(HexBAW + '-' + HexBAW.length + ' - 3 - BAW');
+		var Hex3MAW = HexString.substr(11,3);//alert(HexMAW + '-' + HexMAW.length + ' - 4 - MAW');
+		var Hex4GAW = HexString.substr(14,3);//alert(HexGAW + '-' + HexGAW.length + ' - 5 - GAW');
+		var Hex5RE = HexString.substr(17,3);//alert(HexRE + '-' + HexRE.length + ' - 6 - RE');
+		var Hex6MS = HexString.substr(20,4);//alert(HexMS + '-' + HexMS.length + ' - 7 - MS');
+		var Hex7BAWP = HexString.substr(24,3);//alert(HexBAWP + '-' + HexBAWP.length + ' - 8 - BAWP');
+		var Hex8MAWP = HexString.substr(27,3);//alert(HexMAWP + '-' + HexMAWP.length + ' - 9 - MAWP');
 		//Random 2 char string here
-        var HexGAWP = HexString.substr(33,3);//alert(HexGAWP + '-' + HexGAWP.length + ' - 10');
-		var HexSP = HexString.substr(36,5);//alert(HexSP + '-' + HexSP.length + ' - 11');
+		var Hex9GAWP = HexString.substr(32,3);//alert(HexGAWP + '-' + HexGAWP.length + ' - 10 - GAWP');
+		var HexASP = HexString.substr(35);//alert(HexSP + '-' + HexSP.length + ' - 11 - SP');
+		
+		var testHexIn = Hex0App + " App - " + Hex1Mon + " Mon - " + Hex2BAW + " BAW - " + Hex3MAW + " MAW - " + Hex4GAW + " GAW - " + Hex5RE + " RE - " +  Hex6MS + " MS - " + Hex7BAWP + " BAWP - " + Hex8MAWP + " MAWP - " + Hex9GAWP + " GAWP - " + HexASP  + " SP";
+		alert(testHexIn);
 		
 		//Switch to Decimal
-		var DecApp = parseInt(HexApp,16);//alert(DecApp + "-" + HexApp + ' - 1');
-		var DecMon = parseInt(HexMon,16);//alert(DecMon + "-" + HexMon + ' - 2');
-		var DecBAW = parseInt(HexBAW,16);//alert(DecBAW + "-" + HexBAW + ' - 3');
-		var DecMAW = parseInt(HexMAW,16);//alert(DecMAW + "-" + HexMAW + ' - 4');
-		var DecGAW = parseInt(HexGAW,16);//alert(DecGAW + "-" + HexGAW + ' - 5');
-		var DecRE = parseInt(HexRE,16);//alert(DecRE + "-" + HexRE + ' - 6');
-		var DecMS = parseInt(HexMS,16);//alert(DecMS + "-" + HexMS + ' - 7');
-		var DecBAWP = parseInt(HexBAWP,16);//alert(DecBAWP + "-" + HexBAWP + ' - 8');
-		var DecMAWP = parseInt(HexMAWP,16);//alert(DecMAWP + "-" + HexMAWP + ' - 9');
-		var DecGAWP = parseInt(HexGAWP,16);//alert(DecGAWP + "-" + HexGAWP + ' - 10');
-		var DecSP = parseInt(HexSP,16);//alert(DecSP + "-" + HexSP + ' - 11');
+		var DecApp = parseInt(Hex0App,16);//alert(DecApp + "-" + HexApp + ' - 1 APP');
+		var DecMon = parseInt(Hex1Mon,16);//alert(DecMon + "-" + HexMon + ' - 2 MON');
+		var DecBAW = parseInt(Hex2BAW,16);//alert(DecBAW + "-" + HexBAW + ' - 3 BAW');
+		var DecMAW = parseInt(Hex3MAW,16);//alert(DecMAW + "-" + HexMAW + ' - 4 MAW');
+		var DecGAW = parseInt(Hex4GAW,16);//alert(DecGAW + "-" + HexGAW + ' - 5 GAW');
+		var DecRE = parseInt(Hex5RE,16);//alert(DecRE + "-" + HexRE + ' - 6 RE');
+		var DecMS = parseInt(Hex6MS,16);//alert(DecMS + "-" + HexMS + ' - 7 MS');
+		var DecBAWP = parseInt(Hex7BAWP,16);//alert(DecBAWP + "-" + HexBAWP + ' - 8 BAWP');
+		var DecMAWP = parseInt(Hex8MAWP,16);//alert(DecMAWP + "-" + HexMAWP + ' - 9 MAWP');
+		var DecGAWP = parseInt(Hex9GAWP,16);//alert(DecGAWP + "-" + HexGAWP + ' - 10 GAWP');
+		var DecSP = parseInt(HexASP,16);//alert(DecSP + "-" + HexSP + ' - 11 SP');
 		
 		var prompt = confirm("Are you sure you want to do this? This action cannot be undone!");
 		if (prompt == true){
-			PLAYER.APP = DecApp;
-			PLAYER.MON = DecMon;
-			PLAYER.RE = DecRE;
-			PLAYER.MS = DecMS;
-			PLAYER.BAW = DecBAWP;
-			PLAYER.MAW = DecMAWP;
-			PLAYER.GAW = DecGAWP;
-			PRICE.SP = DecSP;
+			PLAYER.APP = Number(DecApp);
+			PLAYER.MON = Number(DecMon);
+			PLAYER.RE = Number(DecRE);
+			PLAYER.MS = Number(DecMS);
+			PLAYER.BAW = Number(DecBAW);
+			PLAYER.MAW = Number(DecMAW);
+			PLAYER.GAW = Number(DecGAW);
+			PRICE.SP = Number(DecSP);
+			PRICE.BAWP = Number(DecBAWP);
+			PRICE.MAWP = Number(DecMAWP);
+			PRICE.GAWP = Number(DecGAWP);
 			SAVE();
 		}
 	} else {alert('Invalid Save! Enter a Valid Save!');}
