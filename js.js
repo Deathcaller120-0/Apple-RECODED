@@ -1,6 +1,6 @@
 //Player
-var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30};
+var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20, BAN:0, BB:0, BM:0, BG:0, BMS:20};
+var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90};
 var CURRENTTAB = 0;
 
 function LOAD(){
@@ -717,6 +717,28 @@ function SPUP(){
 	}
 }
 
+//Rebirth
+function REBIRTH(){
+	if (PLAYER.MON >= PRICE.RE){
+		PLAYER.APP = 0;
+		PLAYER.BAN = 0;
+		PLAYER.MON = 0;
+		PLAYER.BAW = 0;
+		PLAYER.MAW = 0;
+		PLAYER.GAW = 0;
+		PLAYER.BB = 0;
+		PLAYER.BM = 0;
+		PLAYER.BG = 0;
+		PLAYER.MS = 20;
+		PRICE.BAWP = 35;
+		PRICE.MAWP = 45;
+		PRICE.GAWP = 75;
+		PRICE.SP = 30;
+		PLAYER.RE++;
+		SAVE();
+	}
+}
+
 //Finish Function
 function FINISH(){
 	if(PLAYER.MON >= 80000){ //$80,000
@@ -726,10 +748,10 @@ function FINISH(){
 		PLAYER.MAW = 0;
 		PLAYER.GAW = 0;
 		PLAYER.MS = 20;
-		if (PRICE.BAWP >= 26){PRICE.BAWP--;}
-		if (PRICE.MAWP >= 29){PRICE.MAWP--;}
-		if (PRICE.GAWP >= 36){PRICE.GAWP--;}
-		if (PRICE.SP >= 21){PRICE.SP--;}
+		PRICE.BAWP = 35;
+		PRICE.MAWP = 45;
+		PRICE.GAWP = 75;
+		PRICE.SP = 30;
 		PLAYER.RE++;
 		SAVE();
 		setTimeout('location.reload(true)',2000);
@@ -818,17 +840,17 @@ function EXLOAD(){
 function RESET(){
 	var a = confirm('Are you sure you want to reset? As this action cannot be undone.');
 	if (a == true){
-		PLAYER.MON = 0;
 		PLAYER.APP = 0;
-		PLAYER.BAW = 0; 
-		PLAYER.MAW = 0; 
-		PLAYER.GAW = 0; 
-		PLAYER.RE = 0; 
+		PLAYER.MON = 0;
+		PLAYER.BAW = 0;
+		PLAYER.MAW = 0;
+		PLAYER.GAW = 0;
 		PLAYER.MS = 20;
 		PRICE.BAWP = 35;
-		PRICE.MAWP = 45; 
-		PRICE.GAWP = 75; 
+		PRICE.MAWP = 45;
+		PRICE.GAWP = 75;
 		PRICE.SP = 30;
+		PLAYER.RE = 0;
 		SAVE();
 	}
 }
