@@ -728,7 +728,8 @@ function FINISH(){
 
 //Cheats
 function CSUBMIT(){
-	var IN = document.getElementById('CHEATIN').value;
+	var INsmall = document.getElementById('CHEATIN').value;
+	var IN = INsmall.toUpperCase();
 	switch (IN){
 		case "1800MON":
 			PLAYER.MON -= 10;
