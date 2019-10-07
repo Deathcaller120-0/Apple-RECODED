@@ -130,7 +130,7 @@ function UPDATE(){
 	MAWA = document.getElementById('MAWA');
 	GAWA = document.getElementById('GAWA');
 	BAW = document.getElementById('BAWBUT');
-	MAW = document.getElementById('MAWBUT');
+	MAW = doument.getElementById('MAWBUT');
 	GAW = document.getElementById('GAWBUT');
 	SP = document.getElementById('SP');
 	SPBUT = document.getElementById('SPBUT');
@@ -266,7 +266,7 @@ function UPDATE(){
 	}
 	var CS = document.getElementById('SPEEDUP').checked;
 	if (CS == true){
-		setTimeout(UPDATE, 500);
+		setTimeout(UPDATE, 300);
 	}
 	if (CI == false && CS == false){
 		setTimeout(UPDATE, 1000);
@@ -333,8 +333,8 @@ function SAVE(){
 			b--;
 		} while (b >= 6)
 		HexOutMON = HexOutMON.slice(0, a);
-	}
-    alert(HexOutMON + " MON");
+	}	
+	//alert(HexOutMON + " MON");
 	
 	HexOutAPP = Number(PLAYER.APP).toString(16);
 	
@@ -356,7 +356,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutAPP = HexOutAPP.slice(0, a);
 	}
-	alert(HexOutAPP + " APP");
+	//alert(HexOutAPP + " APP");
 	HexOutBAW = Number(PLAYER.BAW).toString(16);
 	
 	if (HexOutBAW.length < 3){
@@ -377,7 +377,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutBAW = HexOutBAW.slice(0, a);
 	}
-	alert(HexOutBAW + " BAW");
+	//alert(HexOutBAW + " BAW");
 	HexOutMAW = Number(PLAYER.MAW).toString(16);
 	
 	if (HexOutMAW.length < 3){
@@ -398,7 +398,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutMAW = HexOutMAW.slice(0, a);
 	}
-	alert(HexOutMAW + " MAW");
+	//alert(HexOutMAW + " MAW");
 	HexOutGAW = Number(PLAYER.GAW).toString(16);
 	
 	if (HexOutGAW.length < 3){
@@ -419,7 +419,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutGAW = HexOutGAW.slice(0, a);
 	}
-	alert(HexOutGAW + " GAW");
+	//alert(HexOutGAW + " GAW");
 	HexOutRE = Number(PLAYER.RE).toString(16);
 	
 	if (HexOutRE.length < 3){
@@ -440,7 +440,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutRE = HexOutRE.slice(0, a);
 	}
-	alert(HexOutRE + " RE");
+	//alert(HexOutRE + " RE");
 	HexOutMS = Number(PLAYER.MS).toString(16);
 	
 	if (HexOutMS.length < 4){
@@ -464,7 +464,7 @@ function SAVE(){
 		} while (b >= 5)
 		HexOutMS = HexOutMS.slice(0, a);
 	}
-	alert(HexOutMS + " MS");
+	//alert(HexOutMS + " MS");
 	HexOutBAWP = Number(PRICE.BAWP).toString(16);
 	
 	if (HexOutBAWP.length < 3){
@@ -485,7 +485,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutBAWP = HexOutBAWP.slice(0, a);
 	}
-	alert(HexOutBAWP + " BAWP");
+	//alert(HexOutBAWP + " BAWP");
 	HexOutMAWP = Number(PRICE.MAWP).toString(16);
 	
 	if (HexOutMAWP.length < 3){
@@ -506,7 +506,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutMAWP = HexOutMAWP.slice(0, a);
 	}
-	alert(HexOutMAWP + " MAWP");
+	//alert(HexOutMAWP + " MAWP");
 	HexOutGAWP = Number(PRICE.GAWP).toString(16);
 	
 	if (HexOutGAWP.length < 3){
@@ -527,7 +527,7 @@ function SAVE(){
 		} while (b >= 4)
 		HexOutGAWP = HexOutGAWP.slice(0, a);
 	}
-	alert(HexOutGAWP + " GAWP");
+	//alert(HexOutGAWP + " GAWP");
 	HexOutSP = Number(PRICE.SP).toString(16);
 	
 	if (HexOutSP.length < 5){
@@ -554,7 +554,7 @@ function SAVE(){
 		} while (b >= 6)
 		HexOutSP = HexOutSP.slice(0, a);
 	}
-	alert(HexOutSP + " SP");
+	//alert(HexOutSP + " SP");
 	var possibleHex = "0123456789ABCDEF";
 	var rng0 = rngCounter; //alert(rng0 + " rng0");
 	var rng1;
@@ -573,7 +573,7 @@ function SAVE(){
 	
 	var testHex = HexOutAPP + " App - " + HexOutMON + " Mon - " + HexOutBAW + " BAW - " + HexOutMAW + " MAW - " + HexOutGAW + " GAW - " + HexOutRE + " RE - " + HexOutMS + " MS - " + HexOutBAWP + " BAWP - " + HexOutMAWP + " MAWP - " + randChar + " RaCh - " + HexOutGAWP + " GAWP - " + HexOutSP + " SP";
 	
-	alert(testHex);
+	//alert(testHex);
 	//alert(c);
 	//alert(HexOut);
 	//alert(HexOut.length);
@@ -766,7 +766,7 @@ function EXLOAD(){
 		var HexASP = HexString.substr(35);//alert(HexSP + '-' + HexSP.length + ' - 11 - SP');
 		
 		var testHexIn = Hex0App + " App - " + Hex1Mon + " Mon - " + Hex2BAW + " BAW - " + Hex3MAW + " MAW - " + Hex4GAW + " GAW - " + Hex5RE + " RE - " +  Hex6MS + " MS - " + Hex7BAWP + " BAWP - " + Hex8MAWP + " MAWP - " + Hex9GAWP + " GAWP - " + HexASP  + " SP";
-		alert(testHexIn);
+		//alert(testHexIn);
 		
 		//Switch to Decimal
 		var DecApp = parseInt(Hex0App,16);//alert(DecApp + "-" + HexApp + ' - 1 APP');
