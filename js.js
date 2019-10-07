@@ -129,7 +129,7 @@ function UPDATE(){
 	MAWA = document.getElementById('MAWA');
 	GAWA = document.getElementById('GAWA');
 	BAW = document.getElementById('BAWBUT');
-	MAW = doument.getElementById('MAWBUT');
+	MAW = document.getElementById('MAWBUT');
 	GAW = document.getElementById('GAWBUT');
 	SP = document.getElementById('SP');
 	SPBUT = document.getElementById('SPBUT');
