@@ -764,6 +764,8 @@ function EXLOAD(){
 	var HexString = document.getElementById('INHEX').value;
 	//alert(HexString.length);
 	
+	//Maxed Out Save Game = 000000001F41F41F4FFFFFFF0000069000000000
+	
 	if (HexString.length >= 40){
 		var Hex0App = HexString.substr(0,3);//alert(HexApp + '-' + HexApp.length + ' - 1 - APP');
 		var Hex1Mon = HexString.substr(3,5);//alert(HexMon + '-' + HexMon.length + ' - 2 - MON');
