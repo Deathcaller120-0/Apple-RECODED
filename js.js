@@ -614,7 +614,7 @@ function SAVE(){
 
 //Resources
 function SELLAPP(){
-	for (var i = 0; i < PLAYER.APP - 2; i++){
+	for (var i = 0; i < PLAYER.APP; i++){
 		if (PLAYER.APP <= 2){
 			break;
 		} else {
