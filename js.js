@@ -124,6 +124,7 @@ function UPDATE(){
 	var MUPD, MUPB, ASUPD, BAW, MAW, GAW, BAWA, MAWA, GAWA, SPBUT;
 	//Set things to update
 	MUPD = document.getElementById('MONEY');
+	MUPB = document.getElementById('CM');
 	ASUPD = document.getElementById('APPBAR');
 	BAWA = document.getElementById('BAWA');
 	MAWA = document.getElementById('MAWA');
