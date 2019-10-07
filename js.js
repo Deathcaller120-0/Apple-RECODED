@@ -196,6 +196,19 @@ function UPDATE(){
 		PLAYER.MON -= 10;
 	}
 	
+	if (PLAYER.BAW >= 501){
+		PLAYER.BAW = 499;
+		BAWB();
+	}
+	if (PLAYER.MAW >= 501){
+		PLAYER.MAW = 499;
+		MAWB();
+	}
+	if (PLAYER.GAW >= 501){
+		PLAYER.GAW = 499;
+		GAWB();
+	}
+	
 	//Show Different tabs
 	switch (CURRENTTAB){
 		case 1:
