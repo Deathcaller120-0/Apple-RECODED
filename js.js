@@ -823,3 +823,7 @@ function RESET(){
 		SAVE();
 	}
 }
+
+function PRICECHANGE(){
+	
+}
