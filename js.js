@@ -239,7 +239,7 @@ function UPDATE(){
 	}
 	
 	var time = new Date();
-	var timeUTC = time.getUTCHours;
+	var timeUTC = time.getUTCHours();
 	
 	if (timeUTC == 19 || 7){
 		PRICECHANGE();
