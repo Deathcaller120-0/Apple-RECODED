@@ -1,6 +1,6 @@
 //Player
 var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20, BAN:0, BB:0, BM:0, BG:0, BMS:20};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90};
+var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90, AS:3};
 var CURRENTTAB = 0;
 
 function LOAD(){
@@ -594,7 +594,7 @@ function SELLAPP(){
 		if (PLAYER.APP <= 2){
 			break;
 		} else {
-			PLAYER.APP -= 3;
+			PLAYER.APP -= PRICE.AS;
 			PLAYER.MON++;
 		}
 	}
@@ -834,4 +834,6 @@ function RESET(){
 //if utc time = 19; change price
 function PRICECHANGE(){
 	var num = Math.floor(Math.random() * 15);
+	PRICE.AS = num;
+	document.getElementById('AS').innerHTML = PRICE.AS;
 }
