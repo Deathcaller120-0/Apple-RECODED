@@ -75,7 +75,7 @@ function LOAD(){
 	setTimeout(UPDATE, 1000);
 	UPDATE();
 	
-	setTimeout(PRICECHANGE, 600000); // after 10 minutes change price
+	setTimeout(PRICECHANGE, 300000); // after 10 minutes change price
 	setInterval(BAWWork, 10000); //10 seconds
 	setInterval(MAWWork, 8000); //8 seconds
 	setInterval(GAWWork, 7500); //7.5 seconds
