@@ -238,7 +238,7 @@ function UPDATE(){
 			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 	}
 	
-	var time = new date();
+	var time = new Date();
 	var timeUTC = time.getUTCHours;
 	
 	if (timeUTC == 19 || 7){
