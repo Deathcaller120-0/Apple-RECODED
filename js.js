@@ -238,6 +238,13 @@ function UPDATE(){
 			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 	}
 	
+	var time = new date();
+	var timeUTC = time.getUTCHours;
+	
+	if (timeUTC == 19 || 7){
+		PRICECHANGE();
+	}
+	
 	var CS = document.getElementById('SPEEDUP').checked;
 	var CI = document.getElementById('ISSUES').checked;
 	if (CS == false && CI == true){
@@ -824,6 +831,7 @@ function RESET(){
 	}
 }
 
+//if utc time = 19; change price
 function PRICECHANGE(){
-	
+	var num = Math.floor(Math.random() * 15);
 }
