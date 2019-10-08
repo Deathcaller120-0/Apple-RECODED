@@ -272,13 +272,16 @@ function UPDATE(){
 			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 	}
 	
+	var CS = document.getElementById('SPEEDUP').checked;
 	var CI = document.getElementById('ISSUES').checked;
-	if (CI == true){
+	if (CS == false && CI == true){
 		setTimeout(UPDATE, 5000);
 	}
-	var CS = document.getElementById('SPEEDUP').checked;
-	if (CS == true){
+	if (CI == false && CS == true){
 		setTimeout(UPDATE, 300);
+	}
+	if (CS && CI == true){
+		setTimeout(UPDATE, 1000);
 	}
 	if (CI == false && CS == false){
 		setTimeout(UPDATE, 1000);
