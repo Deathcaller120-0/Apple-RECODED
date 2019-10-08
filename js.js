@@ -631,7 +631,7 @@ function SELLAPP(){
 function BAWWork(){
 	if (PLAYER.BAW >= 1){
 		for (var baws = 0; baws < PLAYER.BAW; baws++){
-			if (PLAYER.APP >= PLAYER.MS - 3){
+			if (PLAYER.APP >= PLAYER.MS - 5){
 				break;
 			} else {
 				PLAYER.APP++;
@@ -642,7 +642,7 @@ function BAWWork(){
 function MAWWork(){
 	if (PLAYER.MAW >= 1){
 		for (var maws = 0; maws < PLAYER.MAW; maws++){
-			if (PLAYER.APP >= PLAYER.MS - 3){
+			if (PLAYER.APP >= PLAYER.MS - 5){
 				break;
 			} else {
 				PLAYER.APP++;
@@ -653,7 +653,7 @@ function MAWWork(){
 function GAWWork(){
 	if (PLAYER.GAW >= 1){
 		for (var gaws = 0; gaws < PLAYER.GAW; gaws++){
-			if (PLAYER.APP >= PLAYER.MS - 3){
+			if (PLAYER.APP >= PLAYER.MS - 5){
 				break;
 			} else {
 				PLAYER.APP += 2;
