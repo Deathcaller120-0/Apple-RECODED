@@ -71,42 +71,6 @@ function LOAD(){
 		PRICE.SP = 30;
 	}
 	
-	if (PLAYER.BAW >= 1){
-		var ph1 = PLAYER.BAW;
-		setInterval(function(){
-			setInterval(function(){
-				PLAYER.APP++;
-			}, 10000);
-			ph1--;
-			if (ph1 <= 0){
-				clearInterval(this);
-			}
-		}, 1000);
-	}
-	if (PLAYER.MAW >= 1){
-		var ph2 = PLAYER.MAW;
-		setInterval(function(){
-			setInterval(function(){
-				PLAYER.APP++;
-			}, 8000);
-			ph2--;
-			if (ph2 <= 0){
-				clearInterval(this);
-			}
-		}, 1000);
-	}
-	if (PLAYER.GAW >= 1){
-		var ph3 = PLAYER.GAW;
-		setInterval(function(){
-			setInterval(function(){
-				PLAYER.APP += 2;
-			}, 7000);
-			ph3--;
-			if (ph3 <= 0){
-				clearInterval(this);
-			}
-		}, 1000);
-	}
 	setTimeout(UPDATE, 2000);
 	setTimeout(UPDATE, 1000);
 	UPDATE();
