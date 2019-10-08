@@ -75,6 +75,7 @@ function LOAD(){
 	setTimeout(UPDATE, 1000);
 	UPDATE();
 	
+	setTimeout(PRICECHANGE, 600000); // after 10 minutes change price
 	setInterval(BAWWork, 10000); //10 seconds
 	setInterval(MAWWork, 8000); //8 seconds
 	setInterval(GAWWork, 7500); //7.5 seconds
@@ -238,13 +239,6 @@ function UPDATE(){
 			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 	}
 	
-	var time = new Date();
-	var timeUTC = time.getUTCHours();
-	
-	if (timeUTC == 19 || 7){
-		PRICECHANGE();
-	}
-	
 	var CS = document.getElementById('SPEEDUP').checked;
 	var CI = document.getElementById('ISSUES').checked;
 	if (CS == false && CI == true){
@@ -262,7 +256,7 @@ function UPDATE(){
 }
 	
 //Saved or !Saved
-setInterval(SAVE, 600000000);
+setInterval(SAVE, 900000);
 var numSave = 0;
 function SAVE(){
 	localStorage.setItem('playerAPP', PLAYER.APP);
