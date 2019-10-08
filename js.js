@@ -1,6 +1,6 @@
 //Player
 var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20, BAN:0, BB:0, BM:0, BG:0, BMS:20};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90, AS:3};
+var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90, AS:3, RE:10000};
 var CURRENTTAB = 0;
 
 function LOAD(){
@@ -287,6 +287,7 @@ function SAVE(){
 	var HexOutBAWP = "";
 	var HexOutMAWP = "";
 	var HexOutGAWP = "";
+	var HexOutREP = "";
 	
 	//Assign Vars
 	HexOutMON = Number(PLAYER.MON).toString(16);
@@ -537,6 +538,34 @@ function SAVE(){
 		HexOutSP = HexOutSP.slice(0, a);
 	}
 	//alert(HexOutSP + " SP");
+	
+	HexOutREP = PRICE.RE.toString(16);
+	
+	if (HexOutREP.length < 5){
+		switch (HexOutREP.length){
+			case 1:
+				HexOutREP = "0000" + HexOutREP;
+				break;
+			case 2:
+				HexOutREP = "000" + HexOutREP;
+				break;
+			case 3:
+				HexOutREP = "00" + HexOutREP;
+				break;
+			case 4:
+				HexOutREP = "0" + HexOutREP;
+				break;
+		}
+	} else if (HexOutREP.length > 6){
+		var a = 0;
+		var b = HexOutREP.length;
+		do {
+			a++;
+			b--;
+		} while (b >= 6)
+		HexOutREP = HexOutREP.slice(0, a);
+	}
+	
 	var possibleHex = "0123456789ABCDEF";
 	var rng0 = rngCounter; //alert(rng0 + " rng0");
 	var rng1;
@@ -550,10 +579,10 @@ function SAVE(){
 	var j = possibleHex.charAt(rng1); //alert(j);
 	var randChar = h + j; //alert(randChar);
 	
-	var c = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutRE + HexOutMS + HexOutBAWP + HexOutMAWP + randChar + HexOutGAWP + HexOutSP;
+	var c = HexOutAPP + HexOutMON + HexOutBAW + HexOutMAW + HexOutGAW + HexOutRE + HexOutMS + HexOutBAWP + HexOutMAWP + randChar + HexOutGAWP + HexOutSP + HexOutREP;
 	var HexOut = c.toUpperCase();
 	
-	var testHex = HexOutAPP + " App - " + HexOutMON + " Mon - " + HexOutBAW + " BAW - " + HexOutMAW + " MAW - " + HexOutGAW + " GAW - " + HexOutRE + " RE - " + HexOutMS + " MS - " + HexOutBAWP + " BAWP - " + HexOutMAWP + " MAWP - " + randChar + " RaCh - " + HexOutGAWP + " GAWP - " + HexOutSP + " SP";
+	var testHex = HexOutAPP + " App - " + HexOutMON + " Mon - " + HexOutBAW + " BAW - " + HexOutMAW + " MAW - " + HexOutGAW + " GAW - " + HexOutRE + " RE - " + HexOutMS + " MS - " + HexOutBAWP + " BAWP - " + HexOutMAWP + " MAWP - " + randChar + " RaCh - " + HexOutGAWP + " GAWP - " + HexOutSP + " SP - " + HexOutREP + " REP";
 	
 	//alert(testHex);
 	//alert(c);
@@ -700,11 +729,12 @@ function REBIRTH(){
 		PLAYER.BM = 0;
 		PLAYER.BG = 0;
 		PLAYER.MS = 20;
-		PRICE.BAWP = 35;
-		PRICE.MAWP = 45;
-		PRICE.GAWP = 75;
-		PRICE.SP = 30;
+		PRICE.BAWP = 35 - PLAYER.RE;
+		PRICE.MAWP = 45 - PLAYER.RE;
+		PRICE.GAWP = 75 - PLAYER.RE;
+		PRICE.SP = 30 - PLAYER.RE;
 		PLAYER.RE++;
+		PRICE.RE += 1000;
 		SAVE();
 	}
 }
@@ -770,9 +800,10 @@ function EXLOAD(){
 		var Hex8MAWP = HexString.substr(27,3);//alert(HexMAWP + '-' + HexMAWP.length + ' - 9 - MAWP');
 		//Random 2 char string here
 		var Hex9GAWP = HexString.substr(32,3);//alert(HexGAWP + '-' + HexGAWP.length + ' - 10 - GAWP');
-		var HexASP = HexString.substr(35);//alert(HexSP + '-' + HexSP.length + ' - 11 - SP');
+		var HexASP = HexString.substr(35,5);//alert(HexSP + '-' + HexSP.length + ' - 11 - SP');
+		var HexBREP = HexString.substr(41);
 		
-		var testHexIn = Hex0App + " App - " + Hex1Mon + " Mon - " + Hex2BAW + " BAW - " + Hex3MAW + " MAW - " + Hex4GAW + " GAW - " + Hex5RE + " RE - " +  Hex6MS + " MS - " + Hex7BAWP + " BAWP - " + Hex8MAWP + " MAWP - " + Hex9GAWP + " GAWP - " + HexASP  + " SP";
+		var testHexIn = Hex0App + " App - " + Hex1Mon + " Mon - " + Hex2BAW + " BAW - " + Hex3MAW + " MAW - " + Hex4GAW + " GAW - " + Hex5RE + " RE - " +  Hex6MS + " MS - " + Hex7BAWP + " BAWP - " + Hex8MAWP + " MAWP - " + Hex9GAWP + " GAWP - " + HexASP  + " SP - " + HexBREP + " REP";
 		//alert(testHexIn);
 		
 		//Switch to Decimal
@@ -787,6 +818,7 @@ function EXLOAD(){
 		var DecMAWP = parseInt(Hex8MAWP,16);//alert(DecMAWP + "-" + HexMAWP + ' - 9 MAWP');
 		var DecGAWP = parseInt(Hex9GAWP,16);//alert(DecGAWP + "-" + HexGAWP + ' - 10 GAWP');
 		var DecSP = parseInt(HexASP,16);//alert(DecSP + "-" + HexSP + ' - 11 SP');
+		var DecREP = parceInt(HexBREP,16);
 		
 		var prompt = confirm("Are you sure you want to do this? This action cannot be undone!");
 		if (prompt == true){
@@ -801,6 +833,7 @@ function EXLOAD(){
 			PRICE.BAWP = Number(DecBAWP);
 			PRICE.MAWP = Number(DecMAWP);
 			PRICE.GAWP = Number(DecGAWP);
+			PRICE.RE = Number(DecREP);
 			SAVE();
 		}
 	} else {alert('Invalid Save! Enter a Valid Save!');}
