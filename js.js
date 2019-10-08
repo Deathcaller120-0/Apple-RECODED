@@ -188,7 +188,7 @@ function UPDATE(){
 	document.getElementById('APPSTAT').innerHTML = PLAYER.APP + " out of " + PLAYER.MS;
 	if (AUPD >= 95){
 		ASUPD.style.backgroundColor = "#f00";
-	} else if(AUPD >= 76){
+	} else if(AUPD >= 70){
 		ASUPD.style.backgroundColor = '#ff0';
 	} else {
 		ASUPD.style.backgroundColor = "#0f0";
