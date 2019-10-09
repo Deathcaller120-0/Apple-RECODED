@@ -1,6 +1,6 @@
 //Player
 var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20, BAN:0, BB:0, BM:0, BG:0, BMS:20};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90, AS:3, RE:10000};
+var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90, BP:50, AS:3, BASE:4, RE:10000};
 var CURRENTTAB = 0;
 
 function LOAD(){
@@ -290,7 +290,9 @@ function SAVE(){
 	var HexOutREP = "";
 	
 	//Assign Vars
-	HexOutMON = Number(PLAYER.MON).toString(16);
+	if (PLAYER.MON >= 0){
+		HexOutMON = Number(PLAYER.MON).toString(16);
+	} else {HexOutMON = '00000';}
 	
 	//If vars are too short, make them the correct size
 	if (HexOutMON.length < 5){
@@ -319,7 +321,9 @@ function SAVE(){
 	}	
 	//alert(HexOutMON + " MON");
 	
-	HexOutAPP = Number(PLAYER.APP).toString(16);
+	if (PLAYER.APP >= 0){
+		HexOutAPP = Number(PLAYER.APP).toString(16);
+	} else {HexOutAPP = 0}
 	
 	if (HexOutAPP.length < 3){
 		switch (HexOutAPP.length){
@@ -340,7 +344,10 @@ function SAVE(){
 		HexOutAPP = HexOutAPP.slice(0, a);
 	}
 	//alert(HexOutAPP + " APP");
-	HexOutBAW = Number(PLAYER.BAW).toString(16);
+	
+	if (PLAYER.BAW >= 0){
+		HexOutBAW = Number(PLAYER.BAW).toString(16);
+	} else {HexOutBAW = 0}
 	
 	if (HexOutBAW.length < 3){
 		switch (HexOutBAW.length){
@@ -361,7 +368,10 @@ function SAVE(){
 		HexOutBAW = HexOutBAW.slice(0, a);
 	}
 	//alert(HexOutBAW + " BAW");
-	HexOutMAW = Number(PLAYER.MAW).toString(16);
+	
+	if (PLAYER.MAW >= 0){
+		HexOutMAW = Number(PLAYER.MAW).toString(16);
+	} else {HexOutMAW = 0}
 	
 	if (HexOutMAW.length < 3){
 		switch (HexOutMAW.length){
@@ -382,7 +392,9 @@ function SAVE(){
 		HexOutMAW = HexOutMAW.slice(0, a);
 	}
 	//alert(HexOutMAW + " MAW");
-	HexOutGAW = Number(PLAYER.GAW).toString(16);
+	if (PLAYER.GAW >= 0){
+		HexOutGAW = Number(PLAYER.GAW).toString(16);
+	} else {HexOutGAW = 0}
 	
 	if (HexOutGAW.length < 3){
 		switch (HexOutGAW.length){
@@ -403,7 +415,10 @@ function SAVE(){
 		HexOutGAW = HexOutGAW.slice(0, a);
 	}
 	//alert(HexOutGAW + " GAW");
-	HexOutRE = Number(PLAYER.RE).toString(16);
+	
+	if (PLAYER.RE >= 0){
+		HexOutRE = Number(PLAYER.RE).toString(16);
+	} else {HexOutRE = 0;}
 	
 	if (HexOutRE.length < 3){
 		switch (HexOutRE.length){
@@ -424,7 +439,10 @@ function SAVE(){
 		HexOutRE = HexOutRE.slice(0, a);
 	}
 	//alert(HexOutRE + " RE");
-	HexOutMS = Number(PLAYER.MS).toString(16);
+	
+	if (PLAYER.MS >= 0){
+		HexOutMS = Number(PLAYER.MS).toString(16);
+	} else {HexOutMS = 0;}
 	
 	if (HexOutMS.length < 4){
 		switch (HexOutMS.length){
@@ -448,7 +466,10 @@ function SAVE(){
 		HexOutMS = HexOutMS.slice(0, a);
 	}
 	//alert(HexOutMS + " MS");
-	HexOutBAWP = Number(PRICE.BAWP).toString(16);
+	
+	if (PRICE.BAWP >= 0){
+		HexOutBAWP = Number(PRICE.BAWP).toString(16);
+	} else {HexOutBAWP = 0}
 	
 	if (HexOutBAWP.length < 3){
 		switch (HexOutBAWP.length){
@@ -469,7 +490,10 @@ function SAVE(){
 		HexOutBAWP = HexOutBAWP.slice(0, a);
 	}
 	//alert(HexOutBAWP + " BAWP");
-	HexOutMAWP = Number(PRICE.MAWP).toString(16);
+	
+	if (PRICE.MAWP >= 0){
+		HexOutMAWP = Number(PRICE.MAWP).toString(16);
+	} else {HexOutMAWP = 0}
 	
 	if (HexOutMAWP.length < 3){
 		switch (HexOutMAWP.length){
@@ -490,7 +514,10 @@ function SAVE(){
 		HexOutMAWP = HexOutMAWP.slice(0, a);
 	}
 	//alert(HexOutMAWP + " MAWP");
-	HexOutGAWP = Number(PRICE.GAWP).toString(16);
+	
+	if (PRICE.GAWP >= 0){
+		HexOutGAWP = Number(PRICE.GAWP).toString(16);
+	} else {HexOutGAWP = 0}
 	
 	if (HexOutGAWP.length < 3){
 		switch (HexOutGAWP.length){
@@ -511,8 +538,9 @@ function SAVE(){
 		HexOutGAWP = HexOutGAWP.slice(0, a);
 	}
 	//alert(HexOutGAWP + " GAWP");
-	HexOutSP = Number(PRICE.SP).toString(16);
-	
+	if (PRICE.SP >= 0){
+		HexOutSP = Number(PRICE.SP).toString(16);
+	} else {HexOutSP = 0}
 	if (HexOutSP.length < 5){
 		switch (HexOutSP.length){
 			case 1:
@@ -539,7 +567,9 @@ function SAVE(){
 	}
 	//alert(HexOutSP + " SP");
 	
-	HexOutREP = PRICE.RE.toString(16);
+	if (PRICE.RE >= 0){
+		HexOutREP = PRICE.RE.toString(16);
+	} else {HexOutREP = 0;}
 	
 	if (HexOutREP.length < 5){
 		switch (HexOutREP.length){
@@ -622,6 +652,18 @@ function SELLAPP(){
 		}
 	}
 }
+
+function SELLBAN(){
+	for (var i = 0; i < PLAYER.BAN; i++){
+		if (PLAYER.BAN <= 2){
+			break;
+		} else {
+			PLAYER.BAN -= PRICE.BASE;
+			PLAYER.MON++;
+		}
+	}
+}
+
 function BAWWork(){
 	if (PLAYER.BAW >= 1){
 		for (var baws = 0; baws < PLAYER.BAW; baws++){
@@ -713,6 +755,14 @@ function SPUP(){
 		PLAYER.MON -= PRICE.SP;
 		PRICE.SP += 5;
 		PLAYER.MS += 10;
+	}
+}
+
+function BPUP(){
+	if (PLAYER.MON >= PRICE.BP){
+		PLAYER.MON -= PRICE.BP;
+		PRICE.BP += 5;
+		PLAYER.BMS += 10;
 	}
 }
 
@@ -858,9 +908,12 @@ function RESET(){
 	}
 }
 
-//if utc time = 19; change price
 function PRICECHANGE(){
-	var num = Math.floor(Math.random() * 15);
-	PRICE.AS = num;
+	var num0 = Math.floor(Math.random() * 15) + 1;
+	PRICE.AS = num0;
 	document.getElementById('AS').innerHTML = PRICE.AS;
+	
+	var num1 = Math.floor(Math.random() * 15) + 1;
+	PRICE.BASE = num1;
+	document.getElementById('BS').innerHTML = PRICE.BASE;
 }
