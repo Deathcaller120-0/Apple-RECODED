@@ -1,6 +1,6 @@
 //Player
-var PLAYER = {MON:0, APP:0, BAW:0, MAW:0, GAW:0, RE:0, MS:20, BAN:0, BB:0, BM:0, BG:0, BMS:20};
-var PRICE = {BAWP:35, MAWP:45, GAWP:75, SP:30, BBP:30, BMP:60, BGP:90, BP:50, AS:3, BASE:4, RE:10000};
+var PLAYER = {MON:0, APP:0, AP:{B:0, M:0, G:0}, RE:0, MS:20, BAN:0, BANW:{B:0, M:0, G:0}, BMS:20};
+var PRICE = {AP:{B:35, M:45, G:75}, SP:30, BAN:{BBP:30, BMP:60, BGP:90}, BP:50, AS:3, BASE:4, RE:10000};
 var CURRENTTAB = 0;
 
 function LOAD(){
@@ -18,14 +18,14 @@ function LOAD(){
 	if (PLAYER.APP == undefined){
 		PLAYER.APP = 0;
 	}
-	if (PLAYER.BAW == undefined){
-		PLAYER.BAW = 0;
+	if (PLAYER.AP.B == undefined){
+		PLAYER.AP.B = 0;
 	}
-	if (PLAYER.MAW == undefined){
-		PLAYER.MAW = 0;
+	if (PLAYER.AP.M == undefined){
+		PLAYER.AP.M = 0;
 	}
-	if (PLAYER.GAW == undefined){
-		PLAYER.GAW = 0;
+	if (PLAYER.AP.G == undefined){
+		PLAYER.AP.G = 0;
 	}
 	if (PLAYER.RE == undefined){
 		PLAYER.RE = 0;
@@ -37,35 +37,35 @@ function LOAD(){
 	//Strings that are SUPPOST to be Numbers
 	var MS = Number(PLAYER.MS),
 	MON = Number(PLAYER.MON),
-	BAW = Number(PLAYER.BAW),
-	MAW = Number(PLAYER.MAW),
-	GAW = Number(PLAYER.GAW),
+	BAW = Number(PLAYER.AP.B),
+	MAW = Number(PLAYER.AP.M),
+	GAW = Number(PLAYER.AP.G),
 	RE = Number(PLAYER.RE);
 	
 	//Fixing them
 	PLAYER.MS = MS;
 	PLAYER.MON = MON;
-	PLAYER.BAW = BAW;
-	PLAYER.MAW = MAW;
-	PLAYER.GAW = GAW;
+	PLAYER.AP.B = BAW;
+	PLAYER.AP.M = MAW;
+	PLAYER.AP.G = GAW;
 	PLAYER.RE = RE;
 	document.getElementById('REBIRTHS').innerHTML = RE;
 	
-	PRICE.BAWP = localStorage.getItem('priceBAW');
-	PRICE.MAWP = localStorage.getItem('priceMAW');
-	PRICE.GAWP = localStorage.getItem('priceGAW');
+	PRICE.AP.B = localStorage.getItem('priceBAW');
+	PRICE.AP.M = localStorage.getItem('priceMAW');
+	PRICE.AP.G = localStorage.getItem('priceGAW');
 	PRICE.SP = localStorage.getItem('priceSP');
 	var SP = Number(PRICE.SP);
 	PRICE.SP = SP;
 	
-	if (PRICE.BAWP == undefined){
-		PRICE.BAWP = 35;
+	if (PRICE.AP.B == undefined){
+		PRICE.AP.B = 35;
 	}
-	if (PRICE.MAWP == undefined){
-		PRICE.MAWP = 45;
+	if (PRICE.AP.M == undefined){
+		PRICE.AP.M = 45;
 	}
-	if (PRICE.GAWP == undefined){
-		PRICE.GAWP = 75;
+	if (PRICE.AP.G == undefined){
+		PRICE.AP.G = 75;
 	}
 	if (PRICE.SP == undefined || PRICE.SP == 0){
 		PRICE.SP = 30;
@@ -86,7 +86,7 @@ var rngCounter = 0;
 function UPDATE(){
 	rngCounter++;
 	
-	var MUPD, MUPB, ASUPD, BAW, MAW, GAW, BAWA, MAWA, GAWA, SPBUT;
+	var MUPD, MUPB, ASUPD, BAW, MAW, GAW, BAWA, MAWA, GAWA, SPBUT, BS, REP;
 	//Set things to update
 	MUPD = document.getElementById('MONEY');
 	MUPB = document.getElementById('CM');
@@ -102,9 +102,9 @@ function UPDATE(){
 	
 	//Stat Updater
 	MUPD.innerHTML = PLAYER.MON;
-	BAWA.innerHTML = PLAYER.BAW;
-	MAWA.innerHTML = PLAYER.MAW;
-	GAWA.innerHTML = PLAYER.GAW;
+	BAWA.innerHTML = PLAYER.AP.B;
+	MAWA.innerHTML = PLAYER.AP.M;
+	GAWA.innerHTML = PLAYER.AP.G;
 	SP.innerHTML = PRICE.SP;
 	
 	if (rngCounter >= 15){
@@ -345,8 +345,8 @@ function SAVE(){
 	}
 	//alert(HexOutAPP + " APP");
 	
-	if (PLAYER.BAW >= 0){
-		HexOutBAW = Number(PLAYER.BAW).toString(16);
+	if (PLAYER.AP.B >= 0){
+		HexOutBAW = Number(PLAYER.AP.B).toString(16);
 	} else {HexOutBAW = 0}
 	
 	if (HexOutBAW.length < 3){
@@ -369,8 +369,8 @@ function SAVE(){
 	}
 	//alert(HexOutBAW + " BAW");
 	
-	if (PLAYER.MAW >= 0){
-		HexOutMAW = Number(PLAYER.MAW).toString(16);
+	if (PLAYER.AP.M >= 0){
+		HexOutMAW = Number(PLAYER.AP.M).toString(16);
 	} else {HexOutMAW = 0}
 	
 	if (HexOutMAW.length < 3){
@@ -392,8 +392,8 @@ function SAVE(){
 		HexOutMAW = HexOutMAW.slice(0, a);
 	}
 	//alert(HexOutMAW + " MAW");
-	if (PLAYER.GAW >= 0){
-		HexOutGAW = Number(PLAYER.GAW).toString(16);
+	if (PLAYER.AP.G >= 0){
+		HexOutGAW = Number(PLAYER.AP.G).toString(16);
 	} else {HexOutGAW = 0}
 	
 	if (HexOutGAW.length < 3){
@@ -467,8 +467,8 @@ function SAVE(){
 	}
 	//alert(HexOutMS + " MS");
 	
-	if (PRICE.BAWP >= 0){
-		HexOutBAWP = Number(PRICE.BAWP).toString(16);
+	if (PRICE.AP.B >= 0){
+		HexOutBAWP = Number(PRICE.AP.B).toString(16);
 	} else {HexOutBAWP = 0}
 	
 	if (HexOutBAWP.length < 3){
@@ -491,8 +491,8 @@ function SAVE(){
 	}
 	//alert(HexOutBAWP + " BAWP");
 	
-	if (PRICE.MAWP >= 0){
-		HexOutMAWP = Number(PRICE.MAWP).toString(16);
+	if (PRICE.AP.M >= 0){
+		HexOutMAWP = Number(PRICE.AP.M).toString(16);
 	} else {HexOutMAWP = 0}
 	
 	if (HexOutMAWP.length < 3){
@@ -515,8 +515,8 @@ function SAVE(){
 	}
 	//alert(HexOutMAWP + " MAWP");
 	
-	if (PRICE.GAWP >= 0){
-		HexOutGAWP = Number(PRICE.GAWP).toString(16);
+	if (PRICE.AP.G >= 0){
+		HexOutGAWP = Number(PRICE.AP.G).toString(16);
 	} else {HexOutGAWP = 0}
 	
 	if (HexOutGAWP.length < 3){
@@ -665,8 +665,8 @@ function SELLBAN(){
 }
 
 function BAWWork(){
-	if (PLAYER.BAW >= 1){
-		for (var baws = 0; baws < PLAYER.BAW; baws++){
+	if (PLAYER.AP.B >= 1){
+		for (var baws = 0; baws < PLAYER.AP.B; baws++){
 			if (PLAYER.APP >= PLAYER.MS - 5){
 				break;
 			} else {
@@ -676,8 +676,8 @@ function BAWWork(){
 	}
 }
 function MAWWork(){
-	if (PLAYER.MAW >= 1){
-		for (var maws = 0; maws < PLAYER.MAW; maws++){
+	if (PLAYER.AP.M >= 1){
+		for (var maws = 0; maws < PLAYER.AP.M; maws++){
 			if (PLAYER.APP >= PLAYER.MS - 5){
 				break;
 			} else {
@@ -687,8 +687,8 @@ function MAWWork(){
 	}
 }
 function GAWWork(){
-	if (PLAYER.GAW >= 1){
-		for (var gaws = 0; gaws < PLAYER.GAW; gaws++){
+	if (PLAYER.AP.G >= 1){
+		for (var gaws = 0; gaws < PLAYER.AP.G; gaws++){
 			if (PLAYER.APP >= PLAYER.MS - 5){
 				break;
 			} else {
@@ -701,49 +701,49 @@ function GAWWork(){
 //Workers
 var BC = 30, MC = 25, GC = 20;
 function BAWB(){
-	if (PLAYER.MON >= PRICE.BAWP && PLAYER.BAW <= 500){
-		PLAYER.MON -= PRICE.BAWP;
-		PLAYER.BAW++;
+	if (PLAYER.MON >= PRICE.AP.B && PLAYER.AP.B < 500){
+		PLAYER.MON -= PRICE..AP.B;
+		PLAYER.AP.B++;
 		BC--;
 		if (BC == 0){
 			BC = 30;
-			PRICE.BAWP += 2;
-			document.getElementById('BWORKERPRICE').innerHTML = PRICE.BAWP;
+			PRICE.AP.B += 2;
+			document.getElementById('BWORKERPRICE').innerHTML = PRICE.AP.B;
 		}
 	}
-	if (PLAYER.BAW >= 500){
+	if (PLAYER.AP.B >= 500){
 		document.getElementById('BAWBUT').innerHTML = "MAXED OUT";
 		document.getElementById('BAWBUT').disabled = true;
 	}
 }
 function MAWB(){
-	if (PLAYER.MON >= PRICE.MAWP && PLAYER.MAW <= 500){
-		PLAYER.MON -= PRICE.MAWP;
-		PLAYER.MAW++;
+	if (PLAYER.MON >= PRICE.AP.M && PLAYER.AP.M <= 500){
+		PLAYER.MON -= PRICE.AP.M;
+		PLAYER.AP.M++;
 		MC--;
 		if (MC == 0){
 			MC = 25;
-			PRICE.MAWP += 2;
-			document.getElementById('MWORKERPRICE').innerHTML = PRICE.MAWP;
+			PRICE.AP.M += 2;
+			document.getElementById('MWORKERPRICE').innerHTML = PRICE.AP.M;
 		}
 	}
-	if (PLAYER.MAW >= 500){
+	if (PLAYER.AP.M >= 500){
 		document.getElementById('MAWBUT').innerHTML = "MAXED OUT";
 		document.getElementById('MAWBUT').disabled = true;
 	}
 }
 function GAWB(){
-	if (PLAYER.MON >= PRICE.GAWP && PLAYER.GAW <= 500){
-		PLAYER.MON -= PRICE.GAWP;
-		PLAYER.GAW++;
+	if (PLAYER.MON >= PRICE.AP.G && PLAYER.AP.G <= 500){
+		PLAYER.MON -= PRICE.AP.G;
+		PLAYER.AP.G++;
 		GC--;
 		if (GC == 0){
 			GC = 20;
-			PRICE.GAWP += 2;
-			document.getElementById('GWORKERPRICE').innerHTML = PRICE.GAWP;
+			PRICE.AP.G += 2;
+			document.getElementById('GWORKERPRICE').innerHTML = PRICE.AP.G;
 		}
 	}
-	if (PLAYER.GAW >= 500){
+	if (PLAYER.AP.G >= 500){
 		document.getElementById('GAWBUT').innerHTML = "MAXED OUT";
 		document.getElementById('GAWBUT').disabled = true;
 	}
@@ -895,13 +895,13 @@ function RESET(){
 	if (a == true){
 		PLAYER.APP = 0;
 		PLAYER.MON = 0;
-		PLAYER.BAW = 0;
-		PLAYER.MAW = 0;
-		PLAYER.GAW = 0;
+		PLAYER.AP.B = 0;
+		PLAYER.AP.M = 0;
+		PLAYER.AP.G = 0;
 		PLAYER.MS = 20;
-		PRICE.BAWP = 35;
-		PRICE.MAWP = 45;
-		PRICE.GAWP = 75;
+		PRICE.AP.B = 35;
+		PRICE.AP.M = 45;
+		PRICE.AP.G = 75;
 		PRICE.SP = 30;
 		PLAYER.RE = 0;
 		SAVE();
