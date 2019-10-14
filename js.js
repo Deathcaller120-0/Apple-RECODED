@@ -1,6 +1,6 @@
 //Player
 var PLAYER = {MON:0, APP:0, AP:{B:0, M:0, G:0}, RE:0, MS:20, BAN:0, BANW:{B:0, M:0, G:0}, BMS:20};
-var PRICE = {AP:{B:35, M:45, G:75}, SP:30, BAN:{BBP:30, BMP:60, BGP:90}, BP:50, AS:3, BASE:4, RE:10000};
+var PRICE = {AP:{B:35, M:45, G:75, AS:3}, SP:30, BAN:{BBP:30, BMP:60, BGP:90, BS:10}, BP:50, BASE:4, RE:10000};
 var CURRENTTAB = 0;
 
 function LOAD(){
@@ -99,6 +99,8 @@ function UPDATE(){
 	GAW = document.getElementById('GAWBUT');
 	SP = document.getElementById('SP');
 	SPBUT = document.getElementById('SPBUT');
+	BS = docuemnt.getElementById('BS');
+	REP = docuemnt.getElementById('REP');
 	
 	//Stat Updater
 	MUPD.innerHTML = PLAYER.MON;
@@ -106,6 +108,8 @@ function UPDATE(){
 	MAWA.innerHTML = PLAYER.AP.M;
 	GAWA.innerHTML = PLAYER.AP.G;
 	SP.innerHTML = PRICE.SP;
+	BS.innerHTML = PRICE;
+	RE.innerHTML = PRICE.RE
 	
 	if (rngCounter >= 15){
 		rngCounter = 0;
