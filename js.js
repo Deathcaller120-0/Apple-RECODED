@@ -721,7 +721,7 @@ function BAWB(){
 	}
 }
 function MAWB(){
-	if (PLAYER.MON >= PRICE.AP.M && PLAYER.AP.M <= 500){
+	if (PLAYER.MON >= PRICE.AP.M && PLAYER.AP.M < 500){
 		PLAYER.MON -= PRICE.AP.M;
 		PLAYER.AP.M++;
 		MC--;
@@ -737,7 +737,7 @@ function MAWB(){
 	}
 }
 function GAWB(){
-	if (PLAYER.MON >= PRICE.AP.G && PLAYER.AP.G <= 500){
+	if (PLAYER.MON >= PRICE.AP.G && PLAYER.AP.G < 500){
 		PLAYER.MON -= PRICE.AP.G;
 		PLAYER.AP.G++;
 		GC--;
