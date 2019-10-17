@@ -706,7 +706,7 @@ function GAWWork(){
 var BC = 30, MC = 25, GC = 20;
 function BAWB(){
 	if (PLAYER.MON >= PRICE.AP.B && PLAYER.AP.B < 500){
-		PLAYER.MON -= PRICE..AP.B;
+		PLAYER.MON -= PRICE.AP.B;
 		PLAYER.AP.B++;
 		BC--;
 		if (BC == 0){
