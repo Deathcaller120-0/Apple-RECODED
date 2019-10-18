@@ -99,8 +99,8 @@ function UPDATE(){
 	GAW = document.getElementById('GAWBUT');
 	SP = document.getElementById('SP');
 	SPBUT = document.getElementById('SPBUT');
-	BS = docuemnt.getElementById('BS');
-	REP = docuemnt.getElementById('REP');
+	BS = document.getElementById('BS');
+	REP = document.getElementById('REP');
 	
 	//Stat Updater
 	MUPD.innerHTML = PLAYER.MON;
