@@ -1,21 +1,21 @@
 //Player
-var PLAYER = {MON:0, APP:0, AP:{B:0, M:0, G:0}, RE:0, MS:20, BAN:0, BANW:{B:0, M:0, G:0}, BMS:20};
-var PRICE = {AP:{B:35, M:45, G:75, AS:3}, SP:30, BAN:{BBP:30, BMP:60, BGP:90, BS:10}, BP:50, BASE:4, RE:10000};
+var PLAYER = {MON:0, AP:{B:0, M:0, G:0, MS:20, APP:0}, RE:0, BAN:{B:0, M:0, G:0, BAN:0, MS:20}};
+var PRICE = {AP:{B:35, M:45, G:75, AS:3, SP:30}, BAN:{BBP:30, BMP:60, BGP:90, BS:10, SP:50}, BASE:4, RE:10000};
 var CURRENTTAB = 0;
 
 function LOAD(){
 	PLAYER.MON = localStorage.getItem('playerMON');
-	PLAYER.APP = localStorage.getItem('playerAPP');
-	PLAYER.BAW = localStorage.getItem('playerBAW');
-	PLAYER.MAW = localStorage.getItem('playerMAW');
-	PLAYER.GAW = localStorage.getItem('playerGAW');
+	PLAYER.AP.APP = localStorage.getItem('playerAPP');
+	PLAYER.AP.B = localStorage.getItem('playerBAW');
+	PLAYER.AP.M = localStorage.getItem('playerMAW');
+	PLAYER.AP.G = localStorage.getItem('playerGAW');
 	PLAYER.RE = localStorage.getItem('playerRE');
-	PLAYER.MS = localStorage.getItem('playerMS');
+	PLAYER.AP.MS = localStorage.getItem('playerMS');
 	
 	if (PLAYER.MON == undefined){
 		PLAYER.MON = 0;
 	}
-	if (PLAYER.APP == undefined){
+	if (PLAYER.AP.APP == undefined){
 		PLAYER.APP = 0;
 	}
 	if (PLAYER.AP.B == undefined){
@@ -30,12 +30,12 @@ function LOAD(){
 	if (PLAYER.RE == undefined){
 		PLAYER.RE = 0;
 	}
-	if (PLAYER.MS == undefined){
+	if (PLAYER.AP.MS == undefined){
 		PLAYER.MS = 20;
 	}
 	
 	//Strings that are SUPPOST to be Numbers
-	var MS = Number(PLAYER.MS),
+	var MS = Number(PLAYER.AP.MS),
 	MON = Number(PLAYER.MON),
 	BAW = Number(PLAYER.AP.B),
 	MAW = Number(PLAYER.AP.M),
@@ -43,7 +43,7 @@ function LOAD(){
 	RE = Number(PLAYER.RE);
 	
 	//Fixing them
-	PLAYER.MS = MS;
+	PLAYER.AP.MS = MS;
 	PLAYER.MON = MON;
 	PLAYER.AP.B = BAW;
 	PLAYER.AP.M = MAW;
@@ -108,7 +108,7 @@ function UPDATE(){
 	MAWA.innerHTML = PLAYER.AP.M;
 	GAWA.innerHTML = PLAYER.AP.G;
 	SP.innerHTML = PRICE.SP;
-	BS.innerHTML = PRICE;
+	BS.innerHTML = PRICE.BAN.BS;
 	RE.innerHTML = PRICE.RE
 	
 	if (rngCounter >= 15){
@@ -122,19 +122,19 @@ function UPDATE(){
 	} else {
 		MUPB.style.backgroundColor = "#323639";
 	}
-	if (PLAYER.MON >= PRICE.BAWP){ //Basic
+	if (PLAYER.MON >= PRICE.AP.B){ //Basic
 		BAW.style.backgroundColor = "#c90";
 		document.getElementById('BWP').style.display = "block";
 	} else {
 		BAW.style.backgroundColor = "#323639";
 	}
-	if (PLAYER.MON >= PRICE.MAWP){ //Average
+	if (PLAYER.MON >= PRICE.AP.M){ //Average
 		MAW.style.backgroundColor = "#00ffff";
 		document.getElementById('MWP').style.display = "block";
 	} else {
 		MAW.style.backgroundColor = "#323639";
 	}
-	if (PLAYER.MON >= PRICE.GAWP){ //God Tier
+	if (PLAYER.MON >= PRICE.AP.G){ //God Tier
 		GAW.style.backgroundColor = "#5900b3";
 		document.getElementById('GWP').style.display = "block";
 	} else {
@@ -152,9 +152,9 @@ function UPDATE(){
 	}
 	
 	//Storage
-	var AUPD = PLAYER.APP / PLAYER.MS * 100; //100,000
+	var AUPD = PLAYER.AP.APP / PLAYER.AP.MS * 100; //100,000
 	ASUPD.style.width = AUPD + "%";
-	document.getElementById('APPSTAT').innerHTML = PLAYER.APP + " out of " + PLAYER.MS;
+	document.getElementById('APPSTAT').innerHTML = PLAYER.AP.APP + " out of " + PLAYER.AP.MS;
 	if (AUPD >= 95){
 		ASUPD.style.backgroundColor = "#f00";
 	} else if(AUPD >= 70){
@@ -163,20 +163,21 @@ function UPDATE(){
 		ASUPD.style.backgroundColor = "#0f0";
 	}
 	if (AUPD >= 120){
-		PLAYER.APP -= PLAYER.MS;
+		PLAYER.AP.APP -= PLAYER.AP.MS;
 		PLAYER.MON -= 10;
 	}
 	
-	if (PLAYER.BAW >= 501){
-		PLAYER.BAW = 499;
+	//If there are more than 500 Workers, remove extra(s) and lock button
+	if (PLAYER.AP.B >= 501){
+		PLAYER.AP.B = 499;
 		BAWB();
 	}
-	if (PLAYER.MAW >= 501){
-		PLAYER.MAW = 499;
+	if (PLAYER.AP.M >= 501){
+		PLAYER.AP.M = 499;
 		MAWB();
 	}
-	if (PLAYER.GAW >= 501){
-		PLAYER.GAW = 499;
+	if (PLAYER.AP.G >= 501){
+		PLAYER.AP.G = 499;
 		GAWB();
 	}
 	
@@ -263,15 +264,15 @@ function UPDATE(){
 setInterval(SAVE, 900000);
 var numSave = 0;
 function SAVE(){
-	localStorage.setItem('playerAPP', PLAYER.APP);
+	localStorage.setItem('playerAPP', PLAYER.AP.APP);
 	localStorage.setItem('playerMON', PLAYER.MON);
-	localStorage.setItem('playerBAW', PLAYER.BAW);
-	localStorage.setItem('playerMAW', PLAYER.MAW);
-	localStorage.setItem('playerGAW', PLAYER.GAW);
-	localStorage.setItem('priceBAW', PRICE.BAWP);
-	localStorage.setItem('priceMAW', PRICE.MAWP);
-	localStorage.setItem('priceGAW', PRICE.GAWP);
-	localStorage.setItem('playerMS', PLAYER.MS);
+	localStorage.setItem('playerBAW', PLAYER.AP.B);
+	localStorage.setItem('playerMAW', PLAYER.AP.M);
+	localStorage.setItem('playerGAW', PLAYER.AP.G);
+	localStorage.setItem('priceBAW', PRICE.AP.B);
+	localStorage.setItem('priceMAW', PRICE.AP.M);
+	localStorage.setItem('priceGAW', PRICE.AP.G);
+	localStorage.setItem('playerMS', PLAYER.AP.MS);
 	localStorage.setItem('playerRE', PLAYER.RE);
 	localStorage.setItem('priceSP', PRICE.SP);
 	
@@ -325,8 +326,8 @@ function SAVE(){
 	}	
 	//alert(HexOutMON + " MON");
 	
-	if (PLAYER.APP >= 0){
-		HexOutAPP = Number(PLAYER.APP).toString(16);
+	if (PLAYER.AP.APP >= 0){
+		HexOutAPP = Number(PLAYER.AP.APP).toString(16);
 	} else {HexOutAPP = 0}
 	
 	if (HexOutAPP.length < 3){
@@ -444,8 +445,8 @@ function SAVE(){
 	}
 	//alert(HexOutRE + " RE");
 	
-	if (PLAYER.MS >= 0){
-		HexOutMS = Number(PLAYER.MS).toString(16);
+	if (PLAYER.AP.MS >= 0){
+		HexOutMS = Number(PLAYER.AP.MS).toString(16);
 	} else {HexOutMS = 0;}
 	
 	if (HexOutMS.length < 4){
@@ -643,26 +644,27 @@ function SAVE(){
 	if (numSave == 10){
 		location.reload(true);
 	}
+	numSave++;
 }
 
 //Resources
 function SELLAPP(){
-	for (var i = 0; i < PLAYER.APP; i++){
-		if (PLAYER.APP <= 2){
+	for (var i = 0; i < PLAYER.AP.APP; i++){
+		if (PLAYER.AP.APP <= 2){
 			break;
 		} else {
-			PLAYER.APP -= PRICE.AS;
+			PLAYER.AP.APP -= PRICE.AP.AS;
 			PLAYER.MON++;
 		}
 	}
 }
 
 function SELLBAN(){
-	for (var i = 0; i < PLAYER.BAN; i++){
-		if (PLAYER.BAN <= 2){
+	for (var i = 0; i < PLAYER.BAN.BAN; i++){
+		if (PLAYER.BAN.BAN <= 2){
 			break;
 		} else {
-			PLAYER.BAN -= PRICE.BASE;
+			PLAYER.BAN.BAN -= PRICE.BAN.BASE;
 			PLAYER.MON++;
 		}
 	}
@@ -671,10 +673,10 @@ function SELLBAN(){
 function BAWWork(){
 	if (PLAYER.AP.B >= 1){
 		for (var baws = 0; baws < PLAYER.AP.B; baws++){
-			if (PLAYER.APP >= PLAYER.MS - 5){
+			if (PLAYER.AP.APP >= PLAYER.AP.MS - 5){
 				break;
 			} else {
-				PLAYER.APP++;
+				PLAYER.AP.APP++;
 			}
 		}
 	}
@@ -682,10 +684,10 @@ function BAWWork(){
 function MAWWork(){
 	if (PLAYER.AP.M >= 1){
 		for (var maws = 0; maws < PLAYER.AP.M; maws++){
-			if (PLAYER.APP >= PLAYER.MS - 5){
+			if (PLAYER.AP.APP >= PLAYER.AP.MS - 5){
 				break;
 			} else {
-				PLAYER.APP++;
+				PLAYER.AP.APP++;
 			}
 		}
 	}
@@ -693,10 +695,10 @@ function MAWWork(){
 function GAWWork(){
 	if (PLAYER.AP.G >= 1){
 		for (var gaws = 0; gaws < PLAYER.AP.G; gaws++){
-			if (PLAYER.APP >= PLAYER.MS - 5){
+			if (PLAYER.AP.APP >= PLAYER.AP.MS - 5){
 				break;
 			} else {
-				PLAYER.APP += 2;
+				PLAYER.AP.APP += 2;
 			}
 		}
 	}
@@ -712,7 +714,7 @@ function BAWB(){
 		if (BC == 0){
 			BC = 30;
 			PRICE.AP.B += 2;
-			document.getElementById('BWORKERPRICE').innerHTML = PRICE.AP.B;
+			document.getElementById('BWORKPRICE').innerHTML = PRICE.AP.B;
 		}
 	}
 	if (PLAYER.AP.B >= 500){
@@ -728,7 +730,7 @@ function MAWB(){
 		if (MC == 0){
 			MC = 25;
 			PRICE.AP.M += 2;
-			document.getElementById('MWORKERPRICE').innerHTML = PRICE.AP.M;
+			document.getElementById('MWORKPRICE').innerHTML = PRICE.AP.M;
 		}
 	}
 	if (PLAYER.AP.M >= 500){
@@ -744,7 +746,7 @@ function GAWB(){
 		if (GC == 0){
 			GC = 20;
 			PRICE.AP.G += 2;
-			document.getElementById('GWORKERPRICE').innerHTML = PRICE.AP.G;
+			document.getElementById('GWORKPRICE').innerHTML = PRICE.AP.G;
 		}
 	}
 	if (PLAYER.AP.G >= 500){
@@ -756,37 +758,37 @@ function GAWB(){
 //Storage
 function SPUP(){
 	if (PLAYER.MON >= PRICE.SP){
-		PLAYER.MON -= PRICE.SP;
-		PRICE.SP += 5;
-		PLAYER.MS += 10;
+		PLAYER.MON -= PRICE.AP.SP;
+		PRICE.AP.SP += 5;
+		PLAYER.AP.MS += 10;
 	}
 }
 
 function BPUP(){
-	if (PLAYER.MON >= PRICE.BP){
-		PLAYER.MON -= PRICE.BP;
-		PRICE.BP += 5;
-		PLAYER.BMS += 10;
+	if (PLAYER.MON >= PRICE.SP){
+		PLAYER.MON -= PRICE.BAN.SP;
+		PRICE.BAN.SP += 5;
+		PLAYER.BAN.MS += 10;
 	}
 }
 
 //Rebirth
 function REBIRTH(){
 	if (PLAYER.MON >= PRICE.RE){
-		PLAYER.APP = 0;
-		PLAYER.BAN = 0;
+		PLAYER.AP.APP = 0;
+		PLAYER.BAN.BAN = 0;
 		PLAYER.MON = 0;
-		PLAYER.BAW = 0;
-		PLAYER.MAW = 0;
-		PLAYER.GAW = 0;
-		PLAYER.BB = 0;
-		PLAYER.BM = 0;
-		PLAYER.BG = 0;
-		PLAYER.MS = 20;
-		PRICE.BAWP = 35 - PLAYER.RE;
-		PRICE.MAWP = 45 - PLAYER.RE;
-		PRICE.GAWP = 75 - PLAYER.RE;
-		PRICE.SP = 30 - PLAYER.RE;
+		PLAYER.AP.B = 0;
+		PLAYER.AP.M = 0;
+		PLAYER.AP.G = 0;
+		PLAYER.BAN.B = 0;
+		PLAYER.BAN.M = 0;
+		PLAYER.BAN.G = 0;
+		PLAYER.AP.MS = 20;
+		PRICE.AP.B = 35 - PLAYER.RE;
+		PRICE.AP.M = 45 - PLAYER.RE;
+		PRICE.AP.G = 75 - PLAYER.RE;
+		PRICE.AP.SP = 30 - PLAYER.RE;
 		PLAYER.RE++;
 		PRICE.RE += 1000;
 		SAVE();
@@ -796,15 +798,15 @@ function REBIRTH(){
 //Finish Function
 function FINISH(){
 	if(PLAYER.MON >= 80000){ //$80,000
-		PLAYER.APP = 0;
+		PLAYER.AP.APP = 0;
 		PLAYER.MON = 0;
-		PLAYER.BAW = 0;
-		PLAYER.MAW = 0;
-		PLAYER.GAW = 0;
-		PLAYER.MS = 20;
-		PRICE.BAWP = 35;
-		PRICE.MAWP = 45;
-		PRICE.GAWP = 75;
+		PLAYER.AP.B = 0;
+		PLAYER.AP.M = 0;
+		PLAYER.AP.G = 0;
+		PLAYER.AP.MS = 20;
+		PRICE.AP.B = 35;
+		PRICE.AP.M = 45;
+		PRICE.AP.G = 75;
 		PRICE.SP = 30;
 		PLAYER.RE++;
 		SAVE();
@@ -876,17 +878,17 @@ function EXLOAD(){
 		
 		var prompt = confirm("Are you sure you want to do this? This action cannot be undone!");
 		if (prompt == true){
-			PLAYER.APP = Number(DecApp);
+			PLAYER.AP.APP = Number(DecApp);
 			PLAYER.MON = Number(DecMon);
 			PLAYER.RE = Number(DecRE);
-			PLAYER.MS = Number(DecMS);
-			PLAYER.BAW = Number(DecBAW);
-			PLAYER.MAW = Number(DecMAW);
-			PLAYER.GAW = Number(DecGAW);
-			PRICE.SP = Number(DecSP);
-			PRICE.BAWP = Number(DecBAWP);
-			PRICE.MAWP = Number(DecMAWP);
-			PRICE.GAWP = Number(DecGAWP);
+			PLAYER.AP.MS = Number(DecMS);
+			PLAYER.AP.B = Number(DecBAW);
+			PLAYER.AP.M = Number(DecMAW);
+			PLAYER.AP.G = Number(DecGAW);
+			PRICE.AP.SP = Number(DecSP);
+			PRICE.AP.B = Number(DecBAWP);
+			PRICE.AP.M = Number(DecMAWP);
+			PRICE.AP.G = Number(DecGAWP);
 			PRICE.RE = Number(DecREP);
 			SAVE();
 		}
@@ -902,11 +904,11 @@ function RESET(){
 		PLAYER.AP.B = 0;
 		PLAYER.AP.M = 0;
 		PLAYER.AP.G = 0;
-		PLAYER.MS = 20;
+		PLAYER.AP.MS = 20;
 		PRICE.AP.B = 35;
 		PRICE.AP.M = 45;
 		PRICE.AP.G = 75;
-		PRICE.SP = 30;
+		PRICE.AP.SP = 30;
 		PLAYER.RE = 0;
 		SAVE();
 	}
