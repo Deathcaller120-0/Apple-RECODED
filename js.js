@@ -317,49 +317,48 @@ function SAVE(){
 	var HexOutGAWP = "";
 	var HexOutREP = "";
 	
+	//EXPERIMENTAL
+	/*for (i = 1; i < 5; i++){
+		b = "0" + b;
+		if (b.length >= 5){
+			break;
+		}
+	}
+	if (a >= 65536){ // Hex 100000
+		b = Number(a).toString(16);
+	}
+	*/
+	
 	//Assign Vars
-	/*if (PLAYER.MON >= 0){
+	if (PLAYER.MON >= 0){
 		HexOutMON = Number(PLAYER.MON).toString(16);
 	} else {HexOutMON = '00000';}
 	
-	//EXPERIMENTAL
-	for (var i = 0; i <= HexOutMON.length - 1; i++){
-		if (HexOutMON.length == 5){
+	//If vars are too short, make them the correct size
+	for (i = 1; i < 5; i++){
+		HexOutMON = "0" + HexOutMON;
+		if (HexOutMON.length >= 5){
 			break;
 		}
-		HexOutMON = "0" + HexOutMON;
-	}*/
-	
-	//If vars are too short, make them the correct size
-	if (HexOutMON.length < 5){
-		switch (HexOutMON.length){
-			case 1:
-				HexOutMON = "0000" + HexOutMON;
-				break;
-			case 2:
-				HexOutMON = "000" + HexOutMON;
-				break;
-			case 3:
-				HexOutMON = "00" + HexOutMON;
-				break;
-			case 4:
-				HexOutMON = "0" + HexOutMON;
-				break;
-		}
-	} else if (HexOutMON.length >= 6){
-		var a = 0;
-		var b = HexOutMON.length;
-		do {
-			a++;
-			b--;
-		} while (b >= 6)
-		HexOutMON = HexOutMON.slice(0, a);
+	}
+	if (PLAYER.MON >= 65536){ // Hex 100000
+		HexOutMON = Number(PLAYER.MON).toString(16);
 	}	
 	//alert(HexOutMON + " MON");
 	
 	if (PLAYER.AP.APP >= 0){
 		HexOutAPP = Number(PLAYER.AP.APP).toString(16);
 	} else {HexOutAPP = 0}
+	
+	for (i = 1; i < 5; i++){
+		HexOutAPP = "0" + HexOutAPP;
+		if (HexOutAPP.length >= 5){
+			break;
+		}
+	}
+	if (PLAYER.AP.APP >= 256){ // Hex 100000
+		HexOutAPP = Number(PLAYER.AP.APP).toString(16);
+	}
 	
 	if (HexOutAPP.length < 3){
 		switch (HexOutAPP.length){
