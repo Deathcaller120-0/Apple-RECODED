@@ -1,22 +1,27 @@
 //Player
 var PLAYER = {MON:0, AP:{B:0, M:0, G:0, MS:20, APP:0}, RE:0, BAN:{B:0, M:0, G:0, BAN:0, MS:20}};
-var PRICE = {AP:{B:35, M:45, G:75, AS:3, SP:30}, BAN:{BBP:30, BMP:60, BGP:90, BS:10, SP:50}, BASE:4, RE:10000};
+var PRICE = {AP:{B:35, M:45, G:75, AS:3, SP:30}, BAN:{BBP:30, BMP:60, BGP:90, BS:10, SP:50, BASP:4}, , RE:10000};
 var CURRENTTAB = 0;
 
 function LOAD(){
 	PLAYER.MON = localStorage.getItem('playerMON');
 	PLAYER.AP.APP = localStorage.getItem('playerAPP');
-	PLAYER.AP.B = localStorage.getItem('playerBAW');
-	PLAYER.AP.M = localStorage.getItem('playerMAW');
-	PLAYER.AP.G = localStorage.getItem('playerGAW');
+	PLAYER.AP.B = localStorage.getItem('playerAPB');
+	PLAYER.AP.M = localStorage.getItem('playerAPM');
+	PLAYER.AP.G = localStorage.getItem('playerAPG');
+	PLAYER.AP.MS = localStorage.getItem('playerAPPMS');
+	PLAYER.BAN.B = localStorage.getItem('playerBANB');
+	PLAYER.BAN.M = localStorage.getItem('playerBANM');
+	PLAYER.BAN.G = localStorage.getItem('playerBANG');
+	PLAYER.BAN.BAN = localStorage.getItem('playerBAN');
+	PLAYER.BAN.MS = localStorage.getItem('playerBANMS');
 	PLAYER.RE = localStorage.getItem('playerRE');
-	PLAYER.AP.MS = localStorage.getItem('playerMS');
 	
 	if (PLAYER.MON == undefined){
 		PLAYER.MON = 0;
 	}
 	if (PLAYER.AP.APP == undefined){
-		PLAYER.APP = 0;
+		PLAYER.AP.APP = 0;
 	}
 	if (PLAYER.AP.B == undefined){
 		PLAYER.AP.B = 0;
@@ -31,7 +36,25 @@ function LOAD(){
 		PLAYER.RE = 0;
 	}
 	if (PLAYER.AP.MS == undefined){
-		PLAYER.MS = 20;
+		PLAYER.AP.MS = 20;
+	}
+	if (PLAYER.BAN.B == undefined){
+		PLAYER.BAN.B = 0;
+	}
+	
+	if (PLAYER.BAN.M == undefined){
+		PLAYER.BAN.M = 0;
+	}
+	
+	if (PLAYER.BAN.G == undefined){
+		PLAYER.BAN.G = 0;
+	}
+	if (PLAYER.BAN.BAN == undefined){
+		PLAYER.BAN.BAN = 0;
+	}
+	
+	if (PLAYER.BAN.MS == undefined){
+		PLAYER.BAN.MS = 0;
 	}
 	
 	//Strings that are SUPPOST to be Numbers
@@ -295,9 +318,17 @@ function SAVE(){
 	var HexOutREP = "";
 	
 	//Assign Vars
-	if (PLAYER.MON >= 0){
+	/*if (PLAYER.MON >= 0){
 		HexOutMON = Number(PLAYER.MON).toString(16);
 	} else {HexOutMON = '00000';}
+	
+	//EXPERIMENTAL
+	for (var i = 0; i <= HexOutMON.length - 1; i++){
+		if (HexOutMON.length == 5){
+			break;
+		}
+		HexOutMON = "0" + HexOutMON;
+	}*/
 	
 	//If vars are too short, make them the correct size
 	if (HexOutMON.length < 5){
