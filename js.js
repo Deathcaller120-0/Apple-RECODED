@@ -191,7 +191,7 @@ function UPDATE(){
 	GAWA.innerHTML = PLAYER.AP.G;
 	SP.innerHTML = PLAYER.PRICE.SP;
 	BS.innerHTML = PLAYER.PRICE.BAN.BS;
-	RE.innerHTML = PLAYER.PRICE.RE
+	REP.innerHTML = PLAYER.PRICE.RE
 	
 	if (rngCounter >= 15){
 		rngCounter = 0;
