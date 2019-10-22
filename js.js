@@ -2,6 +2,70 @@
 var PLAYER = {MON:0, AP:{B:0, M:0, G:0, MS:20, APP:0}, RE:0, BAN:{B:0, M:0, G:0, BAN:0, MS:20}, PRICE:{AP:{B:35, M:45, G:75, AS:3, SP:30}, BAN:{BBP:30, BMP:60, BGP:90, BS:10, SP:50, BASP:4}, , RE:10000}};
 var CURRENTTAB = 0;
 
+function CHANGETAB(){
+	switch (CURRENTTAB){
+		case 1:
+			document.getElementById('ACHIEVEMENTS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
+			break;
+		case 2:
+			document.getElementById('STATS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
+			break;
+		case 3:
+			document.getElementById('SETTINGS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
+			break;
+		case 4:
+			document.getElementById('EXTRAS').style.display = 'block';
+			document.getElementById('MAIN').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
+			break;
+		default:
+			document.getElementById('MAIN').style.display = 'block';
+			document.getElementById('ACHIEVEMENTS').style.display = 'none';
+			document.getElementById('STATS').style.display = 'none';
+			document.getElementById('SETTINGS').style.display = 'none';
+			document.getElementById('EXTRAS').style.display = 'none';
+			document.getElementById('MAINBUTTON').style.backgroundColor = '#0F0';
+			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
+			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
+	}
+}
+
 function LOAD(){
 	var inSave = localStorage.getItem('saveFile');
 	var inJSON = atob(inSave);
@@ -192,69 +256,6 @@ function UPDATE(){
 	if (PLAYER.AP.G >= 501){
 		PLAYER.AP.G = 499;
 		GAWB();
-	}
-	
-	//Show Different tabs
-	switch (CURRENTTAB){
-		case 1:
-			document.getElementById('ACHIEVEMENTS').style.display = 'block';
-			document.getElementById('MAIN').style.display = 'none';
-			document.getElementById('STATS').style.display = 'none';
-			document.getElementById('SETTINGS').style.display = 'none';
-			document.getElementById('EXTRAS').style.display = 'none';
-			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#0F0';
-			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
-			break;
-		case 2:
-			document.getElementById('STATS').style.display = 'block';
-			document.getElementById('MAIN').style.display = 'none';
-			document.getElementById('ACHIEVEMENTS').style.display = 'none';
-			document.getElementById('SETTINGS').style.display = 'none';
-			document.getElementById('EXTRAS').style.display = 'none';
-			document.getElementById('STATSBUTTON').style.backgroundColor = '#0F0';
-			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
-			break;
-		case 3:
-			document.getElementById('SETTINGS').style.display = 'block';
-			document.getElementById('MAIN').style.display = 'none';
-			document.getElementById('STATS').style.display = 'none';
-			document.getElementById('ACHIEVEMENTS').style.display = 'none';
-			document.getElementById('EXTRAS').style.display = 'none';
-			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#0F0';
-			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
-			break;
-		case 4:
-			document.getElementById('EXTRAS').style.display = 'block';
-			document.getElementById('MAIN').style.display = 'none';
-			document.getElementById('STATS').style.display = 'none';
-			document.getElementById('SETTINGS').style.display = 'none';
-			document.getElementById('ACHIEVEMENTS').style.display = 'none';
-			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#0F0';
-			document.getElementById('MAINBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
-			break;
-		default:
-			document.getElementById('MAIN').style.display = 'block';
-			document.getElementById('ACHIEVEMENTS').style.display = 'none';
-			document.getElementById('STATS').style.display = 'none';
-			document.getElementById('SETTINGS').style.display = 'none';
-			document.getElementById('EXTRAS').style.display = 'none';
-			document.getElementById('MAINBUTTON').style.backgroundColor = '#0F0';
-			document.getElementById('ACHIEVEMENTBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('STATSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('SETTINGSBUTTON').style.backgroundColor = '#323639';
-			document.getElementById('EXTRASBUTTON').style.backgroundColor = '#323639';
 	}
 	
 	var CS = document.getElementById('SPEEDUP').checked;
