@@ -68,8 +68,12 @@ function CHANGETAB(){
 
 function LOAD(){
 	var inSave = localStorage.getItem('saveFile');
-	var inJSON = atob(inSave);
-	PLAYER = JSON.parse(inJSON);
+	if (inSave <= 299){
+		PLAYER = {MON:0, AP:{B:0, M:0, G:0, MS:20, APP:0}, RE:0, BAN:{B:0, M:0, G:0, BAN:0, MS:20}, PRICE:{AP:{B:35, M:45, G:75, AS:3, SP:30}, BAN:{BBP:30, BMP:60, BGP:90, BS:10, SP:50, BASP:4}, RE:10000}};
+	} else {
+		var inJSON = atob(inSave);
+		PLAYER = JSON.parse(inJSON);
+	}
 	
 	if (PLAYER.MON == undefined){
 		PLAYER.MON = 0;
@@ -144,7 +148,7 @@ function LOAD(){
 	if (PLAYER.PRICE.AP.G == undefined){
 		PLAYER.PRICE.AP.G = 75;
 	}
-	if (PLAYER.PRICE.SP == undefined || PRICE.SP == 0){
+	if (PLAYER.PRICE.SP == undefined || PLAYER.PRICE.SP == 0){
 		PLAYER.PRICE.SP = 30;
 	}
 	
