@@ -4,7 +4,8 @@ var CURRENTTAB = 0;
 
 function LOAD(){
 	var inSave = localStorage.getItem('saveFile');
-	PLAYER = atob(inSave);
+	var inJSON = atob(inSave);
+	PLAYER = JSON.parse(inJSON);
 	
 	if (PLAYER.MON == undefined){
 		PLAYER.MON = 0;
@@ -499,10 +500,11 @@ function EXLOAD(){
 	
 	if (encodedString.length >= 300){
 		var a = atob(encodedString);
+		var b = JSON.parse(a);
 		
 		var prompt = confirm("Are you sure you want to do this? This action cannot be undone!");
 		if (prompt == true){
-			PLAYER = a;
+			PLAYER = b;
 			SAVE();
 		}
 	} else {alert('Invalid Save! Enter a Valid Save!');}
