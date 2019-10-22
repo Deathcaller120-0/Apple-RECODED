@@ -152,6 +152,9 @@ function LOAD(){
 		PLAYER.PRICE.SP = 30;
 	}
 	
+	
+	setTimeout(UPDATE, 4000);
+	setTimeout(UPDATE, 3000);
 	setTimeout(UPDATE, 2000);
 	setTimeout(UPDATE, 1000);
 	UPDATE();
