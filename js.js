@@ -152,7 +152,10 @@ function LOAD(){
 		PLAYER.PRICE.SP = 30;
 	}
 	
-	setInterval(UPDATE, 800);
+	setTimeout(UPDATE, 3000);
+	setTimeout(UPDATE, 2000);
+	setTimeout(UPDATE, 1000);
+	UPDATE();
 	
 	setTimeout(PRICECHANGE, 300000); // after 10 minutes change price
 	setInterval(BAWWork, 10000); //10 seconds
@@ -195,7 +198,7 @@ function UPDATE(){
 	}
 	
 	//Worker / Resource Updater
-	if (PLAYER.APP >= 3){
+	if (PLAYER.AP.APP >= 3){
 		MUPB.style.backgroundColor = "#393";
 		document.getElementById('MONDIV').style.display = "block";
 	} else {
@@ -258,6 +261,21 @@ function UPDATE(){
 	if (PLAYER.AP.G >= 501){
 		PLAYER.AP.G = 499;
 		GAWB();
+	}
+	
+	var CS = document.getElementById('SPEEDUP').checked;
+	var CI = document.getElementById('ISSUES').checked;
+	if (CS == false && CI == true){
+		setTimeout(UPDATE, 5000);
+	}
+	if (CI == false && CS == true){
+		setTimeout(UPDATE, 300);
+	}
+	if (CS && CI == true){
+		setTimeout(UPDATE, 1000);
+	}
+	if (CI == false && CS == false){
+		setTimeout(UPDATE, 1000);
 	}
 }
 	
