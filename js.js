@@ -286,7 +286,9 @@ function SAVE(){
 	var preOutput = JSON.stringify(PLAYER);
 	var outBase = btoa(preOutput);
 	
-	localStorage("SaveFile", outBase);
+	localStorage.setItem("SaveFile", outBase);
+	
+	document.getElementById('OUTSAVE').innerHTML = outBase;
 	
 	var TXT = "Saved Successfully";
 	var i = 0;
